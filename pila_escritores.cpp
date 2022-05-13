@@ -17,10 +17,21 @@ Escritor consulta(){
 }
 
 
-
-
 void Pila::alta(Escritor escritor_alta){
     //hacerlo con los demas
 
 }
+void Pila::baja(){
+    Nodo<Escritor>*borrar=ultimo;
+    ultimo=ultimo->obtener_siguiente();//es obtener siguiente o objeto????
+}
+
+
+//REVISAR DESTRUCTOR
+Pila::~Pila(){
+    whie(!vacia()){
+        baja();
+    }
+}
+
 
