@@ -5,7 +5,7 @@
 
 class Pila{
 private:
-    Nodo*ultimo;   
+    Nodo<Escritor>*ultimo;   
     Escritor escritor;
 
 public:
