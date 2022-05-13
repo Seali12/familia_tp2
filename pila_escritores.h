@@ -1,6 +1,8 @@
 #ifndef PILA_ESCRITORES_H
 #define PILA_ESCRITORES_H
 
+#include "nodo_simple.h"
+
 class Pila{
 private:
     Nodo*ultimo;   
@@ -37,10 +39,4 @@ public:
     //POST:devuelve true si la pila esta vacia
     bool vacia();
 };
-
-
-
-
-
-
 #endif //PILA_ESCRITORES
