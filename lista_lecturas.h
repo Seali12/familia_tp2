@@ -11,7 +11,7 @@ class Lista_lecturas {
 
     //PRE:
     //POST:
-    void alta();
+    void alta(Lectura* objeto);
 
     //PRE:
     //POST:
@@ -19,7 +19,7 @@ class Lista_lecturas {
     
     //PRE:
     //POST:
-    Lectura consulta();
+    Lectura* consulta();
 
     //PRE:
     //POST:
@@ -29,10 +29,16 @@ class Lista_lecturas {
     //POST:
     int obtener_cantidad();
 
+    //Destructor
+    ~Lista_lecturas();
+
   private:
     int cantidad;
-    Nodo* ultimo;
-    Nodo* actual;
+    Nodo<Lectura*>* ultimo;
+    Nodo<Lectura*>* actual;
+
+    auto desplazamiento(int posicion_esperada);
+    void ordenar(Nodo<Lectura*> objeto);
 };
 
 #endif // !LISTA_LECTURAS_H
