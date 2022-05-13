@@ -12,7 +12,7 @@ bool Pila::vacia(){
     return(ultimo == 0);
 }
 
-Escritor consulta(){
+Escritor Pila::consulta(){
     return ultimo->obtener_objeto();
 }
 
