@@ -3,13 +3,13 @@
 #include "nodo_simple.h"
 
 Pila::Pila(){
-    ultimo=0;
+    ultimo=nullptr;
     //llamar constructor de ESCRITOR
 
 }
 
 bool Pila::vacia(){
-    return(ultimo==0);
+    return(ultimo == 0);
 }
 
 Escritor consulta(){
@@ -29,7 +29,7 @@ void Pila::baja(){
 
 //REVISAR DESTRUCTOR
 Pila::~Pila(){
-    whie(!vacia()){
+    while( ! vacia() ){
         baja();
     }
 }
