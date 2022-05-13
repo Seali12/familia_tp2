@@ -29,14 +29,13 @@ public:
     //POST:retorna el ultimo elemento 
     Escritor consulta();
 
-
-    //PRE:-
-    //POST:devuelve true si esta llena
-    bool llena();
-
-
     //PRE:-
     //POST:devuelve true si la pila esta vacia
     bool vacia();
+
+
+//    ~Pila();
+
+
 };
 #endif //PILA_ESCRITORES
