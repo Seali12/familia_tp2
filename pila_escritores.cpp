@@ -3,7 +3,7 @@
 #include "nodo_simple.h"
 
 Pila::Pila(){
-    ultimo=nullptr;
+    ultimo = nullptr;
     //llamar constructor de ESCRITOR
 
 }
