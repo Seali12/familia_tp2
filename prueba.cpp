@@ -35,8 +35,11 @@ class B: public Lectura {
 int main(int argc, char const *argv[]){
     Escritor tomas("tomas", "amundarain", "argentino", 1234, 1235);
     Escritor juanito("juanito", "perez", "argentino", 1234, 1235);
-    A a("hola", 23.10, 2301, tomas, 4);
-    B b("chau", 23.10, 2301, juanito, 'a');
+   
+   Lectura* a = new A("hola", 23.10, 2301, tomas, 4);
+   
+  
+  //  B b("chau", 23.10, 2301, juanito, 'a');
   
     Nodo* puntero = new Nodo(a);
 

@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "lectura.h"
+
 typedef  Lectura* Dato;
 
 
