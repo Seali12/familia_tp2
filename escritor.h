@@ -12,6 +12,7 @@ private:
     string nacionalidad;
     int anio_nacimiento;
     int anio_fallecimiento;
+    int referencia;
 
 public:
 
@@ -27,8 +28,17 @@ public:
     //Post: Muestra por pantalla los datos del escritor.
     void mostrar();
 
+    //Pre:
+    //Post: Devuelve el nombre del escritor
+    string obtener_nombre();
 
-    
+    //Pre:
+    //Post: Devuelve el apellido del escritor
+    string obtener_apellido();
+
+    //pre:
+    //Post: Devuelve el numero de referencia del autor.
+    int obtener_referencia();
 };
 
 

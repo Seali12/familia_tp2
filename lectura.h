@@ -10,11 +10,13 @@ protected:
     double minutos;
     int anio;
     Escritor escritor;
+    char tipo_de_lectura; // N para novela, P para poema, C para cuento
+    int referencia_escritor;
 
 public:
     //Pre:
     //Post: Crea una nueva lectura
-    Lectura(string titulo, double minutos, int anio, Escritor escritor);
+    Lectura(string titulo, double minutos, int anio, Escritor escritor, char tipo_de_lectura, int referencia_escritor);
 
     //Pre:
     //Post:

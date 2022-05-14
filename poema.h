@@ -1,14 +1,22 @@
-//
-// Created by algo on 13/05/22.
-//
-
 #ifndef ALGO_2_TP_2_POEMA_H
 #define ALGO_2_TP_2_POEMA_H
 
+#include "lectura.h"
 
-class poema {
+class Poema: public Lectura {
+private:
+    int versos;
+
+public:
+    //Pre:
+    //Post: Crea un poema nuevo.
+    Poema(string titulo, double minutos, int anio, Escritor escritor, char tipo_de_lectura, int referencia_escritor, int versos);
+
+    //Pre:
+    //Post: Muestra un la informacion de un poema completo por pantalla.
+    void mostrar_poema();
 
 };
 
 
-#endif //ALGO_2_TP_2_POEMA_H
+#endif
