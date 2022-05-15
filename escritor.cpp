@@ -5,7 +5,7 @@ Escritor::Escritor() {
     nombre = " ";
     apellido = " ";
     nacionalidad = " ";
-    anio_nacimiento = 0;
+    anio_nacimiento =
 }
 
 
