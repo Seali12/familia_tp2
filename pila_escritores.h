@@ -6,7 +6,6 @@
 class Pila{
 private:
     Nodo<Escritor>*ultimo;   
-    Escritor escritor;
 
 public:
     
@@ -34,7 +33,7 @@ public:
     bool vacia();
 
 
-//    ~Pila();
+    void liberar_Pila();
 
 
 };
