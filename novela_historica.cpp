@@ -1,7 +1,7 @@
 #include "novela_historica.h"
 
-Novela_historica::Novela_historica(string titulo, double minutos, int anio, Escritor* escritor, int genero, string tema) 
-                            : Novela(titulo, minutos, anio, escritor, NOVELA_HISTORICA){
+Novela_historica::Novela_historica(string titulo, double minutos, int anio, Escritor escritor, int genero, string tema) 
+                            : Novela(titulo, minutos, anio, escritor, HISTORICA){
 
     
     this->tema = tema;
@@ -22,6 +22,6 @@ void Novela_historica::mostrar() {
 
     cout << "El tema de la novela_historica es: " << tema << endl;
 
-    cout << "La referencia al escritor es: " << escritor->obtener_nombre() << " " << escritor->obtener_apellido() << endl;
+    cout << "La referencia al escritor es: " << escritor.obtener_nombre() << " " << escritor.obtener_apellido() << endl;
 
 }

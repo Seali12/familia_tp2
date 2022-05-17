@@ -8,7 +8,7 @@ Lista_lecturas::Lista_lecturas(){
 }
 
 void Lista_lecturas::alta(Dato objeto){
-  Nodo<Dato>* nuevo = new Nodo(objeto);
+  Nodo<Dato>* nuevo = new Nodo<Dato>(objeto);
   ordenar(objeto, nuevo);
   cantidad++;
 }

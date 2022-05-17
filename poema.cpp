@@ -1,6 +1,6 @@
 #include "poema.h"
 
-Poema::Poema(string titulo, double minutos, int anio, Escritor* escritor, int versos) 
+Poema::Poema(string titulo, double minutos, int anio, Escritor escritor, int versos) 
 : Lectura(titulo, minutos, anio, escritor){
 
     this->versos = versos;
@@ -17,6 +17,6 @@ void Poema::mostrar() {
 
     cout << "La cantidad de versos es: " << versos << endl;
 
-    cout << "La referencia al escritor es: " << escritor->obtener_nombre() << " " << escritor->obtener_apellido() << endl;
+    cout << "La referencia al escritor es: " << escritor.obtener_nombre() << " " << escritor.obtener_apellido() << endl;
 
 }

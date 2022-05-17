@@ -2,7 +2,7 @@
 
 
 
-Libro::Libro(string titulo, double minutos, int anio, Escritor* escritor, string titulo_libro) 
+Libro::Libro(string titulo, double minutos, int anio, Escritor escritor, string titulo_libro) 
 : Lectura(titulo, minutos, anio, escritor){
 
     this->titulo_libro = titulo_libro;
@@ -20,6 +20,6 @@ void Libro::mostrar() {
 
     cout << "El titulo del libro es: " << titulo_libro << endl;
 
-    cout << "La referencia al escritor es: " << escritor->obtener_nombre() << " " << escritor->obtener_apellido() << endl;
+    cout << "La referencia al escritor es: " << escritor.obtener_nombre() << " " << escritor.obtener_apellido() << endl;
 
 }

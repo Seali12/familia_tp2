@@ -9,12 +9,12 @@ protected:
     string titulo;
     double minutos;
     int anio;
-    Escritor* escritor;
+    Escritor escritor;
 
 public:
     //PRE:
     //POST: Crea una nueva lectura
-    Lectura(string titulo, double minutos, int anio, Escritor* escritor);
+    Lectura(string titulo, double minutos, int anio, Escritor escritor);
 
     //PRE:
     //POST: Devuelve el anio
@@ -30,7 +30,7 @@ public:
 
     //PRE:
     //POST: Devuelve el escritor
-    Escritor* obtener_escritor();
+    Escritor obtener_escritor();
 
     //Pre:
     //Post:
