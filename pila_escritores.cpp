@@ -1,6 +1,6 @@
 #include <iostream>
 #include "pila_escritores.h"
-#include "nodo_simple.h"
+
 
 Pila::Pila(){
     ultimo = nullptr;

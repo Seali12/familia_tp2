@@ -1,12 +1,10 @@
 #ifndef PILA_ESCRITORES_H
 #define PILA_ESCRITORES_H
 
+#include "escritor.h"
 #include "nodo_simple.h"
 
 class Pila{
-private:
-    Nodo<Escritor>*ultimo;   
-
 public:
     
     //PRE:-
@@ -35,6 +33,7 @@ public:
 
     void liberar_Pila();
 
-
+private:
+    Nodo<Escritor>* ultimo;   
 };
 #endif //PILA_ESCRITORES
