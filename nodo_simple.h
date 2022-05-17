@@ -24,6 +24,7 @@ Nodo<dato>::Nodo(dato objeto){
   this->objeto = objeto;
   this->direccion = 0;
 }
+//necesito ayuda, puse una extension y ahora no puedo usar el git xdxdxd
 
 template < typename dato >
 dato Nodo<dato>::obtener_objeto() const {
