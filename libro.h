@@ -4,17 +4,17 @@
 #include "lectura.h"
 
 class Libro : public Lectura{
-private:
-    string titulo_libro;
-
-public:
+    public:
     //Pre:
     //Post: Crea un libro nuevo.
-    Libro(string titulo, double minutos, int anio, Escritor escritor, char tipo_de_lectura, int referencia_escritor, string titulo_libro);
+    Libro(string titulo, double minutos, int anio, Escritor* escritor, string titulo_libro);
 
     //Pre:
     //Post: Muestra un la informacion de un libro completo por pantalla.
-    void mostrar_libro();
+    void mostrar();
+
+    private:
+        string titulo_libro;
 
 };
 

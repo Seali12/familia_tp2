@@ -10,11 +10,11 @@ private:
 public:
     //Pre:
     //Post: Crea un poema nuevo.
-    Poema(string titulo, double minutos, int anio, Escritor escritor, char tipo_de_lectura, int referencia_escritor, int versos);
+    Poema(string titulo, double minutos, int anio, Escritor* escritor, int versos);
 
     //Pre:
     //Post: Muestra un la informacion de un poema completo por pantalla.
-    void mostrar_poema();
+    void mostrar();
 
 };
 

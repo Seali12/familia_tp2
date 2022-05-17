@@ -1,5 +1,5 @@
-#ifndef ALGO_2_TP_2_ESCRITOR_H
-#define ALGO_2_TP_2_ESCRITOR_H
+#ifndef ESCRITOR_H
+#define ESCRITOR_H
 
 #include <iostream>
 

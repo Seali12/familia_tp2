@@ -10,11 +10,11 @@ protected:
 public:
     //Pre:
     //Post: Crea una novela nueva.
-    Novela(string titulo, double minutos, int anio, Escritor escritor, char tipo_de_lectura, int referencia_escritor, int genero);
+    Novela(string titulo, double minutos, int anio, Escritor* escritor, int genero);
 
     //Pre:
     //Post: Muestra la informacion de una novela completa por pantalla.
-    void mostrar_novela();
+    void mostrar();
 };
 
 

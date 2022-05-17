@@ -1,14 +1,14 @@
 #include "novela.h"
 
-Novela::Novela(string titulo, double minutos, int anio, Escritor escritor, char tipo_de_lectura, int referencia_escritor,  int genero) :
-                Lectura(titulo, minutos, anio, escritor, tipo_de_lectura, referencia_escritor){
+Novela::Novela(string titulo, double minutos, int anio, Escritor* escritor,  int genero) :
+                Lectura(titulo, minutos, anio, escritor){
 
     this->genero = genero;
 }
 
-void Novela::mostrar_novela(){
+void Novela::mostrar(){
     
-    cout << tipo_de_lectura << endl;
+    cout << "Novela" << endl;
     
     cout << "Titulo: " << titulo << endl;
 
@@ -18,7 +18,6 @@ void Novela::mostrar_novela(){
 
     cout << "El genero es: " << genero << endl;
 
-    cout << "La referencia al escritor es: " << referencia_escritor << endl;
+    cout << "La referencia al escritor es: " << escritor->obtener_nombre() << " " << escritor->obtener_apellido() << endl;
 
 }
-
