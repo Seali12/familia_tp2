@@ -1,4 +1,4 @@
-#include "nodo.h"
+#include "nodo_simple.h"
 #include "lectura.h"
 #include "string"
 #include <iostream>
@@ -41,7 +41,7 @@ int main(int argc, char const *argv[]){
   
   //  B b("chau", 23.10, 2301, juanito, 'a');
   
-    Nodo* puntero = new Nodo(a);
+    Nodo<Lectura*>* puntero = new Nodo(a);
 
     return 0;
 }

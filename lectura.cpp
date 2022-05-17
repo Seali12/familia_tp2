@@ -6,3 +6,18 @@ Lectura::Lectura(string titulo, double minutos, int anio, Escritor escritor) {
     this->anio = anio;
     this->escritor = escritor;
 }
+int Lectura::obtener_anio(){
+    return anio;
+}
+
+Escritor Lectura::obtener_escritor(){
+    return escritor;
+}
+
+double Lectura::obtener_minutos(){
+    return minutos;
+}
+
+string Lectura::obtener_titulo(){
+    return titulo;
+}
