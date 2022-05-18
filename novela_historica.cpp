@@ -22,6 +22,6 @@ void Novela_historica::mostrar() {
 
     cout << "El tema de la novela_historica es: " << tema << endl;
 
-    cout << "La referencia al escritor es: " << escritor.obtener_nombre() << " " << escritor.obtener_apellido() << endl;
+    cout << "La referencia al escritor es: " << escritor.obtener_nombre_y_apellido() << endl;
 
 }

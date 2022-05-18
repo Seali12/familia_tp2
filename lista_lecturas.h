@@ -6,10 +6,10 @@
 
 typedef Lectura* Dato;
 
-class Lista_lecturas {
+class Lista {
   public:
     //Constructor
-    Lista_lecturas();
+    Lista();
 
     //PRE: Recive un objeto de tipo Lectura*
     //POST: Agrega al objeto en la lista
@@ -36,7 +36,7 @@ class Lista_lecturas {
     int obtener_cantidad();
 
     //Destructor
-    ~Lista_lecturas();
+    ~Lista();
 
   private:
     int cantidad;

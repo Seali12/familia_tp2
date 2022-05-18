@@ -1,24 +1,24 @@
 #include "lista_lecturas.h"
 
-Lista_lecturas::Lista_lecturas(){
+Lista::Lista(){
   ultimo = nullptr;
   actual = ultimo;
   nodo_anterior = nullptr;
   cantidad = 0;
 }
 
-void Lista_lecturas::alta(Dato objeto){
+void Lista::alta(Dato objeto){
   Nodo<Dato>* nuevo = new Nodo<Dato>(objeto);
   ordenar(objeto, nuevo);
   cantidad++;
 }
 
-void Lista_lecturas::baja(){
+void Lista::baja(){
   Nodo<Dato>* borrar = ultimo;
   ultimo = ultimo->obtener_siguiente();
 }
 
-void Lista_lecturas::baja(int anio, string titulo){
+void Lista::baja(int anio, string titulo){
   desplazar_actual(anio, titulo);
 
   Nodo<Dato>* borrar = actual;
@@ -28,27 +28,27 @@ void Lista_lecturas::baja(int anio, string titulo){
   delete borrar;
 }
 
-Dato Lista_lecturas::consulta(int anio, string titulo){
+Dato Lista::consulta(int anio, string titulo){
   desplazar_actual(anio, titulo);
   return actual->obtener_objeto();
 }
 
-bool Lista_lecturas::vacia(){
+bool Lista::vacia(){
   return (ultimo == 0);
 }
 
-int Lista_lecturas::obtener_cantidad(){
+int Lista::obtener_cantidad(){
   return cantidad;
 }
 
 //REVISAR DESTRUCTOR
-Lista_lecturas::~Lista_lecturas(){
+Lista::~Lista(){
   while (! vacia() ){
     baja();
   }
 }
 
-void Lista_lecturas::ordenar(Dato objeto, Nodo<Dato>* direccion){
+void Lista::ordenar(Dato objeto, Nodo<Dato>* direccion){
   Nodo<Dato>* siguiente = ultimo;
   Nodo<Dato>* anterior = nullptr;
 
@@ -63,7 +63,7 @@ void Lista_lecturas::ordenar(Dato objeto, Nodo<Dato>* direccion){
   }
 }
 
-void Lista_lecturas::desplazar_actual(int anio, string titulo){
+void Lista::desplazar_actual(int anio, string titulo){
   Nodo<Dato>* anterior = ultimo;
   if (actual->obtener_objeto()->obtener_anio() > anio){
     actual = ultimo;

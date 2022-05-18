@@ -18,6 +18,6 @@ void Novela::mostrar(){
 
     cout << "El genero es: " << genero << endl;
 
-    cout << "La referencia al escritor es: " << escritor.obtener_nombre() << " " << escritor.obtener_apellido() << endl;
+    cout << "La referencia al escritor es: " << escritor.obtener_nombre_y_apellido() << endl;
 
 }

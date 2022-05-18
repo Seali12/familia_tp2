@@ -1,17 +1,17 @@
 #include "escritor.h"
 
-Escritor::Escritor(string nombre, string apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimineto) {
-
-    this->nombre = nombre;
-    this->apellido = apellido;
+Escritor::Escritor(string referecnia, string nombre_y_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimineto) {
+    
+    this->referencia = referencia;
+    this->nombre_y_apellido = nombre_y_apellido;
     this->nacionalidad = nacionalidad;
     this->anio_nacimiento = anio_nacimiento;
     this->anio_fallecimiento = anio_fallecimineto;
 }
 
 Escritor::Escritor() {
-    nombre = " ";
-    apellido = " ";
+    referencia = " ";
+    nombre_y_apellido = " ";
     nacionalidad = " ";
     anio_nacimiento = 0;
     anio_fallecimiento = 0;
@@ -19,9 +19,10 @@ Escritor::Escritor() {
 
 
 void Escritor::mostrar() {
-    cout << "El nombre del escritor es: " << nombre << endl;
+    
+    cout << "La referencia del escritor es: " << referencia << endl;
 
-    cout << "El apellido del escritor es: " << apellido << endl;
+    cout << "El nombre y apellido del escritor es: " << nombre_y_apellido << endl;
 
     cout << "La nacionalidad del escritor es: " << nacionalidad << endl;
 
@@ -30,14 +31,10 @@ void Escritor::mostrar() {
     cout << "El año de fallecimiento del escritor es: " << anio_fallecimiento << endl;
 }
 
-string Escritor::obtener_nombre() {
-    return nombre;
+string Escritor::obtener_nombre_y_apellido() {
+    return nombre_y_apellido;
 }
 
-string Escritor::obtener_apellido() {
-    return apellido;
-}
-
-int Escritor::obtener_referencia() {
+string Escritor::obtener_referencia(){
     return referencia;
 }

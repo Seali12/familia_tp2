@@ -3,6 +3,16 @@
 
 #include "lectura.h"
 
+enum Genero{
+    HISTORICA,
+    ROMANTICA,
+    TERROR,
+    SUSPENSO,
+    FICCION,
+    COMEDIA,
+    DRAMA
+};
+
 class Novela: public Lectura{
 protected:
     int genero;

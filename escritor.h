@@ -7,18 +7,18 @@ using namespace std;
 
 class Escritor {
 private:
-    string nombre;
-    string apellido;
+    string referencia;
+    string nombre_y_apellido;
     string nacionalidad;
     int anio_nacimiento;
     int anio_fallecimiento;
-    int referencia;
+    
 
 public:
 
     //Pre:
     //Post: Crea un escritor.
-    Escritor(string nombre, string apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimineto);
+    Escritor(string referencia, string nombre_y_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimineto);
 
     //Pre:
     //Post: Crea un escritor por defecto.
@@ -29,16 +29,12 @@ public:
     void mostrar();
 
     //Pre:
-    //Post: Devuelve el nombre del escritor
-    string obtener_nombre();
-
-    //Pre:
-    //Post: Devuelve el apellido del escritor
-    string obtener_apellido();
+    //Post: Devuelve el nombre del escritor y apellido.
+    string obtener_nombre_y_apellido();
 
     //pre:
     //Post: Devuelve el numero de referencia del autor.
-    int obtener_referencia();
+    string obtener_referencia();
 };
 
 

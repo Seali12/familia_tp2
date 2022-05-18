@@ -2,70 +2,46 @@
 #define PARSER_H
 
 #include "lectura.h"
+#include "novela.h"
+#include "poema.h"
+#include "libro.h"
+#include "novela_historica.h"
 #include "escritor.h"
+#include "lista_lecturas.h"
+#include "pila_escritores.h"
 #include <string>
 
-template <typename Tipo>
 
 class Parser {
 private:
-    string linea;
+    string archivo_lectura;
     
-    int referenia_escritor;
-
-    string nombre_escritor;
-
-    string nacionalidad;
+    string archivo_escritor;
     
-    int anio_nacimiento;
+    Lista lecturas;
 
-    int anio_fallecimiento;
-    //hasta aca el archivo escritor
-
-    char tipo_lectura;
-
-    string titulo;
-
-    int minutos;
-
-    int anio;
-
-    string caracterisca;
-
-    int referencia_lectura;
-    //Archivo lectura
+    Pila escritores;
     
 public:
     
     //PRE:
     //POST:
-    Parser(string linea);
-
-    Parser(string linea);
-
-    
-    //PRE:
-    //POST:
-    Lectura* procesar_archivo_escritores() const;
-    
+    Parser(string archivo_lectura, string archivo_escritor, Lista lecturas, Pila escritores);
 
     //PRE:
     //POST:
-    Lectura* procesar_archivo_lectura() const;
-       
+    void procesar_archivo_escritores();
+
+    //PRE:
+    //POST:
+    void procesar_archivo_lectura();    
     
     //PRE:
     //POST:
     ~Parser(){};
-
 };
 
-template <typename Tipo>
 
-Parser::Parser(Tipo linea){
-    Tipo
-    
-}
 
 
 #endif

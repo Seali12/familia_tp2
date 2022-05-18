@@ -1,0 +1,70 @@
+C
+Casa Tomada
+20
+1951
+Bestario
+(1)
+
+N
+Rayuela
+2900
+1963
+FICCION
+(1)
+
+N
+Misery
+2100
+1987
+TERROR
+(3)
+
+P
+Voy a dormir
+100
+1938
+14
+(4)
+
+N
+Frankeistein
+1600
+1818
+TERROR
+(2)
+
+N
+Una columna de fuego
+4800
+2017
+HISTORICA
+Guerra de religiones en Europa en la segunda mitad del siglo xvi
+(5)
+
+N
+Mitos de Cthulhu
+5000
+1917
+TERROR
+Los gatos de Ulthar
+(6)
+
+R
+Lolita
+7620
+1955
+ROMANCE
+(7)
+
+P
+Los cuervos
+3600
+1894
+115
+(8)
+
+
+
+
+
+

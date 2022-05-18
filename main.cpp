@@ -1,9 +1,17 @@
-//#include <iostream>
+#include <iostream>
+#include "parser.h"
+#include "lectura.h"
+#include "lista_lecturas.h"
+#include "pila_escritores.h"
+#include <fstream>
 
 
-/*int main(){
 
+int main(){
+    Pila;
+    Lista;
+    //Parser lector;
 
+    
 
     return 0;
-*/
