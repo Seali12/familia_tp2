@@ -13,7 +13,8 @@ britanica
 (3)
 Stephen Edwin King
 estadounidense
-1947
+1949
+-1
 
 (4)
 Alfonsina Storni
@@ -25,6 +26,7 @@ argentina
 ken Follet
 gales
 1949
+-1
 
 (6)
 Howard Phillips Lovecraft
@@ -35,6 +37,8 @@ estadounidense
 (7)
 Vladimir Nabokov
 ruso
+-1
+-1
 
 (8)
 Edgar Allan Poe

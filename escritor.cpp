@@ -1,6 +1,6 @@
 #include "escritor.h"
 
-Escritor::Escritor(string referecnia, string nombre_y_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimineto) {
+Escritor::Escritor(string referencia, string nombre_y_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimineto) {
     
     this->referencia = referencia;
     this->nombre_y_apellido = nombre_y_apellido;

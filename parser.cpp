@@ -54,7 +54,7 @@ void Parser::procesar_archivo_lectura(){
 
             switch (tipo_lectura[0]){
             case 'N':
-                strin titulo
+                string titulo;
                 
                 
                 Novela nueva_novela();
