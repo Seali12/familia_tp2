@@ -1,15 +1,15 @@
-#ifndef LISTA_LECTURAS_H
-#define LISTA_LECTURAS_H
+#ifndef LISTA_LECTURA_H
+#define LISTA_LECTURA_H
 
 #include "nodo_simple.h"
 #include "lectura.h"
 
 typedef Lectura* Dato;
 
-class Lista {
+class Lista_lectura {
   public:
     //Constructor
-    Lista();
+    Lista_lectura();
 
     //PRE: Recive un objeto de tipo Lectura*
     //POST: Agrega al objeto en la lista
@@ -36,7 +36,7 @@ class Lista {
     int obtener_cantidad();
 
     //Destructor
-    ~Lista();
+    ~Lista_lectura();
 
   private:
     int cantidad;

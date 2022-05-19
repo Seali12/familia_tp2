@@ -7,8 +7,8 @@
 #include "libro.h"
 #include "novela_historica.h"
 #include "escritor.h"
-#include "lista_lecturas.h"
-#include "pila_escritores.h"
+//#include "lista_lectura.h"
+#include "lista_escritor.h"
 #include <string>
 
 
@@ -18,15 +18,18 @@ private:
     
     string archivo_escritor;
     
-    Lista lecturas;
+    //Lista_lectura lecturas;
 
-    Pila escritores;
+    Lista_escritor escritores;
     
 public:
-    
+
     //PRE:
     //POST:
-    Parser(string archivo_lectura, string archivo_escritor, Lista lecturas, Pila escritores);
+    void mostrar();
+    //PRE:
+    //POST:
+    Parser(string archivo_lectura, string archivo_escritor,/*Lista_lectura,*/ Lista_escritor escritores);
 
     //PRE:
     //POST:
@@ -38,7 +41,7 @@ public:
     
     //PRE:
     //POST:
-    ~Parser(){};
+    ~Parser();
 };
 
 

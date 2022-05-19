@@ -1,4 +1,4 @@
-#include "nodo_simple.h"
+/*#include "nodo_simple.h"
 #include "lectura.h"
 #include "string"
 #include <iostream>
