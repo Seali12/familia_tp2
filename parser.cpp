@@ -1,10 +1,6 @@
 #include "parser.h"
 #include <fstream>
-#include <string>
 #include <stdlib.h>
-
-
-using namespace std;
 
 Parser::Parser(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores){
     this->archivo_lectura = archivo_lectura;
@@ -53,13 +49,12 @@ void Parser::procesar_archivo_escritores(){
             }   
             
 
-            Escritor nuevo_escritor(referencia, nombre_escritor, nacionalidad, stoi(anio_nacimiento), stoi(anio_fallecimiento));
+            Escritor* nuevo_escritor = new Escritor(referencia, nombre_escritor, nacionalidad, stoi(anio_nacimiento), stoi(anio_fallecimiento));
             
             
-            escritores.alta(nuevo_escritor);
-            
+            escritores.alta(nuevo_escritor); 
         }
-
+    escritores.mostrar_lista_escritor();
     }
        
     archivo_escritores.close();
@@ -68,10 +63,17 @@ void Parser::procesar_archivo_escritores(){
 void Parser::mostrar(){
     escritores.mostrar_lista_escritor();
 
+    cout << "fin de escritore" << endl;
+
+    lecturas.mostrar_lista_lectura();
+
+    cout << "fin de lecturas" << endl;
+
 }
 
 
 Parser::~Parser(){
+    lecturas.~Lista_lectura();
     escritores.liberar_lista();
 }
 
@@ -84,19 +86,21 @@ void Parser::procesar_archivo_lectura(){
     }
     else{
         string tipo_lectura;
-        
+        int h = 1;
         while(getline(archivo_lectores, tipo_lectura)){
+            cout << "entra al while " << h << endl;
+            h++;
             
-            string titulo, minutos, anio, referencia_escritor;
+            string titulo, minutos, anio, referencia_escritor,espacio;
             
-            getline(archivo_lectores,titulo );
+            getline(archivo_lectores, titulo);
             getline(archivo_lectores, minutos);
             getline(archivo_lectores, anio);
             
             switch (tipo_lectura[CHAR]){
-            case N:
-                string genero;
-                //escrotres.hallarescritor(referencia_escritor_leida) -> necesitamos este metodo en la pila escritores para poder pasarle un escritor a la novela que creemos      
+            case N:{
+                cout << "switch" << endl;
+                string genero;   
                 getline(archivo_lectores, genero);
                 
                 if (genero == "HISTORICA"){
@@ -105,43 +109,55 @@ void Parser::procesar_archivo_lectura(){
                     
                     getline(archivo_lectores, tema_historica);
                     getline(archivo_lectores, referencia_escritor);
+                    getline(archivo_lectores, espacio);
                     
-                    Novela_historica nueva_historica(titulo, atof(minutos), stoi(anio), escritores.consulta(referencia_escritor), genero, tema_historica);
+                    Lectura* nueva_historica = new Novela_historica(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero, tema_historica);
                     
                     lecturas.alta(nueva_historica);
                 
                 }else{
                     
                     getline(archivo_lectores, referencia_escritor);
+                    getline(archivo_lectores, espacio);
 
-                    Novela nueva_novela(titulo, atof(minutos), stoi(anio), escritores.consulta(referencia_escritor), genero);
+                    Lectura* nueva_novela = new Novela(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero);
                     
                     lecturas.alta(nueva_novela);
                 }
                 
                 break;
-            
-            case P:
+            }
+            case P:{
+                cout << "switch" << endl;
+                string versos;
 
+                getline(archivo_lectores, versos);
+                getline(archivo_lectores, espacio);
 
-                break;
+                Lectura* nuevo_poema = new Poema(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), stoi(versos));
 
-            case C:
-            
-                break;
-            
-            default:
+                lecturas.alta(nuevo_poema);
+
                 break;
             }
+            case C:{
+                cout << "switch" << endl;
+                string titulo_cuento;
 
-          
+                getline(archivo_lectores, titulo_cuento);
+                getline(archivo_lectores, espacio);
+
+                Lectura* nuevo_cuento = new Cuento(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), titulo_cuento);
+                cout << "se creo" << endl;
+                nuevo_cuento->mostrar();
+                lecturas.alta(nuevo_cuento);
+            
+                break;
+            }      
         }
 
     }
        
     archivo_lectores.close();
+    }
 }
-*/
-
-
-

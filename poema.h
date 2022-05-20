@@ -10,7 +10,7 @@ private:
 public:
     //Pre:
     //Post: Crea un poema nuevo.
-    Poema(string titulo, float minutos, int anio, Escritor escritor, int versos);
+    Poema(string titulo, double minutos, int anio, Escritor* escritor, int versos);
 
     //Pre:
     //Post: Muestra un la informacion de un poema completo por pantalla.

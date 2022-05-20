@@ -1,5 +1,5 @@
-#ifndef ALGO_2_TP_2_LECTURA_H
-#define ALGO_2_TP_2_LECTURA_H
+#ifndef LECTURA_H
+#define LECTURA_H
 
 #include "escritor.h"
 
@@ -7,14 +7,14 @@ class Lectura {
 
 protected:
     string titulo;
-    float minutos;
+    double minutos;
     int anio;
-    Escritor escritor;
+    Escritor* escritor;
 
 public:
     //PRE:
     //POST: Crea una nueva lectura
-    Lectura(string titulo, float minutos, int anio, Escritor escritor);
+    Lectura(string titulo, double minutos, int anio, Escritor* escritor);
 
     //PRE:
     //POST: Devuelve el anio
@@ -30,7 +30,7 @@ public:
 
     //PRE:
     //POST: Devuelve el escritor
-    Escritor obtener_escritor();
+    Escritor* obtener_escritor();
 
     //Pre:
     //Post:

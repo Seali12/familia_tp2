@@ -17,15 +17,16 @@ class Nodo{
 
     //PRE: El nuevo dato debe ser del mismo tipo del que estaba antes. 
     //POST: Cambia el dato que estaba almacenado por otro.
-    void cambiar_objeto(dato nuevo_objeto);
+    void cambiar_objeto(dato* nuevo_objeto);
 
     //PRE: La nueva direccion debe ser de tipo puntero a Nodo.
     //POST: Cambia el puntero a Nodo por uno nuevo.
     void cambiar_siguiente(Nodo* nueva_direccion);
 
+    void eliminar_objeto();
   private:
     dato objeto;
-    Nodo* direccion;
+    Nodo<dato>* direccion;
 };
 
 template < typename dato >
@@ -45,13 +46,19 @@ Nodo<dato> *Nodo<dato>::obtener_siguiente() const {
 }
 
 template < typename dato >
-void Nodo<dato>::cambiar_objeto(dato nuevo_objeto){
+void Nodo<dato>::cambiar_objeto(dato* nuevo_objeto){
   this->objeto = nuevo_objeto;
 }
 
 template < typename dato >
 void Nodo<dato>::cambiar_siguiente(Nodo<dato>* nueva_direccion){
   this->direccion = nueva_direccion;
+}
+
+template < typename dato >
+void Nodo<dato>::eliminar_objeto(){
+  delete []objeto;
+  objeto = nullptr;
 }
 
 #endif // !NODO_H

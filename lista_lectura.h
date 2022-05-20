@@ -35,6 +35,10 @@ class Lista_lectura {
     //POST: Devuelve cuantos elementos tiene la lista
     int obtener_cantidad();
 
+    //PRE: la lista no tiene que estar vacia
+    //POST: Imprime todo el contenido de la lista
+    void mostrar_lista_lectura();
+
     //Destructor
     ~Lista_lectura();
 

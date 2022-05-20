@@ -10,10 +10,10 @@ private:
     string tema;
     
 public:
-    
+
     //Pre:
     //Post: Crea una novela_historica nueva.
-    Novela_historica(string titulo, float minutos, int anio, Escritor escritor, int genero, string tema);
+    Novela_historica(string titulo, double minutos, int anio, Escritor* escritor, string genero, string tema);
 
     //Pre:
     //Post: Muestra la informacion de una novela_historica.

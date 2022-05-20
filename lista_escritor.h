@@ -5,7 +5,7 @@
 #include "escritor.h"
 
 
-typedef Escritor Tipo;
+typedef Escritor* Tipo;
 class Lista_escritor{
 public:
 //Constructor
@@ -47,7 +47,7 @@ public:
     int cantidad;
     Nodo<Tipo>* ultimo;
     Nodo<Tipo>* actual;
-
+    Nodo<Tipo>* anterior;
 
     void desplazar_actual(string referencia);    
 };

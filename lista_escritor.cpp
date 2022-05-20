@@ -12,14 +12,20 @@ Lista_escritor::Lista_escritor(){
 
 void Lista_escritor::alta(Tipo objeto){
   Nodo<Tipo>* nuevo = new Nodo<Tipo>(objeto);
+  
   nuevo->cambiar_siguiente(ultimo);
   ultimo = nuevo;
+
   cantidad++;
 }
 
 void Lista_escritor::baja(){
   Nodo<Tipo>* borrar = ultimo;
   ultimo = ultimo->obtener_siguiente();
+
+  cantidad--;
+
+  borrar->eliminar_objeto();
   delete borrar;
 }
 
@@ -27,9 +33,11 @@ void Lista_escritor::baja(string nombre_y_apellido){
   desplazar_actual(nombre_y_apellido);
 
   Nodo<Tipo>* borrar = actual;
+  anterior->cambiar_siguiente(actual->obtener_siguiente());
   
   cantidad--;
 
+  borrar->eliminar_objeto();
   delete borrar;
 }
 
@@ -59,7 +67,7 @@ void Lista_escritor::mostrar_lista_escritor(){
   int i = 0;
   
   while(i < obtener_cantidad()){
-    actual->obtener_objeto().mostrar();
+    actual->obtener_objeto()->mostrar();
     actual = actual->obtener_siguiente();
     i++;
   }
@@ -67,11 +75,13 @@ void Lista_escritor::mostrar_lista_escritor(){
 
 
 void Lista_escritor::desplazar_actual(string referencia){
-  if ((actual->obtener_objeto()).obtener_referencia() > referencia){
+  if (actual->obtener_objeto()->obtener_referencia() > referencia){
     actual = ultimo;
+    anterior = nullptr;
   }
   
-  while ((actual->obtener_objeto()).obtener_referencia() != referencia){
+  while (actual->obtener_objeto()->obtener_referencia() != referencia){
+    anterior = actual;
     actual = actual->obtener_siguiente();
   }
 }

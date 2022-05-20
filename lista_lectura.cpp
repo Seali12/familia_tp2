@@ -16,6 +16,11 @@ void Lista_lectura::alta(Dato objeto){
 void Lista_lectura::baja(){
   Nodo<Dato>* borrar = ultimo;
   ultimo = ultimo->obtener_siguiente();
+
+  cantidad--;
+
+  borrar->eliminar_objeto();
+  delete borrar;
 }
 
 void Lista_lectura::baja(int anio, string titulo){
@@ -25,6 +30,7 @@ void Lista_lectura::baja(int anio, string titulo){
   nodo_anterior->cambiar_siguiente(actual->obtener_siguiente());
   cantidad--;
 
+  borrar->eliminar_objeto();
   delete borrar;
 }
 
@@ -39,6 +45,17 @@ bool Lista_lectura::vacia(){
 
 int Lista_lectura::obtener_cantidad(){
   return cantidad;
+}
+
+void Lista_lectura::mostrar_lista_lectura(){
+  actual = ultimo;
+  int i = 0;
+  
+  while(i < obtener_cantidad()){
+    actual->obtener_objeto()->mostrar();
+    actual = actual->obtener_siguiente();
+    i++;
+  }
 }
 
 //REVISAR DESTRUCTOR
@@ -64,7 +81,6 @@ void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
 }
 
 void Lista_lectura::desplazar_actual(int anio, string titulo){
-  Nodo<Dato>* anterior = ultimo;
   if (actual->obtener_objeto()->obtener_anio() > anio){
     actual = ultimo;
     nodo_anterior = nullptr;

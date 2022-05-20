@@ -29,6 +29,8 @@ void Escritor::mostrar() {
     cout << "El año de nacimiento  del escritor es: " << anio_nacimiento << endl;
 
     cout << "El año de fallecimiento del escritor es: " << anio_fallecimiento << endl;
+
+    cout << "" << endl;
 }
 
 string Escritor::obtener_nombre_y_apellido() {
