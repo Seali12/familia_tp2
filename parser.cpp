@@ -88,7 +88,7 @@ void Parser::procesar_archivo_lectura(){
         string tipo_lectura;
         int h = 1;
         while(getline(archivo_lectores, tipo_lectura)){
-            cout << "entra al while " << h << endl;
+            cout << "entra al while " << h << " " << tipo_lectura << endl;
             h++;
             
             string titulo, minutos, anio, referencia_escritor,espacio;
@@ -102,7 +102,7 @@ void Parser::procesar_archivo_lectura(){
                 cout << "switch" << endl;
                 string genero;   
                 getline(archivo_lectores, genero);
-                
+                cout << genero << endl;
                 if (genero == "HISTORICA"){
                     
                     string tema_historica;
@@ -110,16 +110,16 @@ void Parser::procesar_archivo_lectura(){
                     getline(archivo_lectores, tema_historica);
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
-                    
+                   
                     Lectura* nueva_historica = new Novela_historica(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero, tema_historica);
                     
                     lecturas.alta(nueva_historica);
-                
+             
                 }else{
                     
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
-
+ 
                     Lectura* nueva_novela = new Novela(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero);
                     
                     lecturas.alta(nueva_novela);
@@ -132,6 +132,7 @@ void Parser::procesar_archivo_lectura(){
                 string versos;
 
                 getline(archivo_lectores, versos);
+                getline(archivo_lectores, referencia_escritor);
                 getline(archivo_lectores, espacio);
 
                 Lectura* nuevo_poema = new Poema(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), stoi(versos));
@@ -145,13 +146,14 @@ void Parser::procesar_archivo_lectura(){
                 string titulo_cuento;
 
                 getline(archivo_lectores, titulo_cuento);
+                getline(archivo_lectores, referencia_escritor);
                 getline(archivo_lectores, espacio);
 
                 Lectura* nuevo_cuento = new Cuento(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), titulo_cuento);
                 cout << "se creo" << endl;
                 nuevo_cuento->mostrar();
                 lecturas.alta(nuevo_cuento);
-            
+
                 break;
             }      
         }

@@ -46,10 +46,9 @@ Mitos de Cthulhu
 5000
 1917
 TERROR
-Los gatos de Ulthar
 (6)
 
-R
+N
 Lolita
 7620
 1955
@@ -58,13 +57,7 @@ ROMANCE
 
 P
 Los cuervos
-3600
+360
 1894
 115
 (8)
-
-
-
-
-
-
