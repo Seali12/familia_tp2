@@ -59,7 +59,7 @@ void Lista_lectura::mostrar_lista_lectura(){
 }
 
 //REVISAR DESTRUCTOR
-Lista_lectura::~Lista_lectura(){
+void Lista_lectura::liberar_lista(){
   while (! vacia() ){
     baja();
   }

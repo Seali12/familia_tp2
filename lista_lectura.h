@@ -40,7 +40,7 @@ class Lista_lectura {
     void mostrar_lista_lectura();
 
     //Destructor
-    ~Lista_lectura();
+    void liberar_lista();
 
   private:
     int cantidad;

@@ -73,7 +73,7 @@ void Parser::mostrar(){
 
 
 Parser::~Parser(){
-    lecturas.~Lista_lectura();
+    lecturas.liberar_lista();
     escritores.liberar_lista();
 }
 
