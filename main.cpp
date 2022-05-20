@@ -9,12 +9,12 @@
 using namespace std;
 
 int main(){
-    
-    //Lista_lectura chau;
     Lista_escritor hola;
+    
+    Parser a("lecturas.txt", "escritor.txt", hola);
+    //Lista_lectura chau;
     a.procesar_archivo_escritores();
     a.mostrar();
-    ~a();
     
     return 0;
 }

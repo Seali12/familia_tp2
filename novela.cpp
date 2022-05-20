@@ -1,6 +1,6 @@
 #include "novela.h"
 
-Novela::Novela(string titulo, double minutos, int anio, Escritor escritor,  int genero) :
+Novela::Novela(string titulo, float minutos, int anio, Escritor escritor,  int genero) :
                 Lectura(titulo, minutos, anio, escritor){
 
     this->genero = genero;

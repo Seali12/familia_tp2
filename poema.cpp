@@ -1,6 +1,6 @@
 #include "poema.h"
 
-Poema::Poema(string titulo, double minutos, int anio, Escritor escritor, int versos) 
+Poema::Poema(string titulo, float minutos, int anio, Escritor escritor, int versos) 
 : Lectura(titulo, minutos, anio, escritor){
 
     this->versos = versos;

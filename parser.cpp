@@ -1,14 +1,15 @@
 #include "parser.h"
 #include <fstream>
 #include <string>
+#include <stdlib.h>
 
 
 using namespace std;
 
-Parser::Parser(string archivo_lectura, string archivo_escritor, /*Lista_lectura lecturas*/ Lista_escritor escritores){
+Parser::Parser(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores){
     this->archivo_lectura = archivo_lectura;
     this->archivo_escritor = archivo_escritor;
-    /*this->lecturas = lecturas;*/
+    this->lecturas = lecturas;
     this->escritores = escritores;
 
 }
@@ -73,7 +74,7 @@ void Parser::mostrar(){
 Parser::~Parser(){
     escritores.liberar_lista();
 }
-/*
+
 void Parser::procesar_archivo_lectura(){
     
     ifstream archivo_lectores(archivo_lectura, ios::in);
@@ -85,29 +86,47 @@ void Parser::procesar_archivo_lectura(){
         string tipo_lectura;
         
         while(getline(archivo_lectores, tipo_lectura)){
-
-            switch (tipo_lectura[0]){
-            case 'N':
-                string titulo;
+            
+            string titulo, minutos, anio, referencia_escritor;
+            
+            getline(archivo_lectores,titulo );
+            getline(archivo_lectores, minutos);
+            getline(archivo_lectores, anio);
+            
+            switch (tipo_lectura[CHAR]){
+            case N:
+                string genero;
+                //escrotres.hallarescritor(referencia_escritor_leida) -> necesitamos este metodo en la pila escritores para poder pasarle un escritor a la novela que creemos      
+                getline(archivo_lectores, genero);
                 
+                if (genero == "HISTORICA"){
+                    
+                    string tema_historica;
+                    
+                    getline(archivo_lectores, tema_historica);
+                    getline(archivo_lectores, referencia_escritor);
+                    
+                    Novela_historica nueva_historica(titulo, atof(minutos), stoi(anio), escritores.consulta(referencia_escritor), genero, tema_historica);
+                    
+                    lecturas.alta(nueva_historica);
                 
-                Novela nueva_novela();
+                }else{
+                    
+                    getline(archivo_lectores, referencia_escritor);
 
-                //escrotres.hallarescritor(referencia_escritor_leida) -> necesitamos este metodo en la pila escritores para poder pasarle un escritor a la novela que creemos
+                    Novela nueva_novela(titulo, atof(minutos), stoi(anio), escritores.consulta(referencia_escritor), genero);
+                    
+                    lecturas.alta(nueva_novela);
+                }
                 
-                getline(archivo_lectores, );
-                getline(archivo_lectores, );
-                getline(archivo_lectores, );       
-                getline(archivo_lectores, );
-                getline(archivo_lectores, );
-
                 break;
             
-            case 'P':
+            case P:
+
 
                 break;
 
-            case 'C':
+            case C:
             
                 break;
             

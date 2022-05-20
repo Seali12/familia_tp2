@@ -2,7 +2,7 @@
 
 
 
-Libro::Libro(string titulo, double minutos, int anio, Escritor escritor, string titulo_libro) 
+Libro::Libro(string titulo, float minutos, int anio, Escritor escritor, string titulo_libro) 
 : Lectura(titulo, minutos, anio, escritor){
 
     this->titulo_libro = titulo_libro;

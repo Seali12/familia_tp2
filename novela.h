@@ -20,7 +20,7 @@ protected:
 public:
     //Pre:
     //Post: Crea una novela nueva.
-    Novela(string titulo, double minutos, int anio, Escritor escritor, int genero);
+    Novela(string titulo, float minutos, int anio, Escritor escritor, int genero);
 
     //Pre:
     //Post: Muestra la informacion de una novela completa por pantalla.

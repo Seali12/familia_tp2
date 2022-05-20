@@ -7,10 +7,14 @@
 #include "libro.h"
 #include "novela_historica.h"
 #include "escritor.h"
-//#include "lista_lectura.h"
+#include "lista_lectura.h"
 #include "lista_escritor.h"
 #include <string>
 
+const int CHAR = 0;
+const char N = 'N';
+const char P = 'P';
+const char C = 'C';
 
 class Parser {
 private:
@@ -18,7 +22,7 @@ private:
     
     string archivo_escritor;
     
-    //Lista_lectura lecturas;
+    Lista_lectura lecturas;
 
     Lista_escritor escritores;
     
@@ -29,7 +33,7 @@ public:
     void mostrar();
     //PRE:
     //POST:
-    Parser(string archivo_lectura, string archivo_escritor,/*Lista_lectura,*/ Lista_escritor escritores);
+    Parser(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores);
 
     //PRE:
     //POST:
