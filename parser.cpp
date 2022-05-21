@@ -90,7 +90,8 @@ void Parser::procesar_archivo_lectura(){
         while(getline(archivo_lectores, tipo_lectura)){
             cout << "entra al while " << h << " " << tipo_lectura << endl;
             h++;
-            
+            Lectura* p_nueva_lectura;
+
             string titulo, minutos, anio, referencia_escritor,espacio;
             
             getline(archivo_lectores, titulo);
@@ -111,18 +112,20 @@ void Parser::procesar_archivo_lectura(){
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
                    
-                    Lectura* nueva_historica = new Novela_historica(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero, tema_historica);
-                    
-                    lecturas.alta(nueva_historica);
+                    Novela_historica* nueva_historica = new Novela_historica(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero, tema_historica);
+                    p_nueva_lectura = nueva_historica;
+
+                    lecturas.alta(p_nueva_lectura);
              
                 }else{
                     
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
  
-                    Lectura* nueva_novela = new Novela(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero);
-                    
-                    lecturas.alta(nueva_novela);
+                    Novela* nueva_novela = new Novela(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero);
+                    p_nueva_lectura = nueva_novela;
+
+                    lecturas.alta(p_nueva_lectura);
                 }
                 
                 break;
@@ -135,9 +138,10 @@ void Parser::procesar_archivo_lectura(){
                 getline(archivo_lectores, referencia_escritor);
                 getline(archivo_lectores, espacio);
 
-                Lectura* nuevo_poema = new Poema(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), stoi(versos));
+                Poema* nuevo_poema = new Poema(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), stoi(versos));
+                p_nueva_lectura = nuevo_poema;
 
-                lecturas.alta(nuevo_poema);
+                lecturas.alta(p_nueva_lectura);
 
                 break;
             }
@@ -148,11 +152,13 @@ void Parser::procesar_archivo_lectura(){
                 getline(archivo_lectores, titulo_cuento);
                 getline(archivo_lectores, referencia_escritor);
                 getline(archivo_lectores, espacio);
-
-                Lectura* nuevo_cuento = new Cuento(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), titulo_cuento);
+                cout << titulo << " " << referencia_escritor << " " << endl;
+                cout << escritores.consulta(referencia_escritor) << endl; //ESTE METODO ES EL QUE DA ERROR!!!!!!
+                /*Cuento* nuevo_cuento = new Cuento(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), titulo_cuento);
+                p_nueva_lectura = nuevo_cuento;*/
                 cout << "se creo" << endl;
-                nuevo_cuento->mostrar();
-                lecturas.alta(nuevo_cuento);
+
+                lecturas.alta(p_nueva_lectura);
 
                 break;
             }      

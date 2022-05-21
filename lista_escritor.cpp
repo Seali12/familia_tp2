@@ -80,7 +80,7 @@ void Lista_escritor::desplazar_actual(string referencia){
     anterior = nullptr;
   }
   
-  while (actual->obtener_objeto()->obtener_referencia() != referencia){
+  while ((actual->obtener_objeto())->obtener_referencia() != referencia){
     anterior = actual;
     actual = actual->obtener_siguiente();
   }

@@ -1,6 +1,7 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+#include "lectura.h"
 #include "poema.h"
 #include "cuento.h"
 #include "novela_historica.h"
