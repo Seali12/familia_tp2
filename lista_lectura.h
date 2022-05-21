@@ -48,6 +48,8 @@ class Lista_lectura {
     Nodo<Dato>* actual;
     Nodo<Dato>* nodo_anterior;
 
+    bool es_ultimo(Nodo<Dato>* nodo);
+
     void ordenar(Dato objeto, Nodo<Dato>* direccion);
 
     void desplazar_actual(int anio, string titulo);

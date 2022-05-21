@@ -9,6 +9,9 @@ Lista_lectura::Lista_lectura(){
 
 void Lista_lectura::alta(Dato objeto){
   Nodo<Dato>* nuevo = new Nodo<Dato>(objeto);
+
+  cout << nuevo->obtener_objeto()->obtener_titulo() << endl;
+  
   ordenar(objeto, nuevo);
   cantidad++;
 }
@@ -65,20 +68,60 @@ void Lista_lectura::liberar_lista(){
   }
 }
 
+bool Lista_lectura::es_ultimo(Nodo<Dato>*nodo){
+  return (nodo->obtener_siguiente()==nullptr);
+}
+
+
 void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
   Nodo<Dato>* siguiente = ultimo;
   Nodo<Dato>* anterior = nullptr;
 
-  while(objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
-    anterior = siguiente;
-    siguiente = siguiente->obtener_siguiente();
+  if (vacia()){
+    ultimo = direccion;
   }
+  else if(siguiente->obtener_siguiente()==nullptr){
+    if(ultimo->obtener_objeto()->obtener_anio()>objeto->obtener_anio()){
+      ultimo->cambiar_siguiente(direccion);
 
-  direccion->cambiar_siguiente(siguiente);
-  if(anterior != nullptr){
-    anterior->cambiar_siguiente(direccion);
+    }
+    else{
+        anterior=siguiente;
+        anterior->cambiar_siguiente(direccion);
+    }
+  }
+  else{
+
+    cout<<siguiente<<endl;
+    cout<<ultimo<<endl;
+    
+    cout<<objeto->obtener_anio()<<endl;
+    cout<<siguiente->obtener_objeto()->obtener_anio()<<endl;
+
+      
+      while(!es_ultimo(siguiente)){
+        if(objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
+
+          anterior = siguiente;
+          siguiente = siguiente->obtener_siguiente();
+
+
+          cout<<siguiente<<endl;
+          cout<<anterior<<endl;
+        }
+      }
+
+
+    if(es_ultimo(siguiente)){
+      siguiente->cambiar_siguiente(direccion);
+    }
+    direccion->cambiar_siguiente(siguiente);
+    if(anterior != nullptr){
+      anterior->cambiar_siguiente(direccion);
+    }
   }
 }
+ 
 
 void Lista_lectura::desplazar_actual(int anio, string titulo){
   if (actual->obtener_objeto()->obtener_anio() > anio){

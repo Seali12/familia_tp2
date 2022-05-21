@@ -12,7 +12,7 @@ int main(){
     Parser a("lecturas.txt", "escritor.txt", chau, hola);
 
     a.procesar_archivo_escritores();
-    //a.procesar_archivo_lectura();
+    a.procesar_archivo_lectura();
 
     //a.mostrar();
     
