@@ -50,11 +50,15 @@ Tipo Lista_escritor::consulta_referencia(string referencia_escritor){
   return actual->obtener_objeto();
 }
 
-void Lista_escritor::consulta_nombre(string nombre_y_apellido, int anio_ingresado){
-  
-   desplazar_actual(nombre_y_apellido);
+void Lista_escritor::modificar_fallecimiento(string nombre_y_apellido, int anio_ingresado){
+  desplazar_actual(nombre_y_apellido);
   actual->obtener_objeto()->modificar_anio_fallecimiento(anio_ingresado);
 
+}
+
+bool Lista_escritor::referencia_repetida(string referencia){
+  desplazar_actual(referencia);
+  return actual->obtener_objeto()->obtener_referencia() == referencia;
 }
 
 

@@ -39,6 +39,9 @@ class Lista_lectura {
     //POST: Imprime todo el contenido de la lista
     void mostrar_lista_lectura();
 
+     //PRE: La lista no debe estar vacia.
+    //POST:
+
     //Destructor
     void liberar_lista();
 
@@ -52,7 +55,7 @@ class Lista_lectura {
 
     void ordenar(Dato objeto, Nodo<Dato>* direccion);
 
-    void desplazar_actual(string titulo);
+    void desplazar_actual(Nodo<Dato>* nodo_actual);
 };
 
 #endif // !LISTA_LECTURAS_H

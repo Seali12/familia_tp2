@@ -29,8 +29,11 @@ public:
 
     //PRE: La lista no tiene que estar vacia y el objeto que se busca tiene que estar en la lista, busca un escritor segun su nombre.
     //POST: Devuelve al objeto que se quiere consultar
-    void consulta_nombre(string nombre_y_apellido, int anio_ingresado);
+    void modificar_fallecimiento(string nombre_y_apellido, int anio_ingresado);
 
+    //PRE: La lista no debe estar vacia y referencia debe ser > 0.
+    //Post: Devuelve true si la referencia ya se encuentra en la lista sino devuelve false.
+     bool referencia_repetida(string referencia);
 
     //PRE:
     //POST: Verifica que la lista no este vacia

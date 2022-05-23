@@ -5,6 +5,7 @@
 #include "lista_escritor.h"
 
 
+
 class Menu{
 
 private:
@@ -38,6 +39,8 @@ void listar_novela_genero();
 void cola_tiempo_lectura();
 
 void salir();
+
+void corroborar_tipo_lectura(char tipo_lectura, string titulo, int duracion, int anio, string escritor);
 
 
 public:
