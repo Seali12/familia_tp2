@@ -40,7 +40,7 @@ void cola_tiempo_lectura();
 
 void salir();
 
-void corroborar_tipo_lectura(char tipo_lectura, string titulo, int duracion, int anio, string escritor);
+void corroborar_tipo_lectura(char tipo_lectura, string titulo, double minutos, int anio, string escritor);
 
 
 public:

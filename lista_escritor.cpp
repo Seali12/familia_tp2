@@ -45,7 +45,7 @@ void Lista_escritor::baja(string nombre_y_apellido){
   delete borrar;
 }
 
-Tipo Lista_escritor::consulta_referencia(string referencia_escritor){
+Tipo Lista_escritor::consulta(string referencia_escritor){
   desplazar_actual(referencia_escritor);
   return actual->obtener_objeto();
 }

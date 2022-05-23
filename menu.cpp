@@ -1,6 +1,7 @@
 #include "menu.h"
 #include "stdlib.h"
 #include "time.h"
+#include "cctype"
 
 using namespace std;
 void Menu::desplegar_menu(){
@@ -23,33 +24,34 @@ void Menu::desplegar_menu(){
     cin >> opcion;
 }  
 
-void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, int duracion, int anio, string escritor){
+void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minutos, int anio, string escritor){
     switch(tipo_lectura){
-        case 'N':
+        case 'N':{
             
             string genero;
             cout << "Ingrese un genero: " << endl;
-            cin >> toUpper(genero);
+            cin >> toupper(genero);
             
-            if (genero == "HISTORICA")
+            if (genero == "HISTORICA"){
             
-                string tema;
-                cout << "Ingrese el tema de la novela: " << endl;
-                cin << tema;
-                
-                Lectura* nueva_historica = new Novela_historica(titulo, atof(minutos.c_str()), atoi(anio), 
-                escritores.consulta(escritor), genero, tema);
+                    string tema;
+                    cout << "Ingrese el tema de la novela: " << endl;
+                    cin >> tema;
 
-                lecturas.alta(nueva_historica);
-                
+                    Lectura* nueva_historica = new Novela_historica(titulo, minutos, anio, 
+                    escritores.consulta(escritor), genero, tema);
+
+                    lecturas.alta(nueva_historica);              
+            }
+            
             else{
                 
-                Lectura* nueva_novela = new Novela(titulo, atof(minutos.c_str()), atoi(anio), 
+                Lectura* nueva_novela = new Novela(titulo, minutos, anio, 
                 escritores.consulta(escritor), genero);
 
                 lecturas.alta(nueva_novela); 
             }
-            
+    }
             break;
         
         case 'P':
@@ -58,7 +60,7 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, int duracio
             cout << "Ingrese un cantidad de versos: " << endl;
             cin >> versos;
             
-            Lectura* nuevo_poema = new Poema(titulo,atof(minutos.c_str()), atoi(anio),
+            Lectura* nuevo_poema = new Poema(titulo,minutos, anio,
             escritores.consulta(escritor),versos);
             break;
         
@@ -68,7 +70,7 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, int duracio
             cout << "Ingrese el titulo del cuento: " << endl;
             cin >> titulo_cuento;
 
-            Lectura* nuevo_cuento = new Cuento(titulo,atof(minutos.c_str()),atoi(anio),
+            Lectura* nuevo_cuento = new Cuento(titulo, minutos, anio,
             escritores.consulta(escritor),titulo_cuento );
             lecturas.alta(nuevo_cuento);
             
@@ -117,13 +119,13 @@ void Menu::agregar_escritor(){
     cin >> referencia;
     
     bool repetida = false;
-    if(escritores.referencia_repetida(refencia))
+    if(escritores.referencia_repetida(referencia))
         repetida = true;
     
     while(repetida){
-        cout << "Esa referencia ya se encuenta en la lista de escritores por favor ingrese otra(por ejemplo: (1), (2), etc, segun corresponda)"
+        cout << "Esa referencia ya se encuenta en la lista de escritores por favor ingrese otra(por ejemplo: (1), (2), etc, segun corresponda)"<<endl;
        
-        if(!escritores.referencia_repetida(refencia))
+        if(!escritores.referencia_repetida(referencia))
             repetida = false;
     }
     
@@ -150,7 +152,7 @@ void Menu::agregar_escritor(){
    
 }
 
-void Menu::cambiar_escritor(){
+void Menu::cambiar_fecha_escritor(){
     string nombre_escritor;
     cout << "Escriba el nombre del escrito que desea modificar: " << endl;
     cin >> nombre_escritor;
