@@ -25,7 +25,12 @@ public:
     
     //PRE: La lista no tiene que estar vacia y el objeto que se busca tiene que estar en la lista
     //POST: Devuelve al objeto que se quiere consultar
-    Tipo consulta(string referencia_escritor);
+    Tipo consulta_referencia(string referencia_escritor);
+
+    //PRE: La lista no tiene que estar vacia y el objeto que se busca tiene que estar en la lista, busca un escritor segun su nombre.
+    //POST: Devuelve al objeto que se quiere consultar
+    void consulta_nombre(string nombre_y_apellido, int anio_ingresado);
+
 
     //PRE:
     //POST: Verifica que la lista no este vacia

@@ -1,5 +1,5 @@
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef LECTOR_H
+#define LECTOR_H
 
 #include "lectura.h"
 #include "poema.h"
@@ -14,8 +14,9 @@ const int CHAR = 0;
 const char N = 'N';
 const char P = 'P';
 const char C = 'C';
+const int NO_ENCONTRADO = -1;
 
-class Parser {
+class Lector {
 private:
     string archivo_lectura;
     
@@ -28,7 +29,7 @@ private:
 public:
     //PRE:
     //POST: Inicializa al objeto
-    Parser(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores);
+    Lector(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores);
 
     //PRE: El archivo tiene que tener el formato correcto
     //POST: Carga en la lista de escritores todo los escritores que estan en el archivo_escritor
@@ -53,7 +54,7 @@ public:
 
     //PRE:
     //POST: Destructor
-    ~Parser(){};
+    ~Lector(){};
 };
 
 #endif

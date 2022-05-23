@@ -45,10 +45,18 @@ void Lista_escritor::baja(string nombre_y_apellido){
   delete borrar;
 }
 
-Tipo Lista_escritor::consulta(string referencia_escritor){
+Tipo Lista_escritor::consulta_referencia(string referencia_escritor){
   desplazar_actual(referencia_escritor);
   return actual->obtener_objeto();
 }
+
+void Lista_escritor::consulta_nombre(string nombre_y_apellido, int anio_ingresado){
+  
+   desplazar_actual(nombre_y_apellido);
+  actual->obtener_objeto()->modificar_anio_fallecimiento(anio_ingresado);
+
+}
+
 
 bool Lista_escritor::vacia(){
   return (ultimo == 0);
@@ -79,10 +87,7 @@ void Lista_escritor::mostrar_lista_escritor(){
 
 void Lista_escritor::desplazar_actual(string referencia){
   actual = ultimo;
-  if (actual->obtener_objeto()->obtener_referencia() > referencia){
-    actual = ultimo;
-    anterior = nullptr;
-  }
+  anterior = nullptr;
   
   while (actual->obtener_objeto()->obtener_referencia() != referencia){
     anterior = actual;

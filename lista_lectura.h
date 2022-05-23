@@ -21,11 +21,11 @@ class Lista_lectura {
 
     //PRE: La lista no tiene que estar vacia y el objeto tiene que estar en la lista
     //POST: Elimina el elemento que tenga el mismo titulo que se busca.
-    void baja(int anio, string titulo);
+    void baja(string titulo);
     
     //PRE: La lista no tiene que estar vacia y el objeto que se busca tiene que estar en la lista
     //POST: Devuelve al objeto que se quiere consultar
-    Dato consulta(int anio, string titulo);
+    Dato consulta(string titulo);
 
     //PRE:
     //POST: Verifica que la lista no este vacia
@@ -52,7 +52,7 @@ class Lista_lectura {
 
     void ordenar(Dato objeto, Nodo<Dato>* direccion);
 
-    void desplazar_actual(int anio, string titulo);
+    void desplazar_actual(string titulo);
 };
 
 #endif // !LISTA_LECTURAS_H

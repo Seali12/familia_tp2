@@ -27,8 +27,8 @@ void Lista_lectura::baja(){
   delete borrar;
 }
 
-void Lista_lectura::baja(int anio, string titulo){
-  desplazar_actual(anio, titulo);
+void Lista_lectura::baja(string titulo){
+  desplazar_actual(titulo);
 
   Nodo<Dato>* borrar = actual;
   nodo_anterior->cambiar_siguiente(actual->obtener_siguiente());
@@ -38,8 +38,8 @@ void Lista_lectura::baja(int anio, string titulo){
   delete borrar;
 }
 
-Dato Lista_lectura::consulta(int anio, string titulo){
-  desplazar_actual(anio, titulo);
+Dato Lista_lectura::consulta(string titulo){
+  desplazar_actual(titulo);
   return actual->obtener_objeto();
 }
 
@@ -56,7 +56,10 @@ void Lista_lectura::mostrar_lista_lectura(){
   int i = 0;
   
   while(i < obtener_cantidad()){
-    actual->obtener_objeto()->mostrar();
+    actual->obtener_objeto()->mostrar();if (actual->obtener_objeto()->obtener_anio() > anio){
+    actual = ultimo;
+    nodo_anterior = nullptr;
+  }
     actual = actual->obtener_siguiente();
     i++;
   }
@@ -100,14 +103,11 @@ void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
   }
 }
  
-void Lista_lectura::desplazar_actual(int anio, string titulo){
-  if (actual->obtener_objeto()->obtener_anio() > anio){
-    actual = ultimo;
-    nodo_anterior = nullptr;
-  }
+void Lista_lectura::desplazar_actual(string titulo){
+  actual = ultimo;
+  anterior = nullptr;
   
-  while (actual->obtener_objeto()->obtener_anio() != anio 
-  and actual->obtener_objeto()->obtener_titulo() != titulo){
+  while (actual->obtener_objeto()->obtener_titulo() != titulo){
     
     nodo_anterior = actual;
     actual = actual->obtener_siguiente();

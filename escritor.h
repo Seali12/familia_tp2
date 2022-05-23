@@ -35,6 +35,10 @@ public:
     //pre:
     //Post: Devuelve el numero de referencia del autor.
     string obtener_referencia();
+
+    //Pre: Debe haber un objeto escritor previo al cual se le quiere modificar el año.
+    //Post: Modifica el año de fallecimiento de un escritor.
+    void modificar_anio_fallecimiento(int anio_ingresado);
 };
 
 

@@ -40,3 +40,8 @@ string Escritor::obtener_nombre_y_apellido() {
 string Escritor::obtener_referencia(){
     return referencia;
 }
+
+void Escritor::modificar_anio_fallecimiento(int anio_ingresado){
+    anio_fallecimiento = anio_ingresado;
+
+}
