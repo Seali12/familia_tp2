@@ -14,7 +14,7 @@ int main(){
     a.procesar_archivo_escritores();
     a.procesar_archivo_lectura();
 
-    //a.mostrar();
+    a.mostrar();
     
     return 0;
 }

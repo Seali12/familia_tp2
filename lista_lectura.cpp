@@ -14,10 +14,13 @@ void Lista_lectura::alta(Dato objeto){
   
   ordenar(objeto, nuevo);
   cantidad++;
+
+  mostrar_lista_lectura();
 }
 
 void Lista_lectura::baja(){
   Nodo<Dato>* borrar = ultimo;
+
   ultimo = ultimo->obtener_siguiente();
 
   cantidad--;
@@ -69,7 +72,7 @@ void Lista_lectura::liberar_lista(){
 }
 
 bool Lista_lectura::es_ultimo(Nodo<Dato>*nodo){
-  return (nodo->obtener_siguiente()==nullptr);
+  return (nodo->obtener_siguiente()== 0);
 }
 
 
@@ -79,45 +82,22 @@ void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
 
   if (vacia()){
     ultimo = direccion;
-  }
-  else if(siguiente->obtener_siguiente()==nullptr){
-    if(ultimo->obtener_objeto()->obtener_anio()>objeto->obtener_anio()){
-      ultimo->cambiar_siguiente(direccion);
+  }else{
+    while(!es_ultimo(siguiente) and objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
 
+      anterior = siguiente;
+      siguiente = siguiente->obtener_siguiente();
     }
-    else{
-        anterior=siguiente;
-        anterior->cambiar_siguiente(direccion);
-    }
-  }
-  else{
-
-    cout<<siguiente<<endl;
-    cout<<ultimo<<endl;
-    
-    cout<<objeto->obtener_anio()<<endl;
-    cout<<siguiente->obtener_objeto()->obtener_anio()<<endl;
-
-      
-      while(!es_ultimo(siguiente)){
-        if(objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
-
-          anterior = siguiente;
-          siguiente = siguiente->obtener_siguiente();
-
-
-          cout<<siguiente<<endl;
-          cout<<anterior<<endl;
-        }
-      }
-
 
     if(es_ultimo(siguiente)){
       siguiente->cambiar_siguiente(direccion);
-    }
-    direccion->cambiar_siguiente(siguiente);
-    if(anterior != nullptr){
-      anterior->cambiar_siguiente(direccion);
+    }else{
+      direccion->cambiar_siguiente(siguiente);
+      if(anterior != nullptr){
+        anterior->cambiar_siguiente(direccion);
+      }else{
+        ultimo = direccion;
+      }
     }
   }
 }
@@ -130,7 +110,7 @@ void Lista_lectura::desplazar_actual(int anio, string titulo){
   }
   
   while (actual->obtener_objeto()->obtener_anio() != anio 
-  && actual->obtener_objeto()->obtener_titulo() != titulo){
+  and actual->obtener_objeto()->obtener_titulo() != titulo){
     
     nodo_anterior = actual;
     actual = actual->obtener_siguiente();

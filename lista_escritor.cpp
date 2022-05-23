@@ -15,11 +15,11 @@ void Lista_escritor::alta(Tipo objeto){
   
   nuevo->cambiar_siguiente(ultimo);
   ultimo = nuevo;
-  cout<<"antes de entrar al if"<<actual<<endl;
+
   if (actual==0){
       actual = ultimo;
-      cout<<"dentro if"<<actual->obtener_objeto()->obtener_referencia()<<endl;
   }
+  
   cantidad++;
 }
 
@@ -46,8 +46,6 @@ void Lista_escritor::baja(string nombre_y_apellido){
 }
 
 Tipo Lista_escritor::consulta(string referencia_escritor){
-  cout<<ultimo<<endl;
-   cout<<actual<<endl;
   desplazar_actual(referencia_escritor);
   return actual->obtener_objeto();
 }
@@ -81,20 +79,13 @@ void Lista_escritor::mostrar_lista_escritor(){
 
 void Lista_escritor::desplazar_actual(string referencia){
   actual = ultimo;
-  cout<<"dezplaar"<<endl;
   if (actual->obtener_objeto()->obtener_referencia() > referencia){
     actual = ultimo;
     anterior = nullptr;
   }
   
-  while ((actual->obtener_objeto())->obtener_referencia() != referencia){
+  while (actual->obtener_objeto()->obtener_referencia() != referencia){
     anterior = actual;
     actual = actual->obtener_siguiente();
   }
 }
-
-
-
-
-
-

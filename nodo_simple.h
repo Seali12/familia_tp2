@@ -57,7 +57,7 @@ void Nodo<dato>::cambiar_siguiente(Nodo<dato>* nueva_direccion){
 
 template < typename dato >
 void Nodo<dato>::eliminar_objeto(){
-  delete []objeto;
+  delete objeto;
   objeto = nullptr;
 }
 

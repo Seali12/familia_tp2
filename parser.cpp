@@ -2,172 +2,162 @@
 #include <fstream>
 #include <stdlib.h>
 
-Parser::Parser(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores){
+Parser::Parser(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores)
+{
     this->archivo_lectura = archivo_lectura;
     this->archivo_escritor = archivo_escritor;
     this->lecturas = lecturas;
     this->escritores = escritores;
-
 }
 
-
-
-void Parser::procesar_archivo_escritores(){
+void Parser::procesar_archivo_escritores()
+{
 
     ifstream archivo_escritores(archivo_escritor, ios::in);
-    
-    if(!archivo_escritores){
+
+    if (!archivo_escritores)
+    {
         cout << "No se pudo abrir el archivo de escritores" << endl;
     }
-    else{
+    else
+    {
         string referencia, nombre_escritor, nacionalidad, anio_nacimiento, anio_fallecimiento, espacio;
-        while(getline(archivo_escritores, referencia)){
-            
-            
-            getline(archivo_escritores, nombre_escritor);
-            
-            
-            getline(archivo_escritores, nacionalidad);
-            
-            
-            getline(archivo_escritores, anio_nacimiento);
-            
-            
-            if(!anio_nacimiento.empty()){
-                getline(archivo_escritores, anio_fallecimiento);
-                
-            }else{
-                anio_nacimiento = "-1";
-                
-            }
-            if(anio_fallecimiento.empty()){
-               anio_fallecimiento = "-1";
-               
-            }else{
-                getline(archivo_escritores, espacio);
-                
-            }   
-            
+        while (getline(archivo_escritores, referencia))
+        {
 
-            Escritor* nuevo_escritor = new Escritor(referencia, nombre_escritor, nacionalidad, stoi(anio_nacimiento), stoi(anio_fallecimiento));
-            
-            
-            escritores.alta(nuevo_escritor); 
+            getline(archivo_escritores, nombre_escritor);
+            getline(archivo_escritores, nacionalidad);
+            getline(archivo_escritores, anio_nacimiento);
+
+            if (!anio_nacimiento.empty())
+            {
+                getline(archivo_escritores, anio_fallecimiento);
+            }
+            else
+            {
+                anio_nacimiento = "-1";
+            }
+            if (anio_fallecimiento.empty())
+            {
+                anio_fallecimiento = "-1";
+            }
+            else
+            {
+                getline(archivo_escritores, espacio);
+            }
+
+            Escritor *nuevo_escritor = new Escritor(referencia, nombre_escritor, nacionalidad,
+                                                    stoi(anio_nacimiento), stoi(anio_fallecimiento));
+
+            escritores.alta(nuevo_escritor);
         }
-    escritores.mostrar_lista_escritor();
     }
-       
+
     archivo_escritores.close();
 }
 
-void Parser::mostrar(){
+void Parser::mostrar()
+{
     escritores.mostrar_lista_escritor();
-
-    cout << "fin de escritore" << endl;
-
     lecturas.mostrar_lista_lectura();
-
-    cout << "fin de lecturas" << endl;
-
 }
-
 
 Parser::~Parser(){
     lecturas.liberar_lista();
     escritores.liberar_lista();
 }
 
-void Parser::procesar_archivo_lectura(){
-    
+void Parser::procesar_archivo_lectura()
+{
+
     ifstream archivo_lectores(archivo_lectura, ios::in);
 
-    if(!archivo_lectores){
-        cout<<"No se pudo abrir el archivo de lectores"<<endl;
+    if (!archivo_lectores)
+    {
+        cout << "No se pudo abrir el archivo de lectores" << endl;
     }
-    else{
+    else
+    {
         string tipo_lectura;
-        int h = 1;
-        while(getline(archivo_lectores, tipo_lectura)){
-            cout << "entra al while " << h << " " << tipo_lectura << endl;
-            h++;
-            Lectura* p_nueva_lectura;
 
-            string titulo, minutos, anio, referencia_escritor,espacio;
-            
+        while (getline(archivo_lectores, tipo_lectura))
+        {
+
+            string titulo, minutos, anio, referencia_escritor, espacio;
+
             getline(archivo_lectores, titulo);
             getline(archivo_lectores, minutos);
             getline(archivo_lectores, anio);
-            
-            switch (tipo_lectura[CHAR]){
-            case N:{
-                cout << "switch" << endl;
-                string genero;   
+
+            switch (tipo_lectura[CHAR])
+            {
+            case N:
+            {
+                string genero;
                 getline(archivo_lectores, genero);
+
                 cout << genero << endl;
-                if (genero == "HISTORICA"){
-                    
+                if (genero == "HISTORICA")
+                {
+
                     string tema_historica;
-                    
+
                     getline(archivo_lectores, tema_historica);
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
-                   
-                   Novela_historica* nueva_historica = new Novela_historica(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero, tema_historica);
-                    p_nueva_lectura = nueva_historica;
 
-                    lecturas.alta(p_nueva_lectura);
-             
-                }else{
-                    
+                    Lectura *nueva_historica = new Novela_historica(titulo, atof(minutos.c_str()), stoi(anio),
+                                                                    escritores.consulta(referencia_escritor), genero, tema_historica);
+
+                    lecturas.alta(nueva_historica);
+                }
+                else
+                {
+
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
- 
-                    Novela* nueva_novela = new Novela(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), genero);
-                    p_nueva_lectura = nueva_novela;
 
-                    lecturas.alta(p_nueva_lectura);
+                    Lectura *nueva_novela = new Novela(titulo, atof(minutos.c_str()), stoi(anio),
+                                                       escritores.consulta(referencia_escritor), genero);
+
+                    lecturas.alta(nueva_novela);
                 }
-                
+
                 break;
             }
-            case P:{
-                cout << "switch" << endl;
+            case P:
+            {
                 string versos;
 
                 getline(archivo_lectores, versos);
                 getline(archivo_lectores, referencia_escritor);
                 getline(archivo_lectores, espacio);
 
-                 Poema* nuevo_poema = new Poema(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), stoi(versos));
-                 p_nueva_lectura = nuevo_poema;
+                Lectura *nuevo_poema = new Poema(titulo, atof(minutos.c_str()), stoi(anio),
+                                                 escritores.consulta(referencia_escritor), stoi(versos));
 
-              lecturas.alta(p_nueva_lectura);
+                lecturas.alta(nuevo_poema);
 
                 break;
             }
-            case C:{
-                cout << "switch" << endl;
+            case C:
+            {
                 string titulo_cuento;
 
                 getline(archivo_lectores, titulo_cuento);
                 getline(archivo_lectores, referencia_escritor);
                 getline(archivo_lectores, espacio);
-                
-                //cout << titulo << " " << referencia_escritor << " " << endl;
-                //cout << escritores.consulta(referencia_escritor) << endl; //ESTE METODO ES EL QUE DA ERROR!!!!!!
-                
-                Cuento* nuevo_cuento = new Cuento(titulo, atof(minutos.c_str()), stoi(anio), escritores.consulta(referencia_escritor), titulo_cuento);
-                p_nueva_lectura = nuevo_cuento;
-                cout << "se creo" << endl;
 
-                lecturas.alta(p_nueva_lectura);
-                cout<<"dio alta"<<endl;
+                Lectura *nuevo_cuento = new Cuento(titulo, atof(minutos.c_str()), stoi(anio),
+                                                   escritores.consulta(referencia_escritor), titulo_cuento);
+
+                lecturas.alta(nuevo_cuento);
+
                 break;
-            }      
+            }
+            }
         }
 
-    }
-       
-    archivo_lectores.close();
+        archivo_lectores.close();
     }
 }

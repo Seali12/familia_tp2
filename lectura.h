@@ -36,6 +36,9 @@ public:
     //Post:
     virtual void mostrar() = 0;
 
+    //Destructor
+    virtual ~Lectura(){};
+
 };
 
 #endif
