@@ -55,18 +55,18 @@ void Parser::procesar_archivo_escritores()
 
     archivo_escritores.close();
 }
-
+// BORRAR
 void Parser::mostrar()
 {
     escritores.mostrar_lista_escritor();
     lecturas.mostrar_lista_lectura();
 }
 
-Parser::~Parser(){
+void Parser::eliminar_listas(){
     lecturas.liberar_lista();
     escritores.liberar_lista();
 }
-
+// BORRAR
 void Parser::procesar_archivo_lectura()
 {
 
@@ -160,4 +160,12 @@ void Parser::procesar_archivo_lectura()
 
         archivo_lectores.close();
     }
+}
+
+Lista_lectura Parser::devolver_lecturas(){
+    return lecturas;
+}
+
+Lista_escritor Parser::devolver_escritores(){
+    return escritores;
 }

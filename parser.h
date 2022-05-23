@@ -27,27 +27,33 @@ private:
     
 public:
     //PRE:
-    //POST:
+    //POST: Inicializa al objeto
     Parser(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores);
 
-    //PRE:
-    //POST:
+    //PRE: El archivo tiene que tener el formato correcto
+    //POST: Carga en la lista de escritores todo los escritores que estan en el archivo_escritor
     void procesar_archivo_escritores();
 
-    //PRE:
-    //POST:
-    void procesar_archivo_lectura();    
-
-    //PRE:
-    //POST:
-    void mostrar();
+    //PRE: El archivo tiene que tener el formato correcto
+    //POST: Carga en la lista de lecturas todo las lecturas que estan en el archivo_lectura
+    void procesar_archivo_lectura();
     
     //PRE:
-    //POST:
-    ~Parser();
+    //POST: Devuelve la lista de lecturas
+    Lista_lectura devolver_lecturas();
+
+    //PRE:
+    //POST: Devuelve la lista de escritores
+    Lista_escritor devolver_escritores();
+
+    //BORRAR
+    void mostrar();
+
+    void eliminar_listas();
+
+    //PRE:
+    //POST: Destructor
+    ~Parser(){};
 };
-
-
-
 
 #endif

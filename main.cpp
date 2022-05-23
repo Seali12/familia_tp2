@@ -14,8 +14,10 @@ int main(){
     a.procesar_archivo_escritores();
     a.procesar_archivo_lectura();
 
-    a.mostrar();
+    Parser b("lecturas.txt", "escritor.txt", a.devolver_lecturas(), a.devolver_escritores());
+    b.mostrar();
     
+    b.eliminar_listas();
     return 0;
 }
 

@@ -14,8 +14,6 @@ void Lista_lectura::alta(Dato objeto){
   
   ordenar(objeto, nuevo);
   cantidad++;
-
-  mostrar_lista_lectura();
 }
 
 void Lista_lectura::baja(){
@@ -102,7 +100,6 @@ void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
   }
 }
  
-
 void Lista_lectura::desplazar_actual(int anio, string titulo){
   if (actual->obtener_objeto()->obtener_anio() > anio){
     actual = ultimo;
