@@ -1,6 +1,8 @@
 #ifndef COLORES_H
 #define COLORES_H
 
+//Diferentes colores con los que se puede decorar las entradas y salidas del programa
+
 #define RESET   "\033[0m"
 #define NEGRO   "\033[30m"    
 #define ROJO     "\033[31m"  

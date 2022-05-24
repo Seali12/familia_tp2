@@ -1,10 +1,9 @@
-#ifndef Lista_escritor_ESCRITOR_H
-#define Lista_escritor_ESCRITOR_H
+#ifndef LISTA_ESCRITOR_H
+#define LISTA_ESCRITOR_H
 
 #include "colores.h"
 #include "nodo_simple.h"
 #include "escritor.h"
-
 
 typedef Escritor* Tipo;
 class Lista_escritor{
@@ -34,7 +33,7 @@ public:
 
     //PRE: La lista no debe estar vacia y referencia debe ser > 0.
     //Post: Devuelve true si la referencia ya se encuentra en la lista sino devuelve false.
-     bool referencia_repetida(string referencia);
+    bool referencia_repetida(string referencia);
 
     //PRE:
     //POST: Verifica que la lista no este vacia
@@ -44,12 +43,9 @@ public:
     //POST: Devuelve cuantos elementos tiene la lista
     int obtener_cantidad();
 
-
     //Pre:
     //Post: Muestra por pantalla los datos del escritor.
     void mostrar_lista_escritor();
-
-    
 
     //Destructor
     void liberar_lista();

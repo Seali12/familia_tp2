@@ -74,9 +74,6 @@ void Menu::opciones(int opcion){
             break;
         
     }
-
-
-
 }
 
 void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minutos, int anio, string escritor){

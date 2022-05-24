@@ -56,7 +56,6 @@ bool Lista_escritor::referencia_repetida(string referencia){
   return (actual->obtener_siguiente() != nullptr and actual->obtener_objeto()->obtener_referencia() != referencia);
 }
 
-
 bool Lista_escritor::vacia(){
   return (ultimo == 0);
 }
@@ -65,7 +64,6 @@ int Lista_escritor::obtener_cantidad(){
   return cantidad;
 }
 
-//REVISAR DESTRUCTOR
 void Lista_escritor::liberar_lista(){
   while (! vacia() ){
     baja();

@@ -26,5 +26,3 @@ string Lectura::obtener_titulo(){
 char Lectura::obtener_tipo_lectura(){
     return tipo_lectura;
 }
-
-

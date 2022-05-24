@@ -18,12 +18,6 @@ public:
     //Pre:
     //Post: Muestra la informacion de una novela_historica.
     void mostrar();
-
-
-
-
-
-
 };
 
 

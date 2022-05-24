@@ -1,5 +1,5 @@
-#ifndef ALGO_2_TP_2_LIBRO_H
-#define ALGO_2_TP_2_LIBRO_H
+#ifndef CUENTO_H
+#define CUENTO_H
 
 #include "lectura.h"
 

@@ -70,7 +70,6 @@ void Lista_lectura::mostrar_lista_lectura(){
   }
 }
 
-//REVISAR DESTRUCTOR
 void Lista_lectura::liberar_lista(){
   while (! vacia() ){
     baja();
@@ -80,7 +79,6 @@ void Lista_lectura::liberar_lista(){
 bool Lista_lectura::es_ultimo(Nodo<Dato>*nodo){
   return (nodo->obtener_siguiente()== 0);
 }
-
 
 void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
   Nodo<Dato>* siguiente = ultimo;
@@ -134,22 +132,21 @@ void Lista_lectura::listar_por_genero(string genero){
   if(genero != "TERROR" and genero != "HISTORICA" and genero != "COMEDIA" 
           and genero != "FICCION" and genero != "ROMANTICA" and genero != "DRAMA" and genero != "SUSPENSO")
 
-          cout << BLANCO "El genero ingresado no existe, los generos son: TERROR, HISTORICA, FICCION, COMEDIA, ROMANTICA, DRAMA, SUSPENSO " NEGRITA_ROJO << endl;
+    cout << BLANCO "El genero ingresado no existe, los generos son: TERROR, HISTORICA, FICCION, COMEDIA, ROMANTICA, DRAMA, SUSPENSO " NEGRITA_ROJO << endl;
   
   else{ 
     while(!es_ultimo(actual)){
     
       if(actual->obtener_objeto()->obtener_tipo_lectura() == 'N' 
-            and actual->obtener_objeto()->obtener_atributo_especial() == genero)
+            and actual->obtener_objeto()->obtener_atributo_especial() == genero){
             
-              actual->obtener_objeto()->mostrar();
-          
+        actual->obtener_objeto()->mostrar();
+      }
+
       desplazar_actual(actual);
   
     }
-  }
-      
-      
+  }   
 }
 
 void Lista_lectura::listar_por_escritor(string referencia){
@@ -159,12 +156,12 @@ void Lista_lectura::listar_por_escritor(string referencia){
   while(!es_ultimo(actual)){
     
       if(actual->obtener_objeto()->obtener_escritor()->obtener_nombre_y_apellido() == referencia 
-          or actual->obtener_objeto()->obtener_escritor()->obtener_referencia() == referencia)
+        or actual->obtener_objeto()->obtener_escritor()->obtener_referencia() == referencia){
             
-              actual->obtener_objeto()->mostrar();
-          
+        actual->obtener_objeto()->mostrar();
+      }   
+
       desplazar_actual(actual);
-  
     }
 }
 
@@ -181,10 +178,11 @@ void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
   
   while (actual->obtener_objeto()->obtener_anio() <= anio_max and !es_ultimo(actual)){
 
-    if (actual->obtener_objeto()->obtener_anio() >= anio_min)
+    if (actual->obtener_objeto()->obtener_anio() >= anio_min){
         
-        actual->obtener_objeto()->mostrar();
-    
+      actual->obtener_objeto()->mostrar();
+    }
+
     desplazar_actual(actual);
   }
 
@@ -192,5 +190,3 @@ void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
     actual->obtener_objeto()->mostrar();
   }
 }
-
-

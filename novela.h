@@ -31,6 +31,4 @@ public:
     string obtener_atributo_especial();
 };
 
-
-
 #endif

@@ -56,8 +56,9 @@ class Lista_lectura {
     //PRE: genero peude ser: "TERROR", "HISTORICA", "FICCION", "COMEDIA", "ROMANTICA", "DRAMA", "SUSPENSO".
     //POST: Muestra todas las lecturas con el genero ingresado
     void listar_por_genero(string genero);
-    
 
+    //PRE: el escritor tiene que estar en la lista de escritores
+    //POST: Imprime por pantalla todas las lecturas del escritor que se pasa por parametro
     void listar_por_escritor(string referencia);
 
     //Destructor

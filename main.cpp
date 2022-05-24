@@ -22,13 +22,7 @@ int main(){
     }
         
     b.eliminar_listas();
-    
-    
-    
-    
-    
-    
-    
+
     return 0;
 }
 

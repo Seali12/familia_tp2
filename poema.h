@@ -1,5 +1,5 @@
-#ifndef ALGO_2_TP_2_POEMA_H
-#define ALGO_2_TP_2_POEMA_H
+#ifndef POEMA_H
+#define POEMA_H
 
 #include "lectura.h"
 
@@ -19,6 +19,5 @@ public:
     string obtener_atributo_especial();
 
 };
-
 
 #endif

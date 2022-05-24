@@ -1,141 +1,141 @@
-==67961== Memcheck, a memory error detector
-==67961== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==67961== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
-==67961== Command: ./e
-==67961== Parent PID: 66182
-==67961== 
---67961-- 
---67961-- Valgrind options:
---67961--    --leak-check=full
---67961--    --show-leak-kinds=all
---67961--    --track-origins=yes
---67961--    --verbose
---67961--    --log-file=valgrind-out.txt
---67961-- Contents of /proc/version:
---67961--   Linux version 5.17.3-arch1-1 (linux@archlinux) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.38) #1 SMP PREEMPT Thu, 14 Apr 2022 01:18:36 +0000
---67961-- 
---67961-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
---67961-- Page sizes: currently 4096, max supported 4096
---67961-- Valgrind library directory: /usr/lib/valgrind
---67961-- Reading syms from /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e
---67961-- Reading syms from /usr/lib/ld-linux-x86-64.so.2
---67961-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
---67961--    object doesn't have a symbol table
---67961--    object doesn't have a dynamic symbol table
---67961-- Scheduler: using generic scheduler lock implementation.
---67961-- Reading suppressions file: /usr/lib/valgrind/default.supp
-==67961== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-67961-by-ayuwoki-on-???
-==67961== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-67961-by-ayuwoki-on-???
-==67961== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-67961-by-ayuwoki-on-???
-==67961== 
-==67961== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==67961== don't want to do, unless you know exactly what you're doing,
-==67961== or are doing some strange experiment):
-==67961==   /usr/lib/valgrind/../../bin/vgdb --pid=67961 ...command...
-==67961== 
-==67961== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==67961==   /path/to/gdb ./e
-==67961== and then give GDB the following command
-==67961==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=67961
-==67961== --pid is optional if only one valgrind process is running
-==67961== 
---67961-- REDIR: 0x4027c60 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcfb2 (???)
---67961-- REDIR: 0x4027a30 (ld-linux-x86-64.so.2:index) redirected to 0x580bcfcc (???)
---67961-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
---67961--    object doesn't have a symbol table
---67961-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
---67961--    object doesn't have a symbol table
-==67961== WARNING: new redirection conflicts with existing -- ignoring it
---67961--     old: 0x04027c60 (strlen              ) R-> (0000.0) 0x580bcfb2 ???
---67961--     new: 0x04027c60 (strlen              ) R-> (2007.0) 0x0484be30 strlen
---67961-- REDIR: 0x4024440 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484ccd0 (strcmp)
---67961-- REDIR: 0x40281c0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4850840 (mempcpy)
---67961-- Reading syms from /usr/lib/libstdc++.so.6.0.30
---67961-- Reading syms from /usr/lib/libm.so.6
---67961--    object doesn't have a symbol table
---67961-- Reading syms from /usr/lib/libgcc_s.so.1
---67961-- Reading syms from /usr/lib/libc.so.6
-==67961== WARNING: new redirection conflicts with existing -- ignoring it
---67961--     old: 0x04c522e0 (memalign            ) R-> (1011.0) 0x0484b080 memalign
---67961--     new: 0x04c522e0 (memalign            ) R-> (1017.0) 0x0484b050 aligned_alloc
-==67961== WARNING: new redirection conflicts with existing -- ignoring it
---67961--     old: 0x04c522e0 (memalign            ) R-> (1011.0) 0x0484b080 memalign
---67961--     new: 0x04c522e0 (memalign            ) R-> (1017.0) 0x0484b020 aligned_alloc
-==67961== WARNING: new redirection conflicts with existing -- ignoring it
---67961--     old: 0x04c522e0 (memalign            ) R-> (1011.0) 0x0484b080 memalign
---67961--     new: 0x04c522e0 (memalign            ) R-> (1017.0) 0x0484b050 aligned_alloc
-==67961== WARNING: new redirection conflicts with existing -- ignoring it
---67961--     old: 0x04c522e0 (memalign            ) R-> (1011.0) 0x0484b080 memalign
---67961--     new: 0x04c522e0 (memalign            ) R-> (1017.0) 0x0484b020 aligned_alloc
---67961-- REDIR: 0x4c555c0 (libc.so.6:strncasecmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c56a20 (libc.so.6:strchrnul) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c5aed0 (libc.so.6:memrchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c55710 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c6eec0 (libc.so.6:wcslen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c70620 (libc.so.6:wcsnlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c54270 (libc.so.6:strnlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c54530 (libc.so.6:strpbrk) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c53e20 (libc.so.6:strcmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c551d0 (libc.so.6:memset) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c6ecf0 (libc.so.6:wcschr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c53da0 (libc.so.6:index) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c544b0 (libc.so.6:rindex) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c550a0 (libc.so.6:memmove) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
-==67961== Preferring higher priority redirection:
---67961--     old: 0x04d3a480 (__memcpy_avx_unalign) R-> (2018.0) 0x0484df90 __memcpy_avx_unaligned_erms
---67961--     new: 0x04d3a480 (__memcpy_avx_unalign) R-> (2018.1) 0x0484f880 memmove
---67961-- REDIR: 0x4c6ed70 (libc.so.6:wcscmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c554e0 (libc.so.6:stpncpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c6f330 (libc.so.6:wmemchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c54380 (libc.so.6:strncmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c55570 (libc.so.6:strcasecmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c53f60 (libc.so.6:strcspn) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c6edf0 (libc.so.6:wcscpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c53d10 (libc.so.6:strcat) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c55660 (libc.so.6:strncasecmp_l) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c54f80 (libc.so.6:bcmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c53ed0 (libc.so.6:strcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c55610 (libc.so.6:strcasecmp_l) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c541f0 (libc.so.6:strlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c54420 (libc.so.6:strncpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c55450 (libc.so.6:stpcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c54ef0 (libc.so.6:memchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c54650 (libc.so.6:strspn) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c552d0 (libc.so.6:mempcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c56990 (libc.so.6:rawmemchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4c54e10 (libc.so.6:strstr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
---67961-- REDIR: 0x4d372d0 (libc.so.6:__strrchr_avx2) redirected to 0x484b810 (rindex)
---67961-- REDIR: 0x4c51590 (libc.so.6:malloc) redirected to 0x4845820 (malloc)
---67961-- REDIR: 0x4d374a0 (libc.so.6:__strlen_avx2) redirected to 0x484bd10 (strlen)
---67961-- REDIR: 0x4d33740 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x484f010 (bcmp)
---67961-- REDIR: 0x4d32600 (libc.so.6:__strcmp_avx2) redirected to 0x484cbd0 (strcmp)
---67961-- REDIR: 0x4d3a480 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x484f880 (memmove)
---67961-- REDIR: 0x4c54b10 (libc.so.6:__GI_strstr) redirected to 0x4850ae0 (__strstr_sse2)
---67961-- REDIR: 0x491b3c0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4847280 (operator new[](unsigned long))
---67961-- REDIR: 0x4d32f80 (libc.so.6:__memchr_avx2) redirected to 0x484cd50 (memchr)
---67961-- REDIR: 0x491b360 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4845fa0 (operator new(unsigned long))
---67961-- REDIR: 0x49195d0 (libstdc++.so.6:operator delete(void*)) redirected to 0x4848840 (operator delete(void*))
---67961-- REDIR: 0x4919600 (libstdc++.so.6:operator delete[](void*)) redirected to 0x4849a20 (operator delete[](void*))
---67961-- REDIR: 0x4c51b70 (libc.so.6:free) redirected to 0x4848210 (free)
-==67961== Conditional jump or move depends on uninitialised value(s)
-==67961==    at 0x10EA00: main (in /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e)
-==67961==  Uninitialised value was created by a stack allocation
-==67961==    at 0x10E7C4: main (in /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e)
-==67961== 
---67961-- REDIR: 0x49195e0 (libstdc++.so.6:operator delete(void*, unsigned long)) redirected to 0x4848b00 (operator delete(void*, unsigned long))
-==67961== 
-==67961== HEAP SUMMARY:
-==67961==     in use at exit: 0 bytes in 0 blocks
-==67961==   total heap usage: 80 allocs, 80 frees, 93,106 bytes allocated
-==67961== 
-==67961== All heap blocks were freed -- no leaks are possible
-==67961== 
-==67961== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==67961== 
-==67961== 1 errors in context 1 of 1:
-==67961== Conditional jump or move depends on uninitialised value(s)
-==67961==    at 0x10EA00: main (in /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e)
-==67961==  Uninitialised value was created by a stack allocation
-==67961==    at 0x10E7C4: main (in /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e)
-==67961== 
-==67961== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==87870== Memcheck, a memory error detector
+==87870== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==87870== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==87870== Command: ./e
+==87870== Parent PID: 66182
+==87870== 
+--87870-- 
+--87870-- Valgrind options:
+--87870--    --leak-check=full
+--87870--    --show-leak-kinds=all
+--87870--    --track-origins=yes
+--87870--    --verbose
+--87870--    --log-file=valgrind-out.txt
+--87870-- Contents of /proc/version:
+--87870--   Linux version 5.17.3-arch1-1 (linux@archlinux) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.38) #1 SMP PREEMPT Thu, 14 Apr 2022 01:18:36 +0000
+--87870-- 
+--87870-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--87870-- Page sizes: currently 4096, max supported 4096
+--87870-- Valgrind library directory: /usr/lib/valgrind
+--87870-- Reading syms from /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e
+--87870-- Reading syms from /usr/lib/ld-linux-x86-64.so.2
+--87870-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--87870--    object doesn't have a symbol table
+--87870--    object doesn't have a dynamic symbol table
+--87870-- Scheduler: using generic scheduler lock implementation.
+--87870-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==87870== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-87870-by-ayuwoki-on-???
+==87870== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-87870-by-ayuwoki-on-???
+==87870== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-87870-by-ayuwoki-on-???
+==87870== 
+==87870== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==87870== don't want to do, unless you know exactly what you're doing,
+==87870== or are doing some strange experiment):
+==87870==   /usr/lib/valgrind/../../bin/vgdb --pid=87870 ...command...
+==87870== 
+==87870== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==87870==   /path/to/gdb ./e
+==87870== and then give GDB the following command
+==87870==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=87870
+==87870== --pid is optional if only one valgrind process is running
+==87870== 
+--87870-- REDIR: 0x4027c60 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcfb2 (???)
+--87870-- REDIR: 0x4027a30 (ld-linux-x86-64.so.2:index) redirected to 0x580bcfcc (???)
+--87870-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--87870--    object doesn't have a symbol table
+--87870-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--87870--    object doesn't have a symbol table
+==87870== WARNING: new redirection conflicts with existing -- ignoring it
+--87870--     old: 0x04027c60 (strlen              ) R-> (0000.0) 0x580bcfb2 ???
+--87870--     new: 0x04027c60 (strlen              ) R-> (2007.0) 0x0484be30 strlen
+--87870-- REDIR: 0x4024440 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484ccd0 (strcmp)
+--87870-- REDIR: 0x40281c0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4850840 (mempcpy)
+--87870-- Reading syms from /usr/lib/libstdc++.so.6.0.30
+--87870-- Reading syms from /usr/lib/libm.so.6
+--87870--    object doesn't have a symbol table
+--87870-- Reading syms from /usr/lib/libgcc_s.so.1
+--87870-- Reading syms from /usr/lib/libc.so.6
+==87870== WARNING: new redirection conflicts with existing -- ignoring it
+--87870--     old: 0x04c522e0 (memalign            ) R-> (1011.0) 0x0484b080 memalign
+--87870--     new: 0x04c522e0 (memalign            ) R-> (1017.0) 0x0484b050 aligned_alloc
+==87870== WARNING: new redirection conflicts with existing -- ignoring it
+--87870--     old: 0x04c522e0 (memalign            ) R-> (1011.0) 0x0484b080 memalign
+--87870--     new: 0x04c522e0 (memalign            ) R-> (1017.0) 0x0484b020 aligned_alloc
+==87870== WARNING: new redirection conflicts with existing -- ignoring it
+--87870--     old: 0x04c522e0 (memalign            ) R-> (1011.0) 0x0484b080 memalign
+--87870--     new: 0x04c522e0 (memalign            ) R-> (1017.0) 0x0484b050 aligned_alloc
+==87870== WARNING: new redirection conflicts with existing -- ignoring it
+--87870--     old: 0x04c522e0 (memalign            ) R-> (1011.0) 0x0484b080 memalign
+--87870--     new: 0x04c522e0 (memalign            ) R-> (1017.0) 0x0484b020 aligned_alloc
+--87870-- REDIR: 0x4c555c0 (libc.so.6:strncasecmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c56a20 (libc.so.6:strchrnul) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c5aed0 (libc.so.6:memrchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c55710 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c6eec0 (libc.so.6:wcslen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c70620 (libc.so.6:wcsnlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c54270 (libc.so.6:strnlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c54530 (libc.so.6:strpbrk) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c53e20 (libc.so.6:strcmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c551d0 (libc.so.6:memset) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c6ecf0 (libc.so.6:wcschr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c53da0 (libc.so.6:index) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c544b0 (libc.so.6:rindex) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c550a0 (libc.so.6:memmove) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+==87870== Preferring higher priority redirection:
+--87870--     old: 0x04d3a480 (__memcpy_avx_unalign) R-> (2018.0) 0x0484df90 __memcpy_avx_unaligned_erms
+--87870--     new: 0x04d3a480 (__memcpy_avx_unalign) R-> (2018.1) 0x0484f880 memmove
+--87870-- REDIR: 0x4c6ed70 (libc.so.6:wcscmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c554e0 (libc.so.6:stpncpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c6f330 (libc.so.6:wmemchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c54380 (libc.so.6:strncmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c55570 (libc.so.6:strcasecmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c53f60 (libc.so.6:strcspn) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c6edf0 (libc.so.6:wcscpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c53d10 (libc.so.6:strcat) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c55660 (libc.so.6:strncasecmp_l) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c54f80 (libc.so.6:bcmp) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c53ed0 (libc.so.6:strcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c55610 (libc.so.6:strcasecmp_l) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c541f0 (libc.so.6:strlen) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c54420 (libc.so.6:strncpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c55450 (libc.so.6:stpcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c54ef0 (libc.so.6:memchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c54650 (libc.so.6:strspn) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c552d0 (libc.so.6:mempcpy) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c56990 (libc.so.6:rawmemchr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4c54e10 (libc.so.6:strstr) redirected to 0x483a1c0 (_vgnU_ifunc_wrapper)
+--87870-- REDIR: 0x4d372d0 (libc.so.6:__strrchr_avx2) redirected to 0x484b810 (rindex)
+--87870-- REDIR: 0x4c51590 (libc.so.6:malloc) redirected to 0x4845820 (malloc)
+--87870-- REDIR: 0x4d374a0 (libc.so.6:__strlen_avx2) redirected to 0x484bd10 (strlen)
+--87870-- REDIR: 0x4d33740 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x484f010 (bcmp)
+--87870-- REDIR: 0x4d32600 (libc.so.6:__strcmp_avx2) redirected to 0x484cbd0 (strcmp)
+--87870-- REDIR: 0x4d3a480 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x484f880 (memmove)
+--87870-- REDIR: 0x4c54b10 (libc.so.6:__GI_strstr) redirected to 0x4850ae0 (__strstr_sse2)
+--87870-- REDIR: 0x491b3c0 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x4847280 (operator new[](unsigned long))
+--87870-- REDIR: 0x4d32f80 (libc.so.6:__memchr_avx2) redirected to 0x484cd50 (memchr)
+--87870-- REDIR: 0x491b360 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x4845fa0 (operator new(unsigned long))
+--87870-- REDIR: 0x49195d0 (libstdc++.so.6:operator delete(void*)) redirected to 0x4848840 (operator delete(void*))
+--87870-- REDIR: 0x4919600 (libstdc++.so.6:operator delete[](void*)) redirected to 0x4849a20 (operator delete[](void*))
+--87870-- REDIR: 0x4c51b70 (libc.so.6:free) redirected to 0x4848210 (free)
+==87870== Conditional jump or move depends on uninitialised value(s)
+==87870==    at 0x10EB4E: main (in /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e)
+==87870==  Uninitialised value was created by a stack allocation
+==87870==    at 0x10E912: main (in /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e)
+==87870== 
+--87870-- REDIR: 0x49195e0 (libstdc++.so.6:operator delete(void*, unsigned long)) redirected to 0x4848b00 (operator delete(void*, unsigned long))
+==87870== 
+==87870== HEAP SUMMARY:
+==87870==     in use at exit: 0 bytes in 0 blocks
+==87870==   total heap usage: 80 allocs, 80 frees, 93,106 bytes allocated
+==87870== 
+==87870== All heap blocks were freed -- no leaks are possible
+==87870== 
+==87870== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==87870== 
+==87870== 1 errors in context 1 of 1:
+==87870== Conditional jump or move depends on uninitialised value(s)
+==87870==    at 0x10EB4E: main (in /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e)
+==87870==  Uninitialised value was created by a stack allocation
+==87870==    at 0x10E912: main (in /home/ayuwoki/Documents/Algoritmos y programacion II/familia_tp2/e)
+==87870== 
+==87870== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

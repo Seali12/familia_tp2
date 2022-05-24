@@ -47,7 +47,6 @@ public:
     //POST: Devuelve la lista de escritores
     Lista_escritor devolver_escritores();
 
-
     //PRE:
     //POST: Destructor
     ~Lector(){};
