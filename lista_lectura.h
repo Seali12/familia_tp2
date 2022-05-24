@@ -57,7 +57,7 @@ class Lista_lectura {
     void listar_por_genero(string genero);
     
 
-    void listar_por_escritor(string nombre_escritor);
+    void listar_por_escritor(string referencia);
 
     //Destructor
     void liberar_lista();

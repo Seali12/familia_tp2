@@ -13,6 +13,7 @@ Menu::Menu(Lista_lectura lecturas, Lista_escritor escritores){
 
 void Menu::desplegar_menu(){
     
+    cout << "" << endl;
     cout << "1. Agregar una nueva lectura a la lista" << endl;
     cout << "2. Quitar una lectura de la lista" << endl;
     cout << "3. Agregar un escritor" << endl;
@@ -85,13 +86,14 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
             string genero;
             cout << "Ingrese un genero: ";
             cin >> genero;
-            //pasar_mayuscula(genero);
+            pasar_mayuscula(genero);
             
             if (genero == "HISTORICA"){
             
                     string tema;
                     cout << "Ingrese el tema de la novela: ";
-                    cin >> tema;
+                    cin.ignore();
+                    getline(cin, tema);
 
                     Lectura* nueva_historica = new Novela_historica(tipo_lectura, titulo, minutos, anio, 
                     escritores.consulta(escritor), genero, tema);
@@ -139,12 +141,13 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
 
 void Menu::agregar_nueva_lectura(){
     char tipo_lectura;
-    cout << "Que tipo de lectura es:(N para novela, C para cuento, P para poema) ";
-    cin >> tipo_lectura; //()N , cC O Po
+    cout << "Que tipo de lectura es:(N para novela, C para cuento, P para poema): ";
+    cin >> tipo_lectura;
     
     string titulo;
     cout << "Titulo de la lectura a agregar: ";
-    cin >> titulo;    
+    cin.ignore();
+    getline(cin, titulo);    
 
     int duracion;
     cout << "Duracion de la lectura:  ";
@@ -156,16 +159,18 @@ void Menu::agregar_nueva_lectura(){
 
     string nombre_escritor;
     cout << "Nombre del escritor:(apellido no vale solo nombre :p) ";
-    cin >> nombre_escritor;
+    cin.ignore();
+    getline(cin, nombre_escritor);
+
   
-    corroborar_tipo_lectura( (char)toupper(tipo_lectura), titulo, duracion, anio,nombre_escritor);
+    corroborar_tipo_lectura( (char)toupper(tipo_lectura), titulo, duracion, anio, nombre_escritor);
     
 }
 
 
 void Menu::quitar_lectura(){
     string titulo_ingresado;
-    cout << "Ingrese el titulo de la lectura que desea quitar";
+    cout << "Ingrese el titulo de la lectura que desea quitar: ";
     cin >> titulo_ingresado;
 
     lecturas.baja(titulo_ingresado);
@@ -173,7 +178,7 @@ void Menu::quitar_lectura(){
 
 void Menu::agregar_escritor(){
     string referencia;
-    cout << "Ingrese la referencia del escritor(por ejemplo: (1), (2), etc, segun corresponda)";
+    cout << "Ingrese la referencia del escritor(por ejemplo: (1), (2), etc, segun corresponda): ";
     cin >> referencia;
     
     bool repetida = false;
@@ -181,7 +186,8 @@ void Menu::agregar_escritor(){
         repetida = true;
     
     while(repetida){
-        cout << "Esa referencia ya se encuenta en la lista de escritores por favor ingrese otra(por ejemplo: (1), (2), etc, segun corresponda)";
+        cout << "Esa referencia ya se encuenta en la lista de escritores por favor ingrese otra(por ejemplo: (1), (2), etc, segun corresponda): ";
+        cin >> referencia;
        
         if(!escritores.referencia_repetida(referencia))
             repetida = false;
@@ -189,19 +195,20 @@ void Menu::agregar_escritor(){
     
     
     string nombre_y_apellido;
-    cout << "Ingrese nombre y apellido del escritor (por ejemplo: Stephen King)";
-    cin >> nombre_y_apellido;
+    cout << "Ingrese nombre y apellido del escritor (por ejemplo: Stephen King): ";
+    cin.ignore();
+    getline(cin, nombre_y_apellido);
 
     string nacionalidad;
-    cout << "Ingrese la nacionalidad del escritor";
+    cout << "Ingrese la nacionalidad del escritor: ";
     cin >> nacionalidad;
 
     int anio_nacimiento;
-    cout << "Ingrese el año de nacimiento del escritor ";
+    cout << "Ingrese el año de nacimiento del escritor: ";
     cin >> anio_nacimiento;
 
     int anio_fallecimiento;
-    cout << "Ingrese el año de nacimiento del escritor ";
+    cout << "Ingrese el año de nacimiento del escritor: ";
     cin >> anio_fallecimiento;
 
     Escritor* nuevo_escritor = new Escritor(referencia, nombre_y_apellido, nacionalidad, 
@@ -213,7 +220,8 @@ void Menu::agregar_escritor(){
 void Menu::cambiar_fecha_escritor(){
     string nombre_escritor;
     cout << "Escriba el nombre del escrito que desea modificar: ";
-    cin >> nombre_escritor;
+    cin.ignore();
+    getline(cin, nombre_escritor);
 
     int anio;
     cout << "Cuál es su año de fallecimiento? ";
@@ -271,9 +279,11 @@ void Menu::listar_novela_genero(){
 void Menu::listar_lecturas_escritor(){
     
     string nombre_escritor;
-    cout << "Ingrese nombre de un escritor: ";
-    cin >> nombre_escritor;
+    cout << "Ingrese nombre de un escritor o su referencia: ";
+    cin.ignore();
+    getline(cin, nombre_escritor);
 
+    lecturas.listar_por_escritor(nombre_escritor);
 }
 
 

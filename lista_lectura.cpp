@@ -94,7 +94,7 @@ void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
       siguiente = siguiente->obtener_siguiente();
     }
 
-    if(es_ultimo(siguiente)){
+    if(objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
       siguiente->cambiar_siguiente(direccion);
     }else{
       direccion->cambiar_siguiente(siguiente);
@@ -129,8 +129,8 @@ void Lista_lectura::lectura_random(int numero_rand){
 void Lista_lectura::listar_por_genero(string genero){
   actual = ultimo;
  
-  if(genero != "TERROR" || genero != "HISTORICA" || genero != "COMEDIA" 
-          || genero != "FICCION" || genero != "ROMANTICA" || genero != "DRAMA" || genero != "SUSPENSO")
+  if(genero != "TERROR" and genero != "HISTORICA" and genero != "COMEDIA" 
+          and genero != "FICCION" and genero != "ROMANTICA" and genero != "DRAMA" and genero != "SUSPENSO")
 
           cout << "El genero ingresado no existe, los generos son: TERROR, HISTORICA, FICCION, COMEDIA, ROMANTICA, DRAMA, SUSPENSO " << endl;
   
@@ -150,13 +150,14 @@ void Lista_lectura::listar_por_genero(string genero){
       
 }
 
-void Lista_lectura::listar_por_escritor(string nombre_escritor){
+void Lista_lectura::listar_por_escritor(string referencia){
 
   actual = ultimo;
 
   while(!es_ultimo(actual)){
     
-      if(actual->obtener_objeto()->obtener_escritor()->obtener_nombre_y_apellido() == nombre_escritor)
+      if(actual->obtener_objeto()->obtener_escritor()->obtener_nombre_y_apellido() == referencia 
+          or actual->obtener_objeto()->obtener_escritor()->obtener_referencia() == referencia)
             
               actual->obtener_objeto()->mostrar();
           
@@ -176,16 +177,14 @@ void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
   
   actual = ultimo;
   
-  while (actual->obtener_objeto()->obtener_anio() < anio_max and !es_ultimo(actual)){
+  while (actual->obtener_objeto()->obtener_anio() <= anio_max and !es_ultimo(actual)){
 
-    if (actual->obtener_objeto()->obtener_anio() > anio_min)
+    if (actual->obtener_objeto()->obtener_anio() >= anio_min)
         
         actual->obtener_objeto()->mostrar();
     
     desplazar_actual(actual);
   }
-  
-  actual->obtener_objeto()->mostrar();
 
 }
 
