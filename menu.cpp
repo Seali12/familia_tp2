@@ -30,7 +30,8 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
             
             string genero;
             cout << "Ingrese un genero: " << endl;
-            cin >> toupper(genero);
+            cin >> genero;
+            pasar_mayuscula(genero);
             
             if (genero == "HISTORICA"){
             
@@ -82,7 +83,7 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
 void Menu::agregar_nueva_lectura(){
     char tipo_lectura;
     cout << "Que tipo de lectura es: " << endl;
-    cin >> toUpper(tipo_lectura);
+    cin >> tipo_lectura;
     
     string titulo;
     cout << "Titulo de la lectura a agregar: " << endl;
@@ -100,7 +101,7 @@ void Menu::agregar_nueva_lectura(){
     cout << "Nombre del escritor: " << endl;
     cin >> escritor;
   
-    corroborar_tipo_lectura(tipo_lectura, titulo, duracion, anio, escritor);
+    corroborar_tipo_lectura(toupper(tipo_lectura), titulo, duracion, anio, escritor);
     
 }
 
@@ -197,4 +198,9 @@ void Menu::listar_lecturas_escritor(){
     }
 }
 
-
+string Menu::pasar_mayuscula(string cadena){
+    for (int i = 0; i < cadena.length(); i++) {
+    cadena[i] = toupper(cadena[i]);
+  }
+  return cadena;
+}

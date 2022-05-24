@@ -3,8 +3,10 @@
 
 #include "lista_lectura.h"
 #include "lista_escritor.h"
-
-
+#include "novela.h"
+#include "novela_historica.h"
+#include "cuento.h"
+#include "poema.h"
 
 class Menu{
 
@@ -42,22 +44,13 @@ void salir();
 
 void corroborar_tipo_lectura(char tipo_lectura, string titulo, double minutos, int anio, string escritor);
 
+string pasar_mayuscula(string cadena);
 
 public:
  
     //PRE:-
     //POST:Despliega el menu con opciones
     void desplegar_menu();
-
-    
-
-
-
-
 };
-
-
-
-
 
 #endif
