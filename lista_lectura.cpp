@@ -188,6 +188,9 @@ void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
     desplazar_actual(actual);
   }
 
+  if (actual->obtener_objeto()->obtener_anio() <= anio_max){
+    actual->obtener_objeto()->mostrar();
+  }
 }
 
 

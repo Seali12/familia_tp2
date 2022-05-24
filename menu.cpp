@@ -13,20 +13,20 @@ Menu::Menu(Lista_lectura lecturas, Lista_escritor escritores){
 
 void Menu::desplegar_menu(){
     
-    cout << NEGRITA_VERDE << "-------------------------------------------------------------------" << endl;
-    cout << "1. Agregar una nueva lectura a la lista" << endl;
-    cout << "2. Quitar una lectura de la lista" << endl;
-    cout << "3. Agregar un escritor" << endl;
-    cout << "4. Cambiar dato de un escritor (solo fecha de fallecimiento)" << endl;
-    cout << "5. Listar los escritores" << endl;
-    cout << "6. Sortear una lectura random para leer en una de las tertulias" << endl;
-    cout << "7. Listar todas las lecturas" << endl;
-    cout << "8. Listar las lecturas entre determinados años. Los años los ingresa el usuario." << endl;
-    cout << "9. Listar las lecturas de un determinado escritor que ingresa el usuario. " << endl;
-    cout << "10. Listar las novelas de determinado género." << endl;
-    //cout << "11. Armar una cola ordenada por tiempo de lectura" << endl;
-    cout << "12. Salir" << endl;
-    cout << "-------------------------------------------------------------------" << endl;
+    cout << NEGRITA_VERDE "####################################################################################" << endl;
+    cout << "# 1. Agregar una nueva lectura a la lista                                          #" << endl;
+    cout << "# 2. Quitar una lectura de la lista                                                #" << endl;
+    cout << "# 3. Agregar un escritor                                                           #" << endl;
+    cout << "# 4. Cambiar dato de un escritor (solo fecha de fallecimiento)                     #" << endl;
+    cout << "# 5. Listar los escritores                                                         #" << endl;
+    cout << "# 6. Sortear una lectura random para leer en una de las tertulias                  #" << endl;
+    cout << "# 7. Listar todas las lecturas                                                     #" << endl;
+    cout << "# 8. Listar las lecturas entre determinados años. Los años los ingresa el usuario. #" << endl;
+    cout << "# 9. Listar las lecturas de un determinado escritor que ingresa el usuario.        #" << endl;
+    cout << "# 10. Listar las novelas de determinado género.                                    #" << endl;
+    cout << "# 11. Armar una cola ordenada por tiempo de lectura                                #" << endl;
+    cout << "# 12. Salir                                                                        #" << endl;
+    cout << "####################################################################################" << endl;
 
     int opcion;
     cout << BLANCO "Elije un número: " << CYAN;
