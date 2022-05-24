@@ -59,6 +59,7 @@ int Lista_lectura::obtener_cantidad(){
 }
 
 void Lista_lectura::mostrar_lista_lectura(){
+  cout << NEGRITA_ROJO << endl;
   actual = ultimo;
   int i = 0;
   
@@ -120,19 +121,20 @@ void Lista_lectura::lectura_random(int numero_rand){
     iterador++;
 
   }
-  
+  cout << NEGRITA_ROJO << endl;
   actual->obtener_objeto()->mostrar();
 }
 
 
 
 void Lista_lectura::listar_por_genero(string genero){
+  cout << NEGRITA_ROJO << endl;
   actual = ultimo;
  
   if(genero != "TERROR" and genero != "HISTORICA" and genero != "COMEDIA" 
           and genero != "FICCION" and genero != "ROMANTICA" and genero != "DRAMA" and genero != "SUSPENSO")
 
-          cout << "El genero ingresado no existe, los generos son: TERROR, HISTORICA, FICCION, COMEDIA, ROMANTICA, DRAMA, SUSPENSO " << endl;
+          cout << BLANCO "El genero ingresado no existe, los generos son: TERROR, HISTORICA, FICCION, COMEDIA, ROMANTICA, DRAMA, SUSPENSO " NEGRITA_ROJO << endl;
   
   else{ 
     while(!es_ultimo(actual)){
@@ -151,7 +153,7 @@ void Lista_lectura::listar_por_genero(string genero){
 }
 
 void Lista_lectura::listar_por_escritor(string referencia){
-
+  cout << NEGRITA_ROJO << endl;
   actual = ultimo;
 
   while(!es_ultimo(actual)){
@@ -174,7 +176,7 @@ void Lista_lectura::desplazar_actual(Nodo<Dato>* nodo_actual){
 
 
 void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
-  
+  cout << NEGRITA_ROJO << endl;
   actual = ultimo;
   
   while (actual->obtener_objeto()->obtener_anio() <= anio_max and !es_ultimo(actual)){

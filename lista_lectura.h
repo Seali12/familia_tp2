@@ -1,6 +1,7 @@
 #ifndef LISTA_LECTURA_H
 #define LISTA_LECTURA_H
 
+#include "colores.h"
 #include "nodo_simple.h"
 #include "lectura.h"
 

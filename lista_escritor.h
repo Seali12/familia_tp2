@@ -1,6 +1,7 @@
 #ifndef Lista_escritor_ESCRITOR_H
 #define Lista_escritor_ESCRITOR_H
 
+#include "colores.h"
 #include "nodo_simple.h"
 #include "escritor.h"
 

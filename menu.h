@@ -1,6 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 
+#include "colores.h"
 #include "lista_lectura.h"
 #include "lista_escritor.h"
 #include "novela.h"

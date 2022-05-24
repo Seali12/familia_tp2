@@ -2,8 +2,6 @@
 #include "lista_escritor.h"
 #include "nodo_simple.h"
 
-
-
 Lista_escritor::Lista_escritor(){
   ultimo = nullptr;
   actual = nullptr;
@@ -76,6 +74,7 @@ void Lista_escritor::liberar_lista(){
 
 
 void Lista_escritor::mostrar_lista_escritor(){
+  cout << NEGRITA_ROJO << endl;
   actual = ultimo;
   int i = 0;
   
