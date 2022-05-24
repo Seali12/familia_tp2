@@ -12,13 +12,10 @@ Lista_escritor::Lista_escritor(){
 
 void Lista_escritor::alta(Tipo objeto){
   Nodo<Tipo>* nuevo = new Nodo<Tipo>(objeto);
+  //actual = ultimo;
   
   nuevo->cambiar_siguiente(ultimo);
   ultimo = nuevo;
-
-  if (actual==0){
-      actual = ultimo;
-  }
   
   cantidad++;
 }
@@ -81,10 +78,13 @@ void Lista_escritor::liberar_lista(){
 void Lista_escritor::mostrar_lista_escritor(){
   actual = ultimo;
   int i = 0;
+  
   while(i < obtener_cantidad()){
+    
     actual->obtener_objeto()->mostrar();
     actual = actual->obtener_siguiente();
     i++;
+  
   }
 }
 

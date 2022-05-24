@@ -42,6 +42,23 @@ class Lista_lectura {
      //PRE: La lista no debe estar vacia.
     //POST:
 
+    /*PRE: la lista no debe estar vacia, anio_min y anio_max deben ser mayores que cero,
+            anio_min debe ser el año desde el que se quiere buscar y anio_max el año hasta el que se quiere buscar.
+    */     
+    //Post: Muestra todas las lectuas entre el anio_min y el anio_max.
+    void mostrar_rango(int anio_min, int anio_max);
+
+    //PRE: Recibe un numero aleatorio positivo
+    //POST: devuelve una lectura aleatoria en base a ese numero 
+    void lectura_random(int numero_rand);
+    
+    //PRE: genero peude ser: "TERROR", "HISTORICA", "FICCION", "COMEDIA", "ROMANTICA", "DRAMA", "SUSPENSO".
+    //POST: Muestra todas las lecturas con el genero ingresado
+    void listar_por_genero(string genero);
+    
+
+    void listar_por_escritor(string nombre_escritor);
+
     //Destructor
     void liberar_lista();
 

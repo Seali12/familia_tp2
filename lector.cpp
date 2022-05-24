@@ -55,18 +55,7 @@ void Lector::procesar_archivo_escritores()
 
     archivo_escritores.close();
 }
-// BORRAR
-void Lector::mostrar()
-{
-    escritores.mostrar_lista_escritor();
-    lecturas.mostrar_lista_lectura();
-}
 
-void Lector::eliminar_listas(){
-    lecturas.liberar_lista();
-    escritores.liberar_lista();
-}
-// BORRAR
 void Lector::procesar_archivo_lectura()
 {
 
@@ -91,7 +80,7 @@ void Lector::procesar_archivo_lectura()
 
             switch (tipo_lectura[CHAR])
             {
-            case N:
+            case NOVELA:
             {
                 string genero;
                 getline(archivo_lectores, genero);
@@ -104,8 +93,8 @@ void Lector::procesar_archivo_lectura()
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
 
-                    Lectura *nueva_historica = new Novela_historica(titulo, atof(minutos.c_str()), stoi(anio),
-                                                                    escritores.consulta_referencia(referencia_escritor), genero, tema_historica);
+                    Lectura *nueva_historica = new Novela_historica(tipo_lectura[CHAR], titulo, atof(minutos.c_str()), stoi(anio),
+                                                                    escritores.consulta(referencia_escritor), genero, tema_historica);
 
                     lecturas.alta(nueva_historica);
                 }
@@ -115,15 +104,15 @@ void Lector::procesar_archivo_lectura()
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
 
-                    Lectura *nueva_novela = new Novela(titulo, atof(minutos.c_str()), stoi(anio),
-                                                       escritores.consulta_referencia(referencia_escritor), genero);
+                    Lectura *nueva_novela = new Novela(tipo_lectura[CHAR],titulo, atof(minutos.c_str()), stoi(anio),
+                                                       escritores.consulta(referencia_escritor), genero);
 
                     lecturas.alta(nueva_novela);
                 }
 
                 break;
             }
-            case P:
+            case POEMA:
             {
                 string versos;
 
@@ -131,14 +120,14 @@ void Lector::procesar_archivo_lectura()
                 getline(archivo_lectores, referencia_escritor);
                 getline(archivo_lectores, espacio);
 
-                Lectura *nuevo_poema = new Poema(titulo, atof(minutos.c_str()), stoi(anio),
-                                                 escritores.consulta_referencia(referencia_escritor), stoi(versos));
+                Lectura *nuevo_poema = new Poema(tipo_lectura[CHAR], titulo, atof(minutos.c_str()), stoi(anio),
+                                                 escritores.consulta(referencia_escritor), stoi(versos));
 
                 lecturas.alta(nuevo_poema);
 
                 break;
             }
-            case C:
+            case CUENTO:
             {
                 string titulo_cuento;
 
@@ -146,8 +135,8 @@ void Lector::procesar_archivo_lectura()
                 getline(archivo_lectores, referencia_escritor);
                 getline(archivo_lectores, espacio);
 
-                Lectura *nuevo_cuento = new Cuento(titulo, atof(minutos.c_str()), stoi(anio),
-                                                   escritores.consulta_referencia(referencia_escritor), titulo_cuento);
+                Lectura *nuevo_cuento = new Cuento(tipo_lectura[CHAR], titulo, atof(minutos.c_str()), stoi(anio),
+                                                   escritores.consulta(referencia_escritor), titulo_cuento);
 
                 lecturas.alta(nuevo_cuento);
 

@@ -1,6 +1,7 @@
 #include "lectura.h"
 
-Lectura::Lectura(string titulo, double minutos, int anio, Escritor* escritor) {
+Lectura::Lectura(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor) {
+    this->tipo_lectura = tipo_lectura;
     this->titulo = titulo;
     this->minutos = minutos;
     this->anio = anio;
@@ -21,3 +22,9 @@ double Lectura::obtener_minutos(){
 string Lectura::obtener_titulo(){
     return titulo;
 }
+
+char Lectura::obtener_tipo_lectura(){
+    return tipo_lectura;
+}
+
+

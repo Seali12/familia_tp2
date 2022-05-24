@@ -3,6 +3,7 @@
 #include "escritor.h"
 #include "lista_lectura.h"
 #include "lista_escritor.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -14,10 +15,20 @@ int main(){
     a.procesar_archivo_escritores();
     a.procesar_archivo_lectura();
 
-    Lector b("lecturas.txt", "escritor.txt", a.devolver_lecturas(), a.devolver_escritores());
-    b.mostrar();
-    
+    Menu b(a.devolver_lecturas(), a.devolver_escritores());
+
+    while(b.continuar()){
+        b.desplegar_menu();
+    }
+        
     b.eliminar_listas();
+    
+    
+    
+    
+    
+    
+    
     return 0;
 }
 

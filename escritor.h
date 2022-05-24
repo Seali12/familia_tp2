@@ -18,7 +18,7 @@ public:
 
     //Pre:
     //Post: Crea un escritor.
-    Escritor(string referencia, string nombre_y_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimineto);
+    Escritor(string referencia, string nombre_y_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimiento);
 
     //Pre:
     //Post: Crea un escritor por defecto.

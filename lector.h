@@ -11,9 +11,9 @@
 #include <string>
 
 const int CHAR = 0;
-const char N = 'N';
-const char P = 'P';
-const char C = 'C';
+const char NOVELA = 'N';
+const char POEMA = 'P';
+const char CUENTO = 'C';
 const int NO_ENCONTRADO = -1;
 
 class Lector {
@@ -47,10 +47,6 @@ public:
     //POST: Devuelve la lista de escritores
     Lista_escritor devolver_escritores();
 
-    //BORRAR
-    void mostrar();
-
-    void eliminar_listas();
 
     //PRE:
     //POST: Destructor

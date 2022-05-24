@@ -1,9 +1,13 @@
 #include "poema.h"
 
-Poema::Poema(string titulo, double minutos, int anio, Escritor* escritor, int versos) 
-: Lectura(titulo, minutos, anio, escritor){
+Poema::Poema(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, int versos) 
+: Lectura(tipo_lectura, titulo, minutos, anio, escritor){
 
     this->versos = versos;
+}
+
+string Poema::obtener_atributo_especial(){
+    return to_string(versos);
 }
 
 void Poema::mostrar() {
@@ -15,9 +19,9 @@ void Poema::mostrar() {
 
     cout << "Año del poema: " << anio << endl;
 
-    cout << "La cantidad de versos es: " << versos << endl;
+    cout << "Cantidad de versos: " << versos << endl;
 
-    cout << "La referencia al escritor es: " << escritor->obtener_nombre_y_apellido() << endl;
+    cout << "Referencia al escritor: " << escritor->obtener_nombre_y_apellido() << endl;
 
     cout << "" << endl;
 

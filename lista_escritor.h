@@ -48,6 +48,8 @@ public:
     //Post: Muestra por pantalla los datos del escritor.
     void mostrar_lista_escritor();
 
+    
+
     //Destructor
     void liberar_lista();
 

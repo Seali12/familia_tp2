@@ -6,6 +6,7 @@
 class Lectura {
 
 protected:
+    char tipo_lectura;
     string titulo;
     double minutos;
     int anio;
@@ -14,7 +15,7 @@ protected:
 public:
     //PRE:
     //POST: Crea una nueva lectura
-    Lectura(string titulo, double minutos, int anio, Escritor* escritor);
+    Lectura(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor);
 
     //PRE:
     //POST: Devuelve el anio
@@ -32,9 +33,15 @@ public:
     //POST: Devuelve el escritor
     Escritor* obtener_escritor();
 
+    //PRE:
+    //POST: Devuelve el tipo de la lactura, N para novela, C para cuento, P para poema.
+    char obtener_tipo_lectura();
+
     //Pre:
     //Post:
     virtual void mostrar() = 0;
+    
+    virtual string obtener_atributo_especial() = 0;
 
     //Destructor
     virtual ~Lectura(){};
