@@ -14,7 +14,7 @@ const int CHAR = 0;
 const char NOVELA = 'N';
 const char POEMA = 'P';
 const char CUENTO = 'C';
-const int NO_ENCONTRADO = -1;
+
 
 class Lector {
 private:
