@@ -24,22 +24,29 @@ void Lector::procesar_archivo_escritores()
         string referencia, nombre_escritor, nacionalidad, anio_nacimiento, anio_fallecimiento, espacio;
         while (getline(archivo_escritores, referencia))
         {
-
+            
             getline(archivo_escritores, nombre_escritor);
             getline(archivo_escritores, nacionalidad);
-            getline(archivo_escritores, anio_nacimiento);
-
+            
+            if(!nacionalidad.empty()){
+                getline(archivo_escritores, anio_nacimiento);
+            }
+            else
+            {
+                nacionalidad = "¿?";
+            }
             if (!anio_nacimiento.empty())
             {
                 getline(archivo_escritores, anio_fallecimiento);
             }
             else
             {
-                anio_nacimiento = NO_ENCONTRADO;
+                anio_nacimiento = "-1";
             }
+            
             if (anio_fallecimiento.empty())
             {
-                anio_fallecimiento = NO_ENCONTRADO;
+                anio_fallecimiento = "-1";
             }
             else
             {
@@ -48,6 +55,7 @@ void Lector::procesar_archivo_escritores()
 
             Escritor *nuevo_escritor = new Escritor(referencia, nombre_escritor, nacionalidad,
                                                     stoi(anio_nacimiento), stoi(anio_fallecimiento));
+
 
             escritores.alta(nuevo_escritor);
         }
