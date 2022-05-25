@@ -1,4 +1,4 @@
-#include "poema.h"
+#include "../header/poema.h"
 
 Poema::Poema(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, int versos) 
 : Lectura(tipo_lectura, titulo, minutos, anio, escritor){

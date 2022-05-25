@@ -1,4 +1,4 @@
-#include "lista_lectura.h"
+#include "../header/lista_lectura.h"
 
 Lista_lectura::Lista_lectura(){
   ultimo = nullptr;

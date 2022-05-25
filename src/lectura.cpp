@@ -1,4 +1,4 @@
-#include "lectura.h"
+#include "../header/lectura.h"
 
 Lectura::Lectura(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor) {
     this->tipo_lectura = tipo_lectura;

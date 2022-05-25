@@ -1,4 +1,4 @@
-#include "novela_historica.h"
+#include "../header/novela_historica.h"
 
 Novela_historica::Novela_historica(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero, string tema) 
                             : Novela(tipo_lectura, titulo, minutos, anio, escritor, genero){

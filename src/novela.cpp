@@ -1,4 +1,4 @@
-#include "novela.h"
+#include "../header/novela.h"
 
 Novela::Novela(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor,  string genero) :
                 Lectura(tipo_lectura, titulo, minutos, anio, escritor){

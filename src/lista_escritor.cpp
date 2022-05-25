@@ -1,6 +1,5 @@
 #include <iostream>
-#include "lista_escritor.h"
-#include "nodo_simple.h"
+#include "../header/lista_escritor.h"
 
 Lista_escritor::Lista_escritor(){
   ultimo = nullptr;

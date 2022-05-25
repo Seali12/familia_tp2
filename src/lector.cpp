@@ -1,4 +1,4 @@
-#include "lector.h"
+#include "../header/lector.h"
 #include <fstream>
 #include <stdlib.h>
 

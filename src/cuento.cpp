@@ -1,4 +1,4 @@
-#include "cuento.h"
+#include "../header/cuento.h"
 
 Cuento::Cuento(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string titulo_libro) 
 : Lectura(tipo_lectura, titulo, minutos, anio, escritor){

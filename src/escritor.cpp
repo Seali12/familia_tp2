@@ -1,4 +1,4 @@
-#include "escritor.h"
+#include "../header/escritor.h"
 
 Escritor::Escritor(string referencia, string nombre_y_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimieto) {
     

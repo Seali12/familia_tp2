@@ -1,9 +1,6 @@
 #include <iostream>
-#include "lector.h"
-#include "escritor.h"
-#include "lista_lectura.h"
-#include "lista_escritor.h"
-#include "menu.h"
+#include "../header/lector.h"
+#include "../header/menu.h"
 
 using namespace std;
 
