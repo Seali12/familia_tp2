@@ -137,10 +137,10 @@ void Lista_lectura::listar_por_genero(string genero){
   else{ 
     while(!es_ultimo(actual)){
     
-      if(actual->obtener_objeto()->obtener_tipo_lectura() == 'N' 
-            and actual->obtener_objeto()->obtener_atributo_especial() == genero){
-            
+      if(actual->obtener_objeto()->obtener_atributo_especial() == genero){
+        
         actual->obtener_objeto()->mostrar();
+      
       }
 
       desplazar_actual(actual);

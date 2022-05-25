@@ -13,7 +13,7 @@ public:
 
     //Pre:
     //Post: Crea una novela_historica nueva.
-    Novela_historica(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero, string tema);
+    Novela_historica(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero_recibido, string tema);
 
     //Pre:
     //Post: Muestra la informacion de una novela_historica.

@@ -21,7 +21,7 @@ void Poema::mostrar() {
 
     cout << "Cantidad de versos: " << versos << endl;
 
-    cout << "Referencia al escritor: " << escritor->obtener_nombre_y_apellido() << endl;
+    cout << "Referencia al escritor: " << escritor->obtener_referencia() << endl;
 
     cout << "" << endl;
 

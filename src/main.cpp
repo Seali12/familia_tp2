@@ -10,6 +10,7 @@ int main(){
     Lector a("lecturas.txt", "escritor.txt", chau, hola);
 
     a.procesar_archivo_escritores();
+    
     a.procesar_archivo_lectura();
 
     Menu b(a.devolver_lecturas(), a.devolver_escritores());

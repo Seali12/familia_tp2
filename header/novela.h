@@ -15,12 +15,14 @@ enum Genero{
 
 class Novela: public Lectura{
 protected:
-    string genero;
+    int genero;
+
+    void mostrar_genero();
 
 public:
     //Pre:
     //Post: Crea una novela nueva.
-    Novela(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero);
+    Novela(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero_recibido);
 
     //Pre:
     //Post: Muestra la informacion de una novela completa por pantalla.
@@ -29,6 +31,7 @@ public:
     //PRE:
     //POST.devuelve el genero
     string obtener_atributo_especial();
+
 };
 
 #endif
