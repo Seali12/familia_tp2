@@ -13,7 +13,7 @@ britanica
 (3)
 Stephen Edwin King
 estadounidense
-1947
+1949
 
 (4)
 Alfonsina Storni
@@ -27,3 +27,14 @@ gales
 1949
 
 
+<<<<<<< HEAD
+=======
+(7)
+Vladimir Nabokov
+
+(8)
+Edgar Allan Poe
+estadounidense
+-1
+1849
+>>>>>>> solucion

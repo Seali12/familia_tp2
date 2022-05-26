@@ -24,5 +24,4 @@ void Novela_historica::mostrar() {
     cout << "Referencia al escritor: " << escritor->obtener_referencia() << endl;
 
     cout << "" << endl;
-
 }

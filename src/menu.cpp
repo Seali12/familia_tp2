@@ -72,7 +72,10 @@ void Menu::opciones(int opcion){
         case SALIR:
             salir();
             break;
-        
+        default:
+            cout << endl;
+            desplegar_menu();
+            break;
     }
 }
 
@@ -276,7 +279,7 @@ void Menu::listar_novela_genero(){
     cout << BLANCO "Ingresame un género de novela: " CYAN;
     cin >> genero_ingresado;
     
-    lecturas.listar_por_genero(genero_ingresado);
+    lecturas.listar_por_genero(pasar_mayuscula(genero_ingresado));
 }
 
 void Menu::listar_lecturas_escritor(){

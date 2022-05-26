@@ -19,38 +19,36 @@ void Lector::procesar_archivo_escritores()
     {
         cout << "No se pudo abrir el archivo de escritores" << endl;
     }
-    else
-    {
+    else{
+
         string referencia, nombre_escritor, nacionalidad, anio_nacimiento, anio_fallecimiento, espacio;
-        while (getline(archivo_escritores, referencia))
-        {
-            
+        while (getline(archivo_escritores, referencia)){
+            bool hay_mas_datos = true;
+
             getline(archivo_escritores, nombre_escritor);
             getline(archivo_escritores, nacionalidad);
-            
+
             if(!nacionalidad.empty()){
                 getline(archivo_escritores, anio_nacimiento);
+            }else{
+                hay_mas_datos = false;
+                nacionalidad = SIN_NACIONALIDAD;
+                anio_nacimiento = NO_ENCONTRADO;
+                anio_fallecimiento = NO_ENCONTRADO;
             }
-            else
-            {
-                nacionalidad = "¿?";
-            }
-            if (!anio_nacimiento.empty())
-            {
+            if (!anio_nacimiento.empty() and hay_mas_datos){
                 getline(archivo_escritores, anio_fallecimiento);
             }
-            else
-            {
-                anio_nacimiento = "-1";
+            else{
+                hay_mas_datos = false;
+                anio_nacimiento = NO_ENCONTRADO;
+                anio_fallecimiento = NO_ENCONTRADO;
             }
-            
-            if (anio_fallecimiento.empty())
-            {
-                anio_fallecimiento = "-1";
-            }
-            else
-            {
+            if (!anio_fallecimiento.empty() and hay_mas_datos){
                 getline(archivo_escritores, espacio);
+            }else{
+                hay_mas_datos = false;
+                anio_fallecimiento = NO_ENCONTRADO;
             }
 
             Escritor *nuevo_escritor = new Escritor(referencia, nombre_escritor, nacionalidad,
@@ -102,7 +100,7 @@ void Lector::procesar_archivo_lectura()
                     getline(archivo_lectores, espacio);
 
                     Lectura *nueva_historica = new Novela_historica(tipo_lectura[CHAR], titulo, atof(minutos.c_str()), stoi(anio),
-                                                                    escritores.consulta(referencia_escritor), genero, tema_historica);
+                                                                    escritores.consulta(referencia_escritor), genero, tema_historica );
 
                     lecturas.alta(nueva_historica);
                 }
