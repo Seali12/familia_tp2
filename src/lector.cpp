@@ -54,7 +54,6 @@ void Lector::procesar_archivo_escritores()
             Escritor *nuevo_escritor = new Escritor(referencia, nombre_escritor, nacionalidad,
                                                     stoi(anio_nacimiento), stoi(anio_fallecimiento));
 
-
             escritores.alta(nuevo_escritor);
         }
     }

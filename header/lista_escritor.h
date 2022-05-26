@@ -64,4 +64,4 @@ public:
 
 
 
-#endif //LISTA_ESCRITOR
+#endif //LISTA_ESCRITORES

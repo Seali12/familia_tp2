@@ -20,7 +20,7 @@ protected:
 public:
     //Pre:
     //Post: Crea una novela nueva.
-    Novela(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero_recibido);
+    Novela(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero);
 
     //Pre:
     //Post: Muestra la informacion de una novela completa por pantalla.
@@ -33,7 +33,6 @@ public:
     //PRE:
     //POST.devuelve el genero
     string obtener_atributo_especial();
-
 };
 
 #endif

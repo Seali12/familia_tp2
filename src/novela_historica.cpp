@@ -1,7 +1,7 @@
 #include "../header/novela_historica.h"
 
-Novela_historica::Novela_historica(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero_recibido, string tema) 
-                            : Novela(tipo_lectura, titulo, minutos, anio, escritor, "HISTORICA"){
+Novela_historica::Novela_historica(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero, string tema) 
+                            : Novela(tipo_lectura, titulo, minutos, anio, escritor, genero){
 
     this->tema = tema;
                             

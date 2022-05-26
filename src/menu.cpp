@@ -126,8 +126,7 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
 
             string titulo_cuento;
             cout << BLANCO "Ingrese el titulo del cuento: " CYAN;
-            cin.ignore();
-            getline(cin, titulo_cuento);
+            cin >> titulo_cuento;
 
             Lectura* nuevo_cuento = new Cuento(tipo_lectura, titulo, minutos, anio,
             escritores.consulta(escritor),titulo_cuento );
@@ -176,9 +175,8 @@ void Menu::quitar_lectura(){
     cout << endl;
 
     string titulo_ingresado;
-    cout << BLANCO "Ingrese el titulo de la lectura que desea quitar(DEBE INGRESAR LA PRIMERA CON MAYUSCULA): " CYAN;
-    cin.ignore();
-    getline(cin, titulo_ingresado);
+    cout << BLANCO "Ingrese el titulo de la lectura que desea quitar: " CYAN;
+    cin >> titulo_ingresado;
 
     lecturas.baja(titulo_ingresado);
 }
@@ -209,15 +207,14 @@ void Menu::agregar_escritor(){
 
     string nacionalidad;
     cout << BLANCO "Ingrese la nacionalidad del escritor: " CYAN;
-    cin.ignore();
-    getline(cin, nacionalidad);
+    cin >> nacionalidad;
 
     int anio_nacimiento;
     cout << BLANCO "Ingrese el año de nacimiento del escritor: " CYAN;
     cin >> anio_nacimiento;
 
     int anio_fallecimiento;
-    cout << BLANCO "Ingrese el año de fallecimiento del escritor: " CYAN;
+    cout << BLANCO "Ingrese el año de nacimiento del escritor: " CYAN;
     cin >> anio_fallecimiento;
 
     Escritor* nuevo_escritor = new Escritor(referencia, nombre_y_apellido, nacionalidad, 
@@ -262,10 +259,10 @@ void Menu::listar_lecturas_rango(){
     cout << endl;
 
     int anio_min;
+    int anio_max;
     cout << BLANCO "Ingrese anio min: " CYAN;
     cin >> anio_min;
     
-    int anio_max;
     cout << BLANCO "Ingrese anio maximo: " CYAN;
     cin >> anio_max;
     

@@ -44,7 +44,7 @@ void agregar_escritor();
 
 void cambiar_fecha_escritor();
 
-//void listar_escritores();
+void listar_escritores();
 
 void sortear_lectura();
 
@@ -86,9 +86,6 @@ public:
     //PRE: -
     //POST: Elimina las listas
     void eliminar_listas();
-
-
-    void listar_escritores();
 
     //Destructor
     ~Menu(){};

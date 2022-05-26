@@ -22,13 +22,16 @@ argentina
 1938
 
 (5)
-Ken Follet
+ken Follet
 gales
 1949
 
+(6)
+Howard Phillips Lovecraft
+estadounidense
+1890
+1937
 
-<<<<<<< HEAD
-=======
 (7)
 Vladimir Nabokov
 
@@ -37,4 +40,3 @@ Edgar Allan Poe
 estadounidense
 -1
 1849
->>>>>>> solucion

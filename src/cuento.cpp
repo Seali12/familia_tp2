@@ -20,7 +20,7 @@ void Cuento::mostrar() {
 
     cout << "Año del poema: " << anio << endl;
 
-    cout << "Titulo del libro: " << obtener_atributo_especial() << endl;
+    cout << "Titulo del libro: " << titulo_cuento << endl;
 
     cout << "Referencia: " << escritor->obtener_referencia() << endl;
 
