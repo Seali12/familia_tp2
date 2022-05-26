@@ -64,7 +64,9 @@ class Lista_lectura {
     //Destructor
     void liberar_lista();
 
-  private:
+    Dato encontrar_min_minutos(double &minimo);
+
+private:
     int cantidad;
     Nodo<Dato>* ultimo;
     Nodo<Dato>* actual;

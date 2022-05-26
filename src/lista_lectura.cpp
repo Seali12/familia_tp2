@@ -174,6 +174,42 @@ void Lista_lectura::desplazar_actual(Nodo<Dato>* nodo_actual){
 }
 
 
+
+
+Dato Lista_lectura::encontrar_min_minutos(double &minimo){
+    actual = ultimo;
+    
+    double minimo_max = 0;
+    
+    Dato lectura_minima = nullptr;
+
+    for(int i = 0; i < obtener_cantidad(); i++){
+      
+      double minutos_objeto = actual->obtener_objeto()->obtener_minutos();
+      
+      if(minimo_max == 0 and minimo < minutos_objeto){
+        
+        minimo_max = minutos_objeto;
+        lectura_minima = actual->obtener_objeto();
+      }
+
+      else if(minimo < minutos_objeto and minutos_objeto < minimo_max){
+        minimo_max = minutos_objeto;
+        lectura_minima = actual->obtener_objeto();
+      }
+      if(!es_ultimo(actual)){
+        desplazar_actual(actual);
+        
+      }
+    }
+      minimo = minimo_max;
+      
+      return lectura_minima;
+    
+  
+}
+
+
 void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
   cout << NEGRITA_ROJO << endl;
   actual = ultimo;
@@ -192,3 +228,6 @@ void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
     actual->obtener_objeto()->mostrar();
   }
 }
+
+
+

@@ -8,6 +8,7 @@
 #include "novela_historica.h"
 #include "cuento.h"
 #include "poema.h"
+#include "cola.h"
 
 enum Opciones{
     
@@ -33,6 +34,8 @@ private:
 Lista_escritor escritores;
 
 Lista_lectura lecturas;
+
+Cola cola_lecturas;
 
 bool seguir;
 
@@ -67,6 +70,8 @@ void opciones(int opcion);
 void corroborar_tipo_lectura(char tipo_lectura, string titulo, double minutos, int anio, string escritor);
 
 string pasar_mayuscula(string cadena);
+
+void armar_cola();
 
 
 public:

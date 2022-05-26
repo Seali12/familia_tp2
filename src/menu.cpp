@@ -68,8 +68,9 @@ void Menu::opciones(int opcion){
         case LISTAR_NOVELAS_GENERO:
             listar_novela_genero();
             break;
-        /*case ARMAR_COLA:
-            break;  */
+        case ARMAR_COLA:
+            armar_cola();
+            break;  
         case SALIR:
             salir();
             break;
@@ -290,6 +291,37 @@ void Menu::listar_lecturas_escritor(){
 
     lecturas.listar_por_escritor(nombre_escritor);
 }
+
+
+void Menu::armar_cola(){
+    
+    
+    double minimo = 0;
+    for (int i = 0; i < lecturas.obtener_cantidad(); i++){
+        cola_lecturas.alta(lecturas.encontrar_min_minutos(minimo));
+    }
+    
+    cola_lecturas.mostrar();
+
+    char rta;
+    cout << BLANCO "Ingrese E para dar de baja (si la lectura ya esta leída) o S para salir: " CYAN;
+    cin >> rta;
+
+    while(rta != 'S' and !cola_lecturas.vacia()){
+        if (rta == 'E'){
+            cola_lecturas.baja();
+            cola_lecturas.mostrar();
+        }
+        cout << BLANCO "Ingrese E para dar de baja o S para salir: " CYAN;
+        cin >> rta;
+    }
+    cola_lecturas.eliminar_cola();
+    
+        
+}
+
+
+
 
 
 void Menu::salir(){
