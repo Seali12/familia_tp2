@@ -9,7 +9,7 @@ class Novela_historica : public Novela{
 private:
     string tema;
     
-public:
+public: 
 
     //Pre:
     //Post: Crea una novela_historica nueva.
@@ -18,6 +18,7 @@ public:
     //Pre:
     //Post: Muestra la informacion de una novela_historica.
     void mostrar();
+
 };
 
 

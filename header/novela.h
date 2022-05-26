@@ -5,7 +5,7 @@
 
 enum Genero{
     HISTORICA,
-    ROMANTICA,
+    ROMANCE,
     TERROR,
     SUSPENSO,
     FICCION,
@@ -15,7 +15,7 @@ enum Genero{
 
 class Novela: public Lectura{
 protected:
-    string genero;
+    int genero;
 
 public:
     //Pre:
@@ -25,6 +25,10 @@ public:
     //Pre:
     //Post: Muestra la informacion de una novela completa por pantalla.
     void mostrar();
+
+    //PRE: -
+    //POST Muestra el género de la novela.
+    void mostrar_genero();
 
     //PRE:
     //POST.devuelve el genero

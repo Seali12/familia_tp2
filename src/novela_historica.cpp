@@ -17,12 +17,11 @@ void Novela_historica::mostrar() {
 
     cout << "Año de la novela: " << anio << endl;
 
-    cout << "Genero de la novela hisorica: " << genero << endl;
+    mostrar_genero();
 
     cout << "Tema de la novela_historica: " << tema << endl;
 
-    cout << "Referencia al escritor: " << escritor->obtener_nombre_y_apellido() << endl;
+    cout << "Referencia al escritor: " << escritor->obtener_referencia() << endl;
 
     cout << "" << endl;
-
 }

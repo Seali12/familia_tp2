@@ -106,8 +106,6 @@ void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
   }
 }
 
-
-
 void Lista_lectura::lectura_random(int numero_rand){
   
   actual = ultimo;
@@ -130,21 +128,25 @@ void Lista_lectura::listar_por_genero(string genero){
   actual = ultimo;
  
   if(genero != "TERROR" and genero != "HISTORICA" and genero != "COMEDIA" 
-          and genero != "FICCION" and genero != "ROMANTICA" and genero != "DRAMA" and genero != "SUSPENSO")
+          and genero != "FICCION" and genero != "ROMANCE" and genero != "DRAMA" and genero != "SUSPENSO")
 
     cout << BLANCO "El genero ingresado no existe, los generos son: TERROR, HISTORICA, FICCION, COMEDIA, ROMANTICA, DRAMA, SUSPENSO " NEGRITA_ROJO << endl;
   
   else{ 
-    while(!es_ultimo(actual)){
+
+    bool seguir = true;
+    while(seguir){
     
       if(actual->obtener_objeto()->obtener_tipo_lectura() == 'N' 
             and actual->obtener_objeto()->obtener_atributo_especial() == genero){
             
         actual->obtener_objeto()->mostrar();
       }
-
-      desplazar_actual(actual);
-  
+      if (!es_ultimo(actual)){
+        desplazar_actual(actual);
+      }else{
+        seguir = false;
+      }
     }
   }   
 }
