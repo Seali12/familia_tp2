@@ -9,6 +9,7 @@ using namespace std;
 Menu::Menu(Lista_lectura lecturas, Lista_escritor escritores){
     this->lecturas = lecturas;
     this->escritores = escritores;
+    seguir = true;
 }
 
 void Menu::desplegar_menu(){
