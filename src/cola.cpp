@@ -20,7 +20,12 @@ void Cola::alta(Data nueva_lectura){
 void Cola::baja(){
     Nodo<Data>* borrar = primero;
 
-    primero = primero->obtener_siguiente();
+    if (primero->obtener_siguiente() != nullptr){
+        primero = primero->obtener_siguiente();
+    }else{
+        primero = nullptr;
+    }
+    
     delete borrar; 
 }
 
@@ -45,7 +50,8 @@ void Cola::eliminar_cola(){
 }
 
 void Cola::mostrar(){
-
-    primero->obtener_objeto()->mostrar();
+    if(!vacia()){
+        primero->obtener_objeto()->mostrar();
+    }
 }
     

@@ -32,6 +32,7 @@ void Menu::desplegar_menu(){
     int opcion;
     cout << BLANCO "Elije un número: " << CYAN;
     cin >> opcion;
+
     opciones(opcion);
 }  
 
@@ -79,6 +80,39 @@ void Menu::opciones(int opcion){
             desplegar_menu();
             break;
     }
+}
+
+/* OPCIONES DEL MENÚ */
+
+void Menu::agregar_nueva_lectura(){
+    cout << endl;
+
+    char tipo_lectura;
+    cout << BLANCO "Que tipo de lectura es:(N para novela, C para cuento, P para poema): " CYAN;
+    cin >> tipo_lectura;
+    
+    string titulo;
+    cout << BLANCO "Titulo de la lectura a agregar: " CYAN;
+    cin.ignore();
+    getline(cin, titulo);
+     
+
+    int duracion;
+    cout << BLANCO "Duracion de la lectura:  " CYAN;
+    cin >> duracion;  
+    
+    int anio;
+    cout << BLANCO "Anio: " CYAN;
+    cin>>anio;
+
+    string nombre_escritor;
+    cout << BLANCO "Nombre del escritor (tiene que estar cargado): " CYAN;
+    cin.ignore();
+    getline(cin, nombre_escritor);
+
+  
+    corroborar_tipo_lectura( (char)toupper(tipo_lectura), titulo, duracion, anio, nombre_escritor);
+    
 }
 
 void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minutos, int anio, string escritor){
@@ -141,44 +175,13 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
     
 }
 
-void Menu::agregar_nueva_lectura(){
-    cout << endl;
-
-    char tipo_lectura;
-    cout << BLANCO "Que tipo de lectura es:(N para novela, C para cuento, P para poema): " CYAN;
-    cin >> tipo_lectura;
-    
-    string titulo;
-    cout << BLANCO "Titulo de la lectura a agregar: " CYAN;
-    cin.ignore();
-    getline(cin, titulo);
-     
-
-    int duracion;
-    cout << BLANCO "Duracion de la lectura:  " CYAN;
-    cin >> duracion;  
-    
-    int anio;
-    cout << BLANCO "Anio: " CYAN;
-    cin>>anio;
-
-    string nombre_escritor;
-    cout << BLANCO "Nombre del escritor: " CYAN;
-    cin.ignore();
-    getline(cin, nombre_escritor);
-
-  
-    corroborar_tipo_lectura( (char)toupper(tipo_lectura), titulo, duracion, anio, nombre_escritor);
-    
-}
-
-
 void Menu::quitar_lectura(){
     cout << endl;
 
     string titulo_ingresado;
     cout << BLANCO "Ingrese el titulo de la lectura que desea quitar: " CYAN;
-    cin >> titulo_ingresado;
+    cin.ignore();
+    getline(cin, titulo_ingresado);
 
     lecturas.baja(titulo_ingresado);
 }
@@ -216,7 +219,7 @@ void Menu::agregar_escritor(){
     cin >> anio_nacimiento;
 
     int anio_fallecimiento;
-    cout << BLANCO "Ingrese el año de nacimiento del escritor: " CYAN;
+    cout << BLANCO "Ingrese el año de fallecimiento del escritor: " CYAN;
     cin >> anio_fallecimiento;
 
     Escritor* nuevo_escritor = new Escritor(referencia, nombre_y_apellido, nacionalidad, 
@@ -271,16 +274,6 @@ void Menu::listar_lecturas_rango(){
     lecturas.mostrar_rango(anio_min, anio_max);
 }
 
-void Menu::listar_novela_genero(){
-    cout << endl;
-
-    string genero_ingresado;
-    cout << BLANCO "Ingresame un género de novela: " CYAN;
-    cin >> genero_ingresado;
-    
-    lecturas.listar_por_genero(pasar_mayuscula(genero_ingresado));
-}
-
 void Menu::listar_lecturas_escritor(){
     cout << endl;
     
@@ -292,41 +285,51 @@ void Menu::listar_lecturas_escritor(){
     lecturas.listar_por_escritor(nombre_escritor);
 }
 
+void Menu::listar_novela_genero(){
+    cout << endl;
+
+    string genero_ingresado;
+    cout << BLANCO "Ingresame un género de novela: " CYAN;
+    cin >> genero_ingresado;
+    
+    lecturas.listar_por_genero(pasar_mayuscula(genero_ingresado));
+}
 
 void Menu::armar_cola(){
-    
     
     double minimo = 0;
     for (int i = 0; i < lecturas.obtener_cantidad(); i++){
         cola_lecturas.alta(lecturas.encontrar_min_minutos(minimo));
     }
     
+    cout << NEGRITA_ROJO << endl;
     cola_lecturas.mostrar();
 
     char rta;
-    cout << BLANCO "Ingrese E para dar de baja (si la lectura ya esta leída) o S para salir: " CYAN;
+    cout << BLANCO "Si la lectura ya esta leída (precione E para dar de baja) o S para salir al menú: " CYAN;
     cin >> rta;
 
-    while(rta != 'S' and !cola_lecturas.vacia()){
-        if (rta == 'E'){
+    while((char)toupper(rta) != 'S' and !cola_lecturas.vacia()){
+        if ((char)toupper(rta) == 'E'){
+            cout << NEGRITA_ROJO << endl;
             cola_lecturas.baja();
             cola_lecturas.mostrar();
         }
-        cout << BLANCO "Ingrese E para dar de baja o S para salir: " CYAN;
-        cin >> rta;
+        if(!cola_lecturas.vacia()){
+            cout << BLANCO "Si la lectura ya esta leída (precione E para dar de baja) o S para salir al menú: " CYAN;
+            cin >> rta;
+        }
     }
-    cola_lecturas.eliminar_cola();
     
-        
+    cola_lecturas.eliminar_cola(); 
+    cout << BLANCO "No hay más lecturas para leer" << endl;
 }
-
-
-
-
 
 void Menu::salir(){
     seguir = false;
 }
+
+/* FIN DE LAS OPCIONES DEL MENÚ */
 
 void Menu::eliminar_listas(){
 

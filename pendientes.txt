@@ -1,6 +1,6 @@
 * tratar de ver lo del puntero actual.
 * hacer dinamico el atributo de tema en novela_historica.
-* fijarse sobre lo del enum en novela.
+
 * actualizar el uml.
-*Fijarse por que al agregar el titulo de un genero con espacio, ej:Martin fierro toma un segmentaicion fault
+
 * hacer el README

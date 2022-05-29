@@ -27,7 +27,7 @@ void Lista_lectura::baja(){
 
 void Lista_lectura::baja(string titulo){
   
-  actual = ultimo;
+  reiniciar_actual();
 
   while(actual->obtener_objeto()->obtener_titulo() != titulo){
       desplazar_actual(actual);
@@ -60,7 +60,7 @@ int Lista_lectura::obtener_cantidad(){
 
 void Lista_lectura::mostrar_lista_lectura(){
   cout << NEGRITA_ROJO << endl;
-  actual = ultimo;
+  reiniciar_actual();
   int i = 0;
   
   while(i < obtener_cantidad()){
@@ -108,7 +108,7 @@ void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
 
 void Lista_lectura::lectura_random(int numero_rand){
   
-  actual = ultimo;
+  reiniciar_actual();
   int iterador = 0;
 
   while(iterador < numero_rand){
@@ -125,7 +125,7 @@ void Lista_lectura::lectura_random(int numero_rand){
 
 void Lista_lectura::listar_por_genero(string genero){
   cout << NEGRITA_ROJO << endl;
-  actual = ultimo;
+  reiniciar_actual();
  
   if(genero != "TERROR" and genero != "HISTORICA" and genero != "COMEDIA" 
           and genero != "FICCION" and genero != "ROMANCE" and genero != "DRAMA" and genero != "SUSPENSO")
@@ -153,7 +153,7 @@ void Lista_lectura::listar_por_genero(string genero){
 
 void Lista_lectura::listar_por_escritor(string referencia){
   cout << NEGRITA_ROJO << endl;
-  actual = ultimo;
+  reiniciar_actual();
 
   while(!es_ultimo(actual)){
     
@@ -173,46 +173,41 @@ void Lista_lectura::desplazar_actual(Nodo<Dato>* nodo_actual){
   actual = nodo_actual->obtener_siguiente();
 }
 
-
-
-
 Dato Lista_lectura::encontrar_min_minutos(double &minimo){
-    actual = ultimo;
+  reiniciar_actual();
     
-    double minimo_max = 0;
+  double minimo_max = 0;
     
-    Dato lectura_minima = nullptr;
+  Dato lectura_minima = nullptr;
 
-    for(int i = 0; i < obtener_cantidad(); i++){
+  for(int i = 0; i < obtener_cantidad(); i++){
       
-      double minutos_objeto = actual->obtener_objeto()->obtener_minutos();
+    double minutos_objeto = actual->obtener_objeto()->obtener_minutos();
       
-      if(minimo_max == 0 and minimo < minutos_objeto){
+    if(minimo_max == 0 and minimo < minutos_objeto){
         
-        minimo_max = minutos_objeto;
-        lectura_minima = actual->obtener_objeto();
-      }
-
-      else if(minimo < minutos_objeto and minutos_objeto < minimo_max){
-        minimo_max = minutos_objeto;
-        lectura_minima = actual->obtener_objeto();
-      }
-      if(!es_ultimo(actual)){
-        desplazar_actual(actual);
-        
-      }
+      minimo_max = minutos_objeto;
+      lectura_minima = actual->obtener_objeto();
     }
-      minimo = minimo_max;
+
+    else if(minimo < minutos_objeto and minutos_objeto < minimo_max){
+      minimo_max = minutos_objeto;
+      lectura_minima = actual->obtener_objeto();
+    }
+    if(!es_ultimo(actual)){
+      desplazar_actual(actual);
+    }
+  }
+  minimo = minimo_max;
       
-      return lectura_minima;
+  return lectura_minima;
     
   
 }
 
-
 void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
   cout << NEGRITA_ROJO << endl;
-  actual = ultimo;
+  reiniciar_actual();
   
   while (actual->obtener_objeto()->obtener_anio() <= anio_max and !es_ultimo(actual)){
 
@@ -229,5 +224,7 @@ void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
   }
 }
 
-
+void Lista_lectura::reiniciar_actual(){
+  actual = ultimo;
+}
 

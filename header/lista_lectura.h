@@ -72,6 +72,8 @@ private:
     Nodo<Dato>* actual;
     Nodo<Dato>* nodo_anterior;
 
+    void reiniciar_actual();
+
     bool es_ultimo(Nodo<Dato>* nodo);
 
     void ordenar(Dato objeto, Nodo<Dato>* direccion);
