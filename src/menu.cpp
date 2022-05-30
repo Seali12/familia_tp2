@@ -40,36 +40,47 @@ void Menu::opciones(int opcion){
 
     switch(opcion){
         case AGREGAR_LECTURA:
+            limpiar_consola();
             agregar_nueva_lectura();
             break;
         case QUITAR_LECTURA:
+            limpiar_consola();
             quitar_lectura();
             break;
         case AGREGAR_ESCRITOR:
+            limpiar_consola();
             agregar_escritor();
             break;
         case CAMBIAR_DATO_ESCRITOR:
+            limpiar_consola();
             cambiar_fecha_escritor();
             break;
         case LISTAR_ESCRITORES:
+            limpiar_consola();
             listar_escritores();
             break;
         case SORTEAR_RANDOM:
+            limpiar_consola();
             sortear_lectura();
             break;
         case LISTAR_LECTURAS:
+            limpiar_consola();
             listar_todas_lecturas();
             break;
         case LISTAR_LECTURAS_ANIO:
+            limpiar_consola();
             listar_lecturas_rango();
             break;
         case LISTAR_LECTURAS_ESCRITOR:
+            limpiar_consola();
             listar_lecturas_escritor();
             break;
         case LISTAR_NOVELAS_GENERO:
+            limpiar_consola();
             listar_novela_genero();
             break;
         case ARMAR_COLA:
+            limpiar_consola();
             armar_cola();
             break;  
         case SALIR:
@@ -77,6 +88,7 @@ void Menu::opciones(int opcion){
             break;
         default:
             cout << endl;
+            limpiar_consola();
             desplegar_menu();
             break;
     }
@@ -126,10 +138,10 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
             
             if (genero == "HISTORICA"){
             
-                    string tema;
+                    string* tema = new string;
                     cout << BLANCO "Ingrese el tema de la novela: " CYAN;
                     cin.ignore();
-                    getline(cin, tema);
+                    getline(cin, *tema);
 
                     Lectura* nueva_historica = new Novela_historica(tipo_lectura, titulo, minutos, anio, 
                     escritores.consulta(escritor), genero, tema);
@@ -299,7 +311,7 @@ void Menu::armar_cola(){
     
     double minimo = 0;
     for (int i = 0; i < lecturas.obtener_cantidad(); i++){
-        cola_lecturas.alta(lecturas.encontrar_min_minutos(minimo));
+        cola_lecturas.alta(lecturas.consulta(minimo));
     }
     
     cout << NEGRITA_ROJO << endl;
@@ -347,4 +359,58 @@ string Menu::pasar_mayuscula(string cadena){
     cadena[i] = (char)toupper(cadena[i]);
   }
   return cadena;
+}
+
+void Menu::limpiar_consola(){
+
+    system("clear");
+}
+
+void Menu::sid(){
+cout<<".########....###....##.....##.####.##.......####....###.......########.########......#######."<<endl;
+cout<<".##.........##.##...###...###..##..##........##....##.##.........##....##.....##....##.....##"<<endl;
+cout<<".##........##...##..####.####..##..##........##...##...##........##....##.....##...........##"<<endl;
+cout<<".######...##.....##.##.###.##..##..##........##..##.....##.......##....########......#######."<<endl;
+cout<<".##.......#########.##.....##..##..##........##..#########.......##....##...........##......."<<endl;
+cout<<".##.......##.....##.##.....##..##..##........##..##.....##.......##....##...........##......."<<endl;
+cout<<".##.......##.....##.##.....##.####.########.####.##.....##.......##....##...........#########"<<endl;                                                                                                                                                                           
+
+cout<<endl;
+cout<<endl;
+
+cout<<"&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<<"%%%%%%%%%%%%%%%%%%###%%%/#(%%%%%%%%%%%%####%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<<"%%%%%%%%%%%%%%%%%%(//////**/(%%%%&@##((((//////(#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<<"&%%%%%%%%%%%%%%%%%(@*,.##/*,**/(/((((((((///***///(((#&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<<"&%%%%%%%%%%%%%%%%%#&@(/%%(*(%%%%##(##((//((*,****,**/(###%&&%%%%%%(%(%%%%%%%%%%%%%%%"<<endl;
+cout<<"&%&%%%%%%%%%%%&%&%&(,,***,#&&&&&&%%%#(#((**********,,,,*%#%%(/*((((//(#&%%%%%%%%%%%%"<<endl;
+cout<<"&&&&&&&&&&&&&&&&&&&%%%%/,/#%(.(%&&&&%%%#/*,,********,,,,,/(%#(((/#&/./&/%&&&&&&&&&&&"<<endl;
+cout<<"&&&&&&&&&&&&&&&&&&&&&&&##(##((.  #%&&%%#/*,********,,,,,,,,*((#(#//%&%%&&&&&&&&&&&&&"<<endl;
+cout<<"&&&&&&&&&&&&&&&&&&&&&&&&&&#(%##(.  (#%%#(****,.*/*****,,,,,*/(#(##%%%&&&&&&&&&&&&&&&"<<endl;
+cout<<"&&&&&&&&&&&&&&&&&&&&&&&&&&&#(#%##(*#%(##((//////**/*,./*,,*//((/%&&&&&&&&&&&&&&&&&&&"<<endl;
+cout<<"&&&&&&&&&&&&&&&&&&&&&&&&&&&&%(#%%(((//(**/(((#(/*,***///////,*%&&&&&&&&&&&&&&&&&&&&&"<<endl;
+cout<<"@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&##%%%(#%(*((%%%#(////(,* ..,*(&&&&&&&&&&&&&&&&&&&&&&&&"<<endl;
+cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@@&@&&#%%%%%#(#(@#&&&%(#( ,,**/(#@&@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@@&@&&%%%%%%%%&%(////////**//(#@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@&#%#%%&#%%%%%%%&%%%%###(((/(&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@#((((#%&&%%%%%%%%%%%##((///,,*#@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+cout<<"@@@@@@@@@@@@@@@@@@@@@@@&#((#(#%&&&&%##%#####(((//,,..,,,/%@@@@@&&%%&@@@@@@@@@@@@@@@@"<<endl;
+cout<<"@@@@@@@@@@@@@@@@@@@@@@%(#/(((#%%%%&%##%##(((//*.....,,,,,,,*****,...//(&@@@@@@@@@@@@"<<endl;
+cout<<"@&&&&&&&&&&((/*(%@@@&((((/((//%#%#####((///*,..,..,,,,,********,,..***/*(#&&&&&&&&&&"<<endl;
+
+
+
+
+
+
+                                                                                                                        
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                            
+
+
+
 }

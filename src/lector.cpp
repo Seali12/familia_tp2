@@ -92,9 +92,9 @@ void Lector::procesar_archivo_lectura()
 
                 if (genero == "HISTORICA"){
 
-                    string tema_historica;
+                    string* tema_historica = new string;
 
-                    getline(archivo_lectores, tema_historica);
+                    getline(archivo_lectores, *tema_historica);
                     getline(archivo_lectores, referencia_escritor);
                     getline(archivo_lectores, espacio);
 

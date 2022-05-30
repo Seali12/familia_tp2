@@ -173,7 +173,7 @@ void Lista_lectura::desplazar_actual(Nodo<Dato>* nodo_actual){
   actual = nodo_actual->obtener_siguiente();
 }
 
-Dato Lista_lectura::encontrar_min_minutos(double &minimo){
+Dato Lista_lectura::consulta(double &minimo){
   reiniciar_actual();
     
   double minimo_max = 0;
