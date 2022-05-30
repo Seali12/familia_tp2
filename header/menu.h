@@ -73,6 +73,7 @@ string pasar_mayuscula(string cadena);
 
 void armar_cola();
 
+void limpiar_consola();
 
 public:
  
@@ -80,17 +81,21 @@ public:
     //POST: Construye un objeto Menu.
     Menu(Lista_lectura lecturas, Lista_escritor escritores);
     
-    //PRE:-
-    //POST:Despliega el menu con opciones
+    //PRE: Debe existir un menu previamente creado.
+    //POST:Despliega el menu con opciones.
     void desplegar_menu();
 
-    //PRE: -
-    //POST: Devuelve el atributo seguir
+    //PRE: Debe existir un menu previamente creado.
+    //POST: Devuelve true si el usuario quiere seguir consultado sino false.
     bool continuar();
 
-    //PRE: -
-    //POST: Elimina las listas
+    //PRE: Deben existir las listas a eliminar.
+    //POST: Elimina las listas y libera la memoria ocupada por ella.
     void eliminar_listas();
+
+    //PRE: -
+    //POST: Imprime por pantalla la imagen de Sid.
+    void sid();
 
     //Destructor
     ~Menu(){};

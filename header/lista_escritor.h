@@ -6,12 +6,14 @@
 #include "escritor.h"
 
 typedef Escritor* Tipo;
+
 class Lista_escritor{
+
 public:
-//Constructor
+    //Constructor
     Lista_escritor();
 
-    //PRE: Recive un objeto de tipo escrLista_escritor*
+    //PRE: Recive un objeto de tipo Lista_escritor*
     //POST: Agrega al objeto en la lista
     void alta(Tipo objeto);
 
@@ -35,22 +37,22 @@ public:
     //Post: Devuelve true si la referencia ya se encuentra en la lista sino devuelve false.
     bool referencia_repetida(string referencia);
 
-    //PRE:
+    //PRE:La lista no debe estar vacia
     //POST: Verifica que la lista no este vacia
     bool vacia();
 
-    //PRE:
+    //PRE: La lista no debe estar vacia
     //POST: Devuelve cuantos elementos tiene la lista
     int obtener_cantidad();
 
-    //Pre:
+    //Pre: La lista no debe estar vacia
     //Post: Muestra por pantalla los datos del escritor.
     void mostrar_lista_escritor();
 
     //Destructor
     void liberar_lista();
 
-  private:
+private:
     int cantidad;
     Nodo<Tipo>* ultimo;
     Nodo<Tipo>* actual;

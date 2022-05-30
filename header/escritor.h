@@ -24,15 +24,15 @@ public:
     //Post: Crea un escritor por defecto.
     Escritor();
 
-    //Pre:
+    //Pre: Exista un escritor previamente creado.
     //Post: Muestra por pantalla los datos del escritor.
     void mostrar();
 
-    //Pre:
+    //Pre: Exista un objeto escritor 
     //Post: Devuelve el nombre del escritor y apellido.
     string obtener_nombre_y_apellido();
 
-    //pre:
+    //pre: Exista un escritor previamente creado.
     //Post: Devuelve el numero de referencia del autor.
     string obtener_referencia();
 

@@ -7,17 +7,19 @@
 class Novela_historica : public Novela{
 
 private:
-    string tema;
+    string* tema;
     
 public: 
 
     //Pre:
     //Post: Crea una novela_historica nueva.
-    Novela_historica(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero, string tema);
+    Novela_historica(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero, string* tema);
 
-    //Pre:
-    //Post: Muestra la informacion de una novela_historica.
+    //Pre: Debe existir una novela_historica la cual se quiere mostrar.
+    //Post: Muestra por pantalla la informacion de una novela_historica.
     void mostrar();
+
+    ~Novela_historica();
 
 };
 

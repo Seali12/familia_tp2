@@ -8,6 +8,7 @@
 typedef Lectura* Dato;
 
 class Lista_lectura {
+  
   public:
     //Constructor
     Lista_lectura();
@@ -28,29 +29,26 @@ class Lista_lectura {
     //POST: Devuelve al objeto que se quiere consultar
     Dato consulta(string titulo);
 
-    //PRE:
-    //POST: Verifica que la lista no este vacia
+    //PRE: Debe existir una lista previamnte creada.
+    //POST: Devuelve true si la lista esta vacia sino false.
     bool vacia();
 
     //PRE:
-    //POST: Devuelve cuantos elementos tiene la lista
+    //POST: Devuelve cuantos elementos tiene la lista.
     int obtener_cantidad();
 
     //PRE: la lista no tiene que estar vacia
     //POST: Imprime todo el contenido de la lista
     void mostrar_lista_lectura();
 
-     //PRE: La lista no debe estar vacia.
-    //POST:
+     
 
-    /*PRE: la lista no debe estar vacia, anio_min y anio_max deben ser mayores que cero,
-            anio_min debe ser el año desde el que se quiere buscar y anio_max el año hasta el que se quiere buscar.
-    */     
+    //PRE: La lista no debe estar vacia, anio_min y anio_max deben ser > 0 anio_min debe < anio_max.
     //Post: Muestra todas las lectuas entre el anio_min y el anio_max.
     void mostrar_rango(int anio_min, int anio_max);
 
-    //PRE: Recibe un numero aleatorio positivo
-    //POST: devuelve una lectura aleatoria en base a ese numero 
+    //PRE: Recibe un numero aleatorio >= 0.
+    //POST: Devuelve una lectura aleatoria en base a ese numero 
     void lectura_random(int numero_rand);
     
     //PRE: genero peude ser: "TERROR", "HISTORICA", "FICCION", "COMEDIA", "ROMANTICA", "DRAMA", "SUSPENSO".
@@ -64,7 +62,7 @@ class Lista_lectura {
     //Destructor
     void liberar_lista();
 
-    Dato encontrar_min_minutos(double &minimo);
+    Dato consulta(double &minimo);
 
 private:
     int cantidad;

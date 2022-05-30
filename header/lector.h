@@ -28,6 +28,7 @@ private:
     Lista_escritor escritores;
     
 public:
+
     //PRE:
     //POST: Inicializa al objeto
     Lector(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores);
@@ -40,11 +41,11 @@ public:
     //POST: Carga en la lista de lecturas todo las lecturas que estan en el archivo_lectura
     void procesar_archivo_lectura();
     
-    //PRE:
+    //PRE: La lista no tiene que estar vacia
     //POST: Devuelve la lista de lecturas
     Lista_lectura devolver_lecturas();
 
-    //PRE:
+    //PRE: La lista no tiene que estar vacia
     //POST: Devuelve la lista de escritores
     Lista_escritor devolver_escritores();
 

@@ -27,19 +27,20 @@ class Cola{
         //POST: Da de baja la direccion de una lectura.
         void baja();
 
-        //PRE:
-        //POST:Devuelve el dato consultado
+        //PRE:-
+        //POST:Devuelve el dato consultado.
         Data consulta();
         
         //PRE:
-        //POST: Devuelve true si la cola esta vacia
+        //POST: Devuelve true si la cola esta vacia.
         bool vacia();
 
-        //PRE:
-        //POST:
+        //PRE: La cola no debe estar vacia.
+        //POST: Imprime por pantalla la cola.
         void mostrar();
 
-        //POST:
+        //PRE: La cola no puede estar vacia.
+        //POST: Elimina la cola liberando memoria.
         void eliminar_cola();
 };
 
