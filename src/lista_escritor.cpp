@@ -46,6 +46,10 @@ Tipo Lista_escritor::consulta(string referencia_escritor){
 
 void Lista_escritor::modificar_fallecimiento(string nombre_y_apellido, int anio_ingresado){
   desplazar_actual(nombre_y_apellido);
+  
+  if(es_ultimo(actual) and actual->obtener_objeto()->obtener_nombre_y_apellido() != nombre_y_apellido)
+    cout << "El escritor no se encuentra en la lista" << endl;
+
   actual->obtener_objeto()->modificar_anio_fallecimiento(anio_ingresado);
 
 }
@@ -84,7 +88,9 @@ void Lista_escritor::mostrar_lista_escritor(){
   }
 }
 
-
+bool Lista_escritor::es_ultimo(Nodo<Tipo>*nodo){
+  return (nodo->obtener_siguiente() == nullptr);
+}
 
 
 void Lista_escritor::desplazar_actual(string referencia){

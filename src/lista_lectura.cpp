@@ -77,7 +77,7 @@ void Lista_lectura::liberar_lista(){
 }
 
 bool Lista_lectura::es_ultimo(Nodo<Dato>*nodo){
-  return (nodo->obtener_siguiente()== 0);
+  return (nodo->obtener_siguiente() == nullptr);
 }
 
 void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
@@ -121,19 +121,20 @@ void Lista_lectura::lectura_random(int numero_rand){
   actual->obtener_objeto()->mostrar();
 }
 
-
+bool Lista_lectura::genero_no_encontrado(string genero){
+  return (genero != "TERROR" and genero != "HISTORICA" and genero != "COMEDIA" 
+            and genero != "FICCION" and genero != "ROMANCE" and genero != "DRAMA" and genero != "SUSPENSO");
+}
 
 void Lista_lectura::listar_por_genero(string genero){
   cout << NEGRITA_ROJO << endl;
   reiniciar_actual();
  
-  if(genero != "TERROR" and genero != "HISTORICA" and genero != "COMEDIA" 
-          and genero != "FICCION" and genero != "ROMANCE" and genero != "DRAMA" and genero != "SUSPENSO")
-
+  if(genero_no_encontrado(genero))
     cout << BLANCO "El genero ingresado no existe, los generos son: TERROR, HISTORICA, FICCION, COMEDIA, ROMANTICA, DRAMA, SUSPENSO " NEGRITA_ROJO << endl;
   
   else{ 
-
+    
     bool seguir = true;
     while(seguir){
     
@@ -165,6 +166,10 @@ void Lista_lectura::listar_por_escritor(string referencia){
 
       desplazar_actual(actual);
     }
+  if(actual->obtener_objeto()->obtener_escritor()->obtener_nombre_y_apellido() != referencia 
+        or actual->obtener_objeto()->obtener_escritor()->obtener_referencia() != referencia)
+    
+    cout << "El escritor no se encuentra en la lista" << endl;
 }
 
 void Lista_lectura::desplazar_actual(Nodo<Dato>* nodo_actual){

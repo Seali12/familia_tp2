@@ -17,6 +17,10 @@ class Novela: public Lectura{
 protected:
     int genero;
 
+    //PRE: Debe existir una novela la cual se quiere mostrar.
+    //POST Muestra el género de la novela.
+    void mostrar_genero();
+
 public:
     //Pre:
     //Post: Crea una novela nueva.
@@ -25,10 +29,6 @@ public:
     //Pre: Debe existir una novela la cual se quiere mostrar.
     //Post: Muestra la informacion de una novela completa por pantalla.
     void mostrar();
-
-    //PRE: Debe existir una novela la cual se quiere mostrar.
-    //POST Muestra el género de la novela.
-    void mostrar_genero();
 
     //PRE: Debe existir una novela la cual se quiere consultar.
     //POST: Devuelve el genero de la novela.

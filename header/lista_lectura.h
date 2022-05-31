@@ -77,6 +77,8 @@ private:
     void ordenar(Dato objeto, Nodo<Dato>* direccion);
 
     void desplazar_actual(Nodo<Dato>* nodo_actual);
+
+    bool genero_no_encontrado(string genero);
 };
 
 #endif // !LISTA_LECTURAS_H

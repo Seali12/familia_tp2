@@ -58,7 +58,9 @@ private:
     Nodo<Tipo>* actual;
     Nodo<Tipo>* anterior;
 
-    void desplazar_actual(string referencia);    
+    void desplazar_actual(string referencia); 
+    
+    bool es_ultimo(Nodo<Tipo>* nodo);   
 };
 
 

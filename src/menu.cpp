@@ -114,11 +114,11 @@ void Menu::agregar_nueva_lectura(){
     cin >> duracion;  
     
     int anio;
-    cout << BLANCO "Anio: " CYAN;
+    cout << BLANCO "Año: " CYAN;
     cin>>anio;
 
     string nombre_escritor;
-    cout << BLANCO "Nombre del escritor (tiene que estar cargado): " CYAN;
+    cout << BLANCO "Nombre del escritor (tiene que estar en la lista para que funcione): " CYAN;
     cin.ignore();
     getline(cin, nombre_escritor);
 
@@ -191,7 +191,7 @@ void Menu::quitar_lectura(){
     cout << endl;
 
     string titulo_ingresado;
-    cout << BLANCO "Ingrese el titulo de la lectura que desea quitar: " CYAN;
+    cout << BLANCO "Ingrese el titulo de la lectura que desea quitar (debe estar en la lista para que funcione): " CYAN;
     cin.ignore();
     getline(cin, titulo_ingresado);
 
@@ -244,7 +244,7 @@ void Menu::cambiar_fecha_escritor(){
     cout << endl;
 
     string nombre_escritor;
-    cout << BLANCO "Escriba el nombre del escrito que desea modificar: " CYAN;
+    cout << BLANCO "Escriba el nombre del escritor que desea modificar: " CYAN;
     cin.ignore();
     getline(cin, nombre_escritor);
 
@@ -318,7 +318,7 @@ void Menu::armar_cola(){
     cola_lecturas.mostrar();
 
     char rta;
-    cout << BLANCO "Si la lectura ya esta leída (precione E para dar de baja) o S para salir al menú: " CYAN;
+    cout << BLANCO "Si la lectura ya esta leída (precione E para dar de baja) o S para volver al menú: " CYAN;
     cin >> rta;
 
     while((char)toupper(rta) != 'S' and !cola_lecturas.vacia()){
@@ -367,7 +367,10 @@ void Menu::limpiar_consola(){
 }
 
 void Menu::sid(){
-cout<<".########....###....##.....##.####.##.......####....###.......########.########......#######."<<endl;
+cout<<endl;
+cout<<endl;
+
+cout<< NEGRITA_VERDE".########....###....##.....##.####.##.......####....###.......########.########......#######."<<endl;
 cout<<".##.........##.##...###...###..##..##........##....##.##.........##....##.....##....##.....##"<<endl;
 cout<<".##........##...##..####.####..##..##........##...##...##........##....##.....##...........##"<<endl;
 cout<<".######...##.....##.##.###.##..##..##........##..##.....##.......##....########......#######."<<endl;
@@ -378,7 +381,7 @@ cout<<".##.......##.....##.##.....##.####.########.####.##.....##.......##....##
 cout<<endl;
 cout<<endl;
 
-cout<<"&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<< BLANCO"&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
 cout<<"%%%%%%%%%%%%%%%%%%###%%%/#(%%%%%%%%%%%%####%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
 cout<<"%%%%%%%%%%%%%%%%%%(//////**/(%%%%&@##((((//////(#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
 cout<<"&%%%%%%%%%%%%%%%%%(@*,.##/*,**/(/((((((((///***///(((#&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
@@ -398,19 +401,14 @@ cout<<"@@@@@@@@@@@@@@@@@@@@@@@&#((#(#%&&&&%##%#####(((//,,..,,,/%@@@@@&&%%&@@@@@
 cout<<"@@@@@@@@@@@@@@@@@@@@@@%(#/(((#%%%%&%##%##(((//*.....,,,,,,,*****,...//(&@@@@@@@@@@@@"<<endl;
 cout<<"@&&&&&&&&&&((/*(%@@@&((((/((//%#%#####((///*,..,..,,,,,********,,..***/*(#&&&&&&&&&&"<<endl;
 
+cout<<endl;
+cout<<endl;
 
 
+}
 
 
 
                                                                                                                         
                                                                                                                                                                                                                                             
-                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                            
-
-
-
-}
+                                                                                                                                                                            
