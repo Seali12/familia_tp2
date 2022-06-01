@@ -201,21 +201,8 @@ void Menu::quitar_lectura(){
 void Menu::agregar_escritor(){
     cout << endl;
 
-    string referencia;
-    cout << BLANCO "Ingrese la referencia del escritor(por ejemplo: (1), (2), etc, segun corresponda): " CYAN;
-    cin >> referencia;
-    
-    bool repetida = false;
-    if(escritores.referencia_repetida(referencia))
-        repetida = true;
-    
-    while(repetida){
-        cout << BLANCO "Esa referencia ya se encuenta en la lista de escritores por favor ingrese otra(por ejemplo: (1), (2), etc, segun corresponda): " CYAN;
-        cin >> referencia;
-       
-        if(!escritores.referencia_repetida(referencia))
-            repetida = false;
-    }
+    string numero_referencia = to_string(escritores.obtener_cantidad() + 1);
+    string referencia("(" + numero_referencia + ")");
     
     string nombre_y_apellido;
     cout << BLANCO "Ingrese nombre y apellido del escritor (por ejemplo: Stephen King): " CYAN;
@@ -370,40 +357,39 @@ void Menu::sid(){
 cout<<endl;
 cout<<endl;
 
-cout<< NEGRITA_VERDE".########....###....##.....##.####.##.......####....###.......########.########......#######."<<endl;
-cout<<".##.........##.##...###...###..##..##........##....##.##.........##....##.....##....##.....##"<<endl;
-cout<<".##........##...##..####.####..##..##........##...##...##........##....##.....##...........##"<<endl;
-cout<<".######...##.....##.##.###.##..##..##........##..##.....##.......##....########......#######."<<endl;
-cout<<".##.......#########.##.....##..##..##........##..#########.......##....##...........##......."<<endl;
-cout<<".##.......##.....##.##.....##..##..##........##..##.....##.......##....##...........##......."<<endl;
-cout<<".##.......##.....##.##.....##.####.########.####.##.....##.......##....##...........#########"<<endl;                                                                                                                                                                           
+cout<< NEGRITA_ROJO".########" << NEGRITA_AMARILLO"....###..." << NEGRITA_MAGENTA".##.....##" << NEGRITA_VERDE".####" << NEGRITA_BLANCO".##......." << NEGRITA_AZUL"####" << NEGRITA_ROJO"....###...." << NEGRITA_AMARILLO"...########" << NEGRITA_MAGENTA".########..." << NEGRITA_VERDE"...#######."<<endl;
+cout<< NEGRITA_ROJO".##......" << NEGRITA_AMARILLO"...##.##.." << NEGRITA_MAGENTA".###...###" << NEGRITA_VERDE"..##." << NEGRITA_BLANCO".##......." << NEGRITA_AZUL".##." << NEGRITA_ROJO"...##.##..." << NEGRITA_AMARILLO"......##..." << NEGRITA_MAGENTA".##.....##.." << NEGRITA_VERDE"..##.....##"<<endl;
+cout<< NEGRITA_ROJO".##......" << NEGRITA_AMARILLO"..##...##." << NEGRITA_MAGENTA".####.####" << NEGRITA_VERDE"..##." << NEGRITA_BLANCO".##......." << NEGRITA_AZUL".##." << NEGRITA_ROJO"..##...##.." << NEGRITA_AMARILLO"......##..." << NEGRITA_MAGENTA".##.....##.." << NEGRITA_VERDE".........##"<<endl;
+cout<< NEGRITA_ROJO".######.." << NEGRITA_AMARILLO".##.....##" << NEGRITA_MAGENTA".##.###.##" << NEGRITA_VERDE"..##." << NEGRITA_BLANCO".##......." << NEGRITA_AZUL".##." << NEGRITA_ROJO".##.....##." << NEGRITA_AMARILLO"......##..." << NEGRITA_MAGENTA".########..." << NEGRITA_VERDE"...#######."<<endl;
+cout<< NEGRITA_ROJO".##......" << NEGRITA_AMARILLO".#########" << NEGRITA_MAGENTA".##.....##" << NEGRITA_VERDE"..##." << NEGRITA_BLANCO".##......." << NEGRITA_AZUL".##." << NEGRITA_ROJO".#########." << NEGRITA_AMARILLO"......##..." << NEGRITA_MAGENTA".##........." << NEGRITA_VERDE"..##......."<<endl;
+cout<< NEGRITA_ROJO".##......" << NEGRITA_AMARILLO".##.....##" << NEGRITA_MAGENTA".##.....##" << NEGRITA_VERDE"..##." << NEGRITA_BLANCO".##......." << NEGRITA_AZUL".##." << NEGRITA_ROJO".##.....##." << NEGRITA_AMARILLO"......##..." << NEGRITA_MAGENTA".##........." << NEGRITA_VERDE"..##......."<<endl;
+cout<< NEGRITA_ROJO".##......" << NEGRITA_AMARILLO".##.....##" << NEGRITA_MAGENTA".##.....##" << NEGRITA_VERDE".####" << NEGRITA_BLANCO".########." << NEGRITA_AZUL"####" << NEGRITA_ROJO".##.....##." << NEGRITA_AMARILLO"......##..." << NEGRITA_MAGENTA".##........." << NEGRITA_VERDE"..#########"<<endl;                                                                                                                                                                           
 
 cout<<endl;
 cout<<endl;
 
-cout<< BLANCO"&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
-cout<<"%%%%%%%%%%%%%%%%%%###%%%/#(%%%%%%%%%%%%####%%%%#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
-cout<<"%%%%%%%%%%%%%%%%%%(//////**/(%%%%&@##((((//////(#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
-cout<<"&%%%%%%%%%%%%%%%%%(@*,.##/*,**/(/((((((((///***///(((#&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
-cout<<"&%%%%%%%%%%%%%%%%%#&@(/%%(*(%%%%##(##((//((*,****,**/(###%&&%%%%%%(%(%%%%%%%%%%%%%%%"<<endl;
-cout<<"&%&%%%%%%%%%%%&%&%&(,,***,#&&&&&&%%%#(#((**********,,,,*%#%%(/*((((//(#&%%%%%%%%%%%%"<<endl;
-cout<<"&&&&&&&&&&&&&&&&&&&%%%%/,/#%(.(%&&&&%%%#/*,,********,,,,,/(%#(((/#&/./&/%&&&&&&&&&&&"<<endl;
-cout<<"&&&&&&&&&&&&&&&&&&&&&&&##(##((.  #%&&%%#/*,********,,,,,,,,*((#(#//%&%%&&&&&&&&&&&&&"<<endl;
-cout<<"&&&&&&&&&&&&&&&&&&&&&&&&&&#(%##(.  (#%%#(****,.*/*****,,,,,*/(#(##%%%&&&&&&&&&&&&&&&"<<endl;
-cout<<"&&&&&&&&&&&&&&&&&&&&&&&&&&&#(#%##(*#%(##((//////**/*,./*,,*//((/%&&&&&&&&&&&&&&&&&&&"<<endl;
-cout<<"&&&&&&&&&&&&&&&&&&&&&&&&&&&&%(#%%(((//(**/(((#(/*,***///////,*%&&&&&&&&&&&&&&&&&&&&&"<<endl;
-cout<<"@&&&&&&&&&&&&&&&&&&&&&&&&&&&&&##%%%(#%(*((%%%#(////(,* ..,*(&&&&&&&&&&&&&&&&&&&&&&&&"<<endl;
-cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@@&@&&#%%%%%#(#(@#&&&%(#( ,,**/(#@&@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
-cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@@&@&&%%%%%%%%&%(////////**//(#@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
-cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@@&#%#%%&#%%%%%%%&%%%%###(((/(&@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
-cout<<"@@@@@@@@@@@@@@@@@@@@@@@@@#((((#%&&%%%%%%%%%%%##((///,,*#@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
-cout<<"@@@@@@@@@@@@@@@@@@@@@@@&#((#(#%&&&&%##%#####(((//,,..,,,/%@@@@@&&%%&@@@@@@@@@@@@@@@@"<<endl;
-cout<<"@@@@@@@@@@@@@@@@@@@@@@%(#/(((#%%%%&%##%##(((//*.....,,,,,,,*****,...//(&@@@@@@@@@@@@"<<endl;
-cout<<"@&&&&&&&&&&((/*(%@@@&((((/((//%#%#####((///*,..,..,,,,,********,,..***/*(#&&&&&&&&&&"<<endl;
+cout<<BLANCO"&%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<<BLANCO"%%%%%%%%%%%%%%%%%%"<<AMARILLO"###%%%/#("<<BLANCO"%%%%%%%%%%%%"<<AMARILLO"####%%%%#"<<BLANCO"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<<BLANCO"%%%%%%%%%%%%%%%%%%"<<AMARILLO"(//////**/("<<BLANCO"%%%%"<<AMARILLO"&@##((((//////(#"<<BLANCO"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<<BLANCO"&%%%%%%%%%%%%%%%%"<<AMARILLO"%("<<BLANCO"@*"<<NEGRO",."<<BLANCO"##/"<<AMARILLO"*,**/(/((((((((///***///(((#&"<<BLANCO"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"<<endl;
+cout<<BLANCO"&%%%%%%%%%%%%%%%%"<<AMARILLO"%#&"<<BLANCO"@(/%%"<<AMARILLO"(*(%%%%##(##((//"<<ROJO"((*,****,"<<AMARILLO"**/(###%&&"<<BLANCO"%%%%%%"<<AMARILLO"(%("<<BLANCO"%%%%%%%%%%%%%%%"<<endl;
+cout<<BLANCO"&%&%%%%%%%%%%%&%&%"<<AMARILLO"&(,,***,#&&&&&&%%%#(#"<<ROJO"((**********,,"<<AMARILLO",,*%#%%(/*((((//(#&"<<BLANCO"%%%%%%%%%%%%"<<endl;
+cout<<BLANCO"&&&&&&&&&&&&&&&&&&&"<<AMARILLO"%%%%/,/#%"<<ROJO"(."<<AMARILLO"(%&&&&%%%#"<<ROJO"/*,,********,,,"<<AMARILLO",,/(%#(((/"<<BLANCO"#&"<<NEGRO"/."<<BLANCO"/&"<<AMARILLO"/%"<<BLANCO"&&&&&&&&&&&"<<endl;
+cout<<BLANCO"&&&&&&&&&&&&&&&&&&&&&&&"<<AMARILLO"##(##("<<ROJO"(.  "<<AMARILLO"#%&&%%#"<<ROJO"/*,********,,,,"<<AMARILLO",,,,*((#(#//"<<BLANCO"%&%"<<AMARILLO"%"<<BLANCO"&&&&&&&&&&&&&"<<endl;
+cout<<BLANCO"&&&&&&&&&&&&&&&&&&&&&&&&&"<<AMARILLO"&#(%#"<<ROJO"#(.  "<<AMARILLO"(#%%#("<<ROJO"****,.*/*****"<<AMARILLO",,,,,*/(#(##%%%&"<<BLANCO"&&&&&&&&&&&&&&"<<endl;
+cout<<BLANCO"&&&&&&&&&&&&&&&&&&&&&&&&&&"<<AMARILLO"&#(#%##"<<ROJO"("<<BLANCO"*#%"<<AMARILLO"(##(("<<ROJO"//////**/*,."<<AMARILLO"/*,,*"<<ROJO"//"<<AMARILLO"((/%"<<BLANCO"&&&&&&&&&&&&&&&&&&&"<<endl;
+cout<<BLANCO"&&&&&&&&&&&&&&&&&&&&&&&&&&&"<<AMARILLO"&%(#%%"<<ROJO"((("<<BLANCO"//("<<AMARILLO"**/(((#(/*,***///"<<ROJO"////"<<AMARILLO",*%"<<BLANCO"&&&&&&&&&&&&&&&&&&&&&"<<endl;
+cout<<BLANCO"@&&&&&&&&&&&&&&&&&&&&&&&&&&&"<<AMARILLO"&&##%%%"<<ROJO"(#%("<<BLANCO"*((%%%#(////("<<ROJO",* .."<<AMARILLO",*("<<BLANCO"&&&&&&&&&&&&&&&&&&&&&&&&"<<endl;
+cout<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@@@@@@&"<<AMARILLO"@&&#%%%%%"<<ROJO"#(#(@"<<BLANCO"#&&&%(#("<<ROJO" ,,**"<<AMARILLO"/(#@"<<BLANCO"&@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+cout<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<AMARILLO"&@&&%%%%%%%%&%"<<ROJO"(////////**"<<AMARILLO"//(#"<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+cout<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@@@@@"<<AMARILLO"&#%#%%&#%%%%%%%&%%%%###(((/(&"<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+cout<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@@@@"<<AMARILLO"#((((#%&&%%%%%%%%%%%##((///,,*#"<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@@@@@@@"<<endl;
+cout<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@@"<<AMARILLO"&#((#(#%&&&&%##%#####(((//,,..,,,/%"<<BLANCO"@@@@@&&%%&@@@@@@@@@@@@@@@@"<<endl;
+cout<<BLANCO"@@@@@@@@@@@@@@@@@@@@@@"<<AMARILLO"%(#/(((#%%%%&%##%##(((//*.....,,,,,,,*****,...//(&"<<BLANCO"@@@@@@@@@@@@"<<endl;
+cout<<BLANCO"@&&&&&&&&&&"<<AMARILLO"((/*(%@@@&((((/((//%#%#####((///*,..,..,,,,,********,,..***/*(#"<<BLANCO"&&&&&&&&&&"<<endl;
 
 cout<<endl;
 cout<<endl;
-
 
 }
 

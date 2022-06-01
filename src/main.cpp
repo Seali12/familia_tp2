@@ -13,7 +13,9 @@ int main(){
     a.procesar_archivo_lectura();
 
     Menu b(a.devolver_lecturas(), a.devolver_escritores());
+
     b.sid();
+    
     while(b.continuar()){
         b.desplegar_menu();
     }

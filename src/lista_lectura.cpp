@@ -156,20 +156,22 @@ void Lista_lectura::listar_por_escritor(string referencia){
   cout << NEGRITA_ROJO << endl;
   reiniciar_actual();
 
+  int contador_lecturas = 0;
   while(!es_ultimo(actual)){
     
-      if(actual->obtener_objeto()->obtener_escritor()->obtener_nombre_y_apellido() == referencia 
+    if(actual->obtener_objeto()->obtener_escritor()->obtener_nombre_y_apellido() == referencia 
         or actual->obtener_objeto()->obtener_escritor()->obtener_referencia() == referencia){
             
         actual->obtener_objeto()->mostrar();
+        contador_lecturas++;
       }   
 
       desplazar_actual(actual);
     }
-  if(actual->obtener_objeto()->obtener_escritor()->obtener_nombre_y_apellido() != referencia 
-        or actual->obtener_objeto()->obtener_escritor()->obtener_referencia() != referencia)
+  if(!contador_lecturas){
+      cout << "El escritor no se encuentra en la lista" << endl;
+    }
     
-    cout << "El escritor no se encuentra en la lista" << endl;
 }
 
 void Lista_lectura::desplazar_actual(Nodo<Dato>* nodo_actual){
