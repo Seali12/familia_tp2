@@ -70,39 +70,22 @@ void Lista_lectura::mostrar_lista_lectura(){
   }
 }
 
-void Lista_lectura::liberar_lista(){
-  while (!vacia()){
-    baja();
+void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
+  cout << NEGRITA_ROJO << endl;
+  reiniciar_actual();
+  
+  while (actual->obtener_objeto()->obtener_anio() <= anio_max and !es_ultimo(actual)){
+
+    if (actual->obtener_objeto()->obtener_anio() >= anio_min){
+        
+      actual->obtener_objeto()->mostrar();
+    }
+
+    desplazar_actual(actual);
   }
-}
 
-bool Lista_lectura::es_ultimo(Nodo<Lectura*>*nodo){
-  return (nodo->obtener_siguiente() == nullptr);
-}
-
-void Lista_lectura::ordenar(Lectura* objeto, Nodo<Lectura*>* direccion){
-  Nodo<Lectura*>* siguiente = ultimo;
-  Nodo<Lectura*>* anterior = nullptr;
-
-  if (vacia()){
-    ultimo = direccion;
-  }else{
-    while(!es_ultimo(siguiente) and objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
-
-      anterior = siguiente;
-      siguiente = siguiente->obtener_siguiente();
-    }
-
-    if(objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
-      siguiente->cambiar_siguiente(direccion);
-    }else{
-      direccion->cambiar_siguiente(siguiente);
-      if(anterior != nullptr){
-        anterior->cambiar_siguiente(direccion);
-      }else{
-        ultimo = direccion;
-      }
-    }
+  if (actual->obtener_objeto()->obtener_anio() <= anio_max){
+    actual->obtener_objeto()->mostrar();
   }
 }
 
@@ -174,10 +157,10 @@ void Lista_lectura::listar_por_escritor(string referencia){
     
 }
 
-void Lista_lectura::desplazar_actual(Nodo<Lectura*>* nodo_actual){
-  
-  nodo_anterior = nodo_actual;
-  actual = nodo_actual->obtener_siguiente();
+void Lista_lectura::liberar_lista(){
+  while (!vacia()){
+    baja();
+  }
 }
 
 Lectura* Lista_lectura::consulta(double &minimo){
@@ -208,27 +191,42 @@ Lectura* Lista_lectura::consulta(double &minimo){
   minimo = minimo_max;
       
   return lectura_minima;
-    
-  
 }
 
-void Lista_lectura::mostrar_rango(int anio_min, int anio_max ){
-  cout << NEGRITA_ROJO << endl;
-  reiniciar_actual();
-  
-  while (actual->obtener_objeto()->obtener_anio() <= anio_max and !es_ultimo(actual)){
+bool Lista_lectura::es_ultimo(Nodo<Lectura*>*nodo){
+  return (nodo->obtener_siguiente() == nullptr);
+}
 
-    if (actual->obtener_objeto()->obtener_anio() >= anio_min){
-        
-      actual->obtener_objeto()->mostrar();
+void Lista_lectura::ordenar(Lectura* objeto, Nodo<Lectura*>* direccion){
+  Nodo<Lectura*>* siguiente = ultimo;
+  Nodo<Lectura*>* anterior = nullptr;
+
+  if (vacia()){
+    ultimo = direccion;
+  }else{
+    while(!es_ultimo(siguiente) and objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
+
+      anterior = siguiente;
+      siguiente = siguiente->obtener_siguiente();
     }
 
-    desplazar_actual(actual);
+    if(objeto->obtener_anio() > siguiente->obtener_objeto()->obtener_anio()){
+      siguiente->cambiar_siguiente(direccion);
+    }else{
+      direccion->cambiar_siguiente(siguiente);
+      if(anterior != nullptr){
+        anterior->cambiar_siguiente(direccion);
+      }else{
+        ultimo = direccion;
+      }
+    }
   }
+}
 
-  if (actual->obtener_objeto()->obtener_anio() <= anio_max){
-    actual->obtener_objeto()->mostrar();
-  }
+void Lista_lectura::desplazar_actual(Nodo<Lectura*>* nodo_actual){
+  
+  nodo_anterior = nodo_actual;
+  actual = nodo_actual->obtener_siguiente();
 }
 
 void Lista_lectura::reiniciar_actual(){

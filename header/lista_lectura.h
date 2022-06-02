@@ -41,8 +41,6 @@ class Lista_lectura {
     //POST: Imprime todo el contenido de la lista
     void mostrar_lista_lectura();
 
-     
-
     //PRE: La lista no debe estar vacia, anio_min y anio_max deben ser > 0 anio_min debe < anio_max.
     //Post: Muestra todas las lectuas entre el anio_min y el anio_max.
     void mostrar_rango(int anio_min, int anio_max);

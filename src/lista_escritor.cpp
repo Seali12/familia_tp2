@@ -54,11 +54,6 @@ void Lista_escritor::modificar_fallecimiento(string nombre_y_apellido, int anio_
 
 }
 
-bool Lista_escritor::referencia_repetida(string referencia){
-  desplazar_actual(referencia);
-  return (actual->obtener_objeto()->obtener_referencia() == referencia);
-}
-
 bool Lista_escritor::vacia(){
   return (ultimo == 0);
 }

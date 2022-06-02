@@ -1,6 +1,1 @@
-* tratar de ver lo del puntero actual.
-* hacer dinamico el atributo de tema en novela_historica.
-
-* actualizar el uml.
-
 * hacer el README
