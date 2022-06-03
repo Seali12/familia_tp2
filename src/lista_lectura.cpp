@@ -7,15 +7,15 @@ Lista_lectura::Lista_lectura(){
   cantidad = 0;
 }
 
-void Lista_lectura::alta(Dato objeto){
-  Nodo<Dato>* nuevo = new Nodo<Dato>(objeto);
+void Lista_lectura::alta(Lectura* objeto){
+  Nodo<Lectura*>* nuevo = new Nodo<Lectura*>(objeto);
   
   ordenar(objeto, nuevo);
   cantidad++;
 }
 
 void Lista_lectura::baja(){
-  Nodo<Dato>* borrar = ultimo;
+  Nodo<Lectura*>* borrar = ultimo;
 
   ultimo = ultimo->obtener_siguiente();
 
@@ -33,7 +33,7 @@ void Lista_lectura::baja(string titulo){
       desplazar_actual(actual);
   }
 
-  Nodo<Dato>* borrar = actual;
+  Nodo<Lectura*>* borrar = actual;
   nodo_anterior->cambiar_siguiente(actual->obtener_siguiente());
   cantidad--;
 
@@ -41,7 +41,7 @@ void Lista_lectura::baja(string titulo){
   delete borrar;
 }
 
-Dato Lista_lectura::consulta(string titulo){
+Lectura* Lista_lectura::consulta(string titulo){
   
   while (actual->obtener_objeto()->obtener_titulo() != titulo){
     desplazar_actual(actual);
@@ -71,18 +71,18 @@ void Lista_lectura::mostrar_lista_lectura(){
 }
 
 void Lista_lectura::liberar_lista(){
-  while (! vacia() ){
+  while (!vacia()){
     baja();
   }
 }
 
-bool Lista_lectura::es_ultimo(Nodo<Dato>*nodo){
+bool Lista_lectura::es_ultimo(Nodo<Lectura*>*nodo){
   return (nodo->obtener_siguiente() == nullptr);
 }
 
-void Lista_lectura::ordenar(Dato objeto, Nodo<Dato>* direccion){
-  Nodo<Dato>* siguiente = ultimo;
-  Nodo<Dato>* anterior = nullptr;
+void Lista_lectura::ordenar(Lectura* objeto, Nodo<Lectura*>* direccion){
+  Nodo<Lectura*>* siguiente = ultimo;
+  Nodo<Lectura*>* anterior = nullptr;
 
   if (vacia()){
     ultimo = direccion;
@@ -174,18 +174,18 @@ void Lista_lectura::listar_por_escritor(string referencia){
     
 }
 
-void Lista_lectura::desplazar_actual(Nodo<Dato>* nodo_actual){
+void Lista_lectura::desplazar_actual(Nodo<Lectura*>* nodo_actual){
   
   nodo_anterior = nodo_actual;
   actual = nodo_actual->obtener_siguiente();
 }
 
-Dato Lista_lectura::consulta(double &minimo){
+Lectura* Lista_lectura::consulta(double &minimo){
   reiniciar_actual();
     
   double minimo_max = 0;
     
-  Dato lectura_minima = nullptr;
+  Lectura* lectura_minima = nullptr;
 
   for(int i = 0; i < obtener_cantidad(); i++){
       

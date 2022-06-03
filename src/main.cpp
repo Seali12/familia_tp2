@@ -7,20 +7,20 @@ using namespace std;
 int main(){
     Lista_escritor hola;
     Lista_lectura chau;
-    Lector a("lecturas.txt", "escritor.txt", chau, hola);
+    Lector Lector_1("lecturas.txt", "escritor.txt", chau, hola);
 
-    a.procesar_archivo_escritores();
-    a.procesar_archivo_lectura();
+    Lector_1.procesar_archivo_escritores();
+    Lector_1.procesar_archivo_lectura();
 
-    Menu b(a.devolver_lecturas(), a.devolver_escritores());
+    Menu Menu_1(Lector_1.devolver_lecturas(), Lector_1.devolver_escritores());
 
-    b.sid();
+    Menu_1.sid();
     
-    while(b.continuar()){
-        b.desplegar_menu();
+    while(Menu_1.continuar()){
+        Menu_1.desplegar_menu();
     }
         
-    b.eliminar_listas();
+    Menu_1.eliminar_listas();
 
     return 0;
 }

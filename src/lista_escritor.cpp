@@ -7,9 +7,9 @@ Lista_escritor::Lista_escritor(){
   cantidad = 0;
 }
 
-void Lista_escritor::alta(Tipo objeto){
-  Nodo<Tipo>* nuevo = new Nodo<Tipo>(objeto);
-  //actual = ultimo;
+void Lista_escritor::alta(Escritor* objeto){
+  Nodo<Escritor*>* nuevo = new Nodo<Escritor*>(objeto);
+  
   
   nuevo->cambiar_siguiente(ultimo);
   ultimo = nuevo;
@@ -18,7 +18,7 @@ void Lista_escritor::alta(Tipo objeto){
 }
 
 void Lista_escritor::baja(){
-  Nodo<Tipo>* borrar = ultimo;
+  Nodo<Escritor*>* borrar = ultimo;
   ultimo = ultimo->obtener_siguiente();
 
   cantidad--;
@@ -30,7 +30,7 @@ void Lista_escritor::baja(){
 void Lista_escritor::baja(string nombre_y_apellido){
   desplazar_actual(nombre_y_apellido);
 
-  Nodo<Tipo>* borrar = actual;
+  Nodo<Escritor*>* borrar = actual;
   anterior->cambiar_siguiente(actual->obtener_siguiente());
   
   cantidad--;
@@ -39,7 +39,7 @@ void Lista_escritor::baja(string nombre_y_apellido){
   delete borrar;
 }
 
-Tipo Lista_escritor::consulta(string referencia_escritor){
+Escritor* Lista_escritor::consulta(string referencia_escritor){
   desplazar_actual(referencia_escritor);
   return actual->obtener_objeto();
 }
@@ -88,7 +88,7 @@ void Lista_escritor::mostrar_lista_escritor(){
   }
 }
 
-bool Lista_escritor::es_ultimo(Nodo<Tipo>*nodo){
+bool Lista_escritor::es_ultimo(Nodo<Escritor*>*nodo){
   return (nodo->obtener_siguiente() == nullptr);
 }
 

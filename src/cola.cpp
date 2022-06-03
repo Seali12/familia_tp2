@@ -5,8 +5,8 @@ Cola::Cola(){
     primero = nullptr;
 }
 
-void Cola::alta(Data nueva_lectura){
-    Nodo<Data>* nuevo = new Nodo<Data>(nueva_lectura);
+void Cola::alta(Lectura* nueva_lectura){
+    Nodo<Lectura*>* nuevo = new Nodo<Lectura*>(nueva_lectura);
     
     if(primero == nullptr){
         primero = nuevo;
@@ -18,7 +18,7 @@ void Cola::alta(Data nueva_lectura){
 }
 
 void Cola::baja(){
-    Nodo<Data>* borrar = primero;
+    Nodo<Lectura*>* borrar = primero;
 
     if (primero->obtener_siguiente() != nullptr){
         primero = primero->obtener_siguiente();
@@ -30,7 +30,7 @@ void Cola::baja(){
 }
 
     
-Data Cola::consulta(){
+Lectura* Cola::consulta(){
     
     return primero->obtener_objeto();     
 }

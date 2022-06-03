@@ -5,7 +5,7 @@
 #include "nodo_simple.h"
 #include "lectura.h"
 
-typedef Lectura* Dato;
+
 
 class Lista_lectura {
   
@@ -15,7 +15,7 @@ class Lista_lectura {
 
     //PRE: Recive un objeto de tipo Lectura*
     //POST: Agrega al objeto en la lista
-    void alta(Dato objeto);
+    void alta(Lectura* objeto);
 
     //PRE: La lista no tiene que estar vacia
     //POST: Elimina el ultimo elemento de la lista (por defecto)
@@ -27,7 +27,7 @@ class Lista_lectura {
     
     //PRE: La lista no tiene que estar vacia y el objeto que se busca tiene que estar en la lista
     //POST: Devuelve al objeto que se quiere consultar
-    Dato consulta(string titulo);
+    Lectura* consulta(string titulo);
 
     //PRE: Debe existir una lista previamnte creada.
     //POST: Devuelve true si la lista esta vacia sino false.
@@ -62,21 +62,21 @@ class Lista_lectura {
     //Destructor
     void liberar_lista();
 
-    Dato consulta(double &minimo);
+    Lectura* consulta(double &minimo);
 
 private:
     int cantidad;
-    Nodo<Dato>* ultimo;
-    Nodo<Dato>* actual;
-    Nodo<Dato>* nodo_anterior;
+    Nodo<Lectura*>* ultimo;
+    Nodo<Lectura*>* actual;
+    Nodo<Lectura*>* nodo_anterior;
 
     void reiniciar_actual();
 
-    bool es_ultimo(Nodo<Dato>* nodo);
+    bool es_ultimo(Nodo<Lectura*>* nodo);
 
-    void ordenar(Dato objeto, Nodo<Dato>* direccion);
+    void ordenar(Lectura* objeto, Nodo<Lectura*>* direccion);
 
-    void desplazar_actual(Nodo<Dato>* nodo_actual);
+    void desplazar_actual(Nodo<Lectura*>* nodo_actual);
 
     bool genero_no_encontrado(string genero);
 };

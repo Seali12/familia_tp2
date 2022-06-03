@@ -5,7 +5,7 @@
 #include "nodo_simple.h"
 #include "escritor.h"
 
-typedef Escritor* Tipo;
+
 
 class Lista_escritor{
 
@@ -15,7 +15,7 @@ public:
 
     //PRE: Recive un objeto de tipo Lista_escritor*
     //POST: Agrega al objeto en la lista
-    void alta(Tipo objeto);
+    void alta(Escritor* objeto);
 
     //PRE: La lista no tiene que estar vacia
     //POST: Elimina el ultimo elemento de la lista (por defecto)
@@ -27,7 +27,7 @@ public:
     
     //PRE: La lista no tiene que estar vacia y el objeto que se busca tiene que estar en la lista
     //POST: Devuelve al objeto que se quiere consultar
-    Tipo consulta(string referencia_escritor);
+    Escritor* consulta(string referencia_escritor);
 
     //PRE: La lista no tiene que estar vacia y el objeto que se busca tiene que estar en la lista, busca un escritor segun su nombre.
     //POST: Devuelve al objeto que se quiere consultar
@@ -54,13 +54,13 @@ public:
 
 private:
     int cantidad;
-    Nodo<Tipo>* ultimo;
-    Nodo<Tipo>* actual;
-    Nodo<Tipo>* anterior;
+    Nodo<Escritor*>* ultimo;
+    Nodo<Escritor*>* actual;
+    Nodo<Escritor*>* anterior;
 
     void desplazar_actual(string referencia); 
     
-    bool es_ultimo(Nodo<Tipo>* nodo);   
+    bool es_ultimo(Nodo<Escritor*>* nodo);   
 };
 
 

@@ -5,12 +5,12 @@
 #include "lectura.h"
 
 
-typedef Lectura* Data; 
+ 
 
 class Cola{
     private:
-        Nodo<Data>* primero;
-        Nodo<Data>* ultimo;
+        Nodo<Lectura*>* primero;
+        Nodo<Lectura*>* ultimo;
         
     public:
         
@@ -21,7 +21,7 @@ class Cola{
         
         //PRE: Nueva_lectura debe ser un objeto lectura dinamico.
         //POST: Agrega una lectura a la cola de menor tiempo de lectura a mayor.
-        void alta(Data  nueva_lectura);
+        void alta(Lectura*  nueva_lectura);
         
         //PRE: La cola no debe estar vacia.
         //POST: Da de baja la direccion de una lectura.
@@ -29,7 +29,7 @@ class Cola{
 
         //PRE:-
         //POST:Devuelve el dato consultado.
-        Data consulta();
+        Lectura* consulta();
         
         //PRE:
         //POST: Devuelve true si la cola esta vacia.
