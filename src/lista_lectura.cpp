@@ -170,7 +170,7 @@ Lectura* Lista_lectura::consulta(double &minimo){
     
   Lectura* lectura_minima = nullptr;
 
-  for(int i = 0; i < obtener_cantidad(); i++){
+  for(int iterador = 0; iterador < obtener_cantidad(); iterador++){
       
     double minutos_objeto = actual->obtener_objeto()->obtener_minutos();
       

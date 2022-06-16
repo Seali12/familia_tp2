@@ -231,7 +231,7 @@ void Menu::cambiar_fecha_escritor(){
     cout << endl;
 
     string nombre_escritor;
-    cout << BLANCO "Escriba el nombre del escritor que desea modificar: " CYAN;
+    cout << BLANCO "Escriba el nombre  o referencia '(1), etc' del escritor que desea modificar: " CYAN;
     cin.ignore();
     getline(cin, nombre_escritor);
 
@@ -249,9 +249,9 @@ void Menu::listar_escritores(){
 
 void Menu::sortear_lectura(){
    
-    int numero_rand = 1 + rand() % lecturas.obtener_cantidad();
+    int numero_aleatorio = 1 + rand() % lecturas.obtener_cantidad();
 
-    lecturas.lectura_random(numero_rand);
+    lecturas.lectura_random(numero_aleatorio);
   
 }
 
@@ -277,7 +277,7 @@ void Menu::listar_lecturas_escritor(){
     cout << endl;
     
     string nombre_escritor;
-    cout << BLANCO "Ingrese nombre de un escritor o su referencia: " CYAN;
+    cout << BLANCO "Ingrese nombre de un escritor o su referencia '(1), etc': " CYAN;
     cin.ignore();
     getline(cin, nombre_escritor);
 
@@ -297,7 +297,7 @@ void Menu::listar_novela_genero(){
 void Menu::armar_cola(){
     
     double minimo = 0;
-    for (int i = 0; i < lecturas.obtener_cantidad(); i++){
+    for (int iterador = 0; iterador < lecturas.obtener_cantidad(); iterador++){
         cola_lecturas.alta(lecturas.consulta(minimo));
     }
     

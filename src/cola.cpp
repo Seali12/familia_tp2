@@ -20,7 +20,7 @@ void Cola::alta(Lectura* nueva_lectura){
 void Cola::baja(){
     Nodo<Lectura*>* borrar = primero;
 
-    if (primero->obtener_siguiente() != nullptr){
+    if (!vacia()){
         primero = primero->obtener_siguiente();
     }else{
         primero = nullptr;

@@ -49,8 +49,9 @@ void Lista_escritor::modificar_fallecimiento(string nombre_y_apellido, int anio_
   
   if(es_ultimo(actual) and actual->obtener_objeto()->obtener_nombre_y_apellido() != nombre_y_apellido)
     cout << "El escritor no se encuentra en la lista" << endl;
-
-  actual->obtener_objeto()->modificar_anio_fallecimiento(anio_ingresado);
+  
+  else
+   actual->obtener_objeto()->modificar_anio_fallecimiento(anio_ingresado);
 
 }
 
@@ -88,12 +89,12 @@ bool Lista_escritor::es_ultimo(Nodo<Escritor*>*nodo){
 }
 
 
-void Lista_escritor::desplazar_actual(string referencia){
+void Lista_escritor::desplazar_actual(string atributo_buscado){
   actual = ultimo;
   anterior = nullptr;
   
-  while (actual->obtener_objeto()->obtener_referencia() != referencia 
-          and actual->obtener_objeto()->obtener_nombre_y_apellido() != referencia and actual->obtener_siguiente() != nullptr){
+  while (actual->obtener_objeto()->obtener_referencia() != atributo_buscado 
+          and actual->obtener_objeto()->obtener_nombre_y_apellido() != atributo_buscado and actual->obtener_siguiente() != nullptr){
             
     anterior = actual;
     actual = actual->obtener_siguiente();
