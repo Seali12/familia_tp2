@@ -21,16 +21,15 @@ class Grafo_matriz_peso{
         int infinito = INFINITO;
         
         //PRE: 
-        //POST
+        //POST: Crea una matriz de peso del grafo
         Grafo_matriz_peso(int valor);
 
 
-        //PRE:
-        // POST:
+        //Constructor por defecto
         Grafo_matriz_peso();
         
-        //PRE:
-        // POST:
+        //PRE: Nombre debe ser un string valido.
+        // POST: Crea un nuevo vertice en el grafo
         void nuevo_vertice(string nombre);
         
         // PRE:
@@ -38,11 +37,11 @@ class Grafo_matriz_peso{
         int peso_arista(string arista_1, string arista_2);
         
         // PRE:
-        // POST:
+        // POST: Devuelve la cantidad de vertices que tiene el grafo
         int obtener_numero_de_vertices();
     
         //PRE: 
-        //POST: 
+        //POST: Devuelve los vertices del grafo
         Vertice* obtener_vertices();
 
         //PRE: 
@@ -54,7 +53,7 @@ class Grafo_matriz_peso{
         int existe_vertice(string nuevo_vertice);
 
         // PRE:
-        // POST:
+        // POST: Devuel la matriz con los pesos.
         int** obtener_matriz_peso();
 
         //Pre: 

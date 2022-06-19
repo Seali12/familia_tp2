@@ -1,7 +1,6 @@
 #include "../header/algoritmo_kruskal.h"
 
 
-
 Algoritmo_kruskal::Algoritmo_kruskal(Grafo_matriz_peso peso_grafo, Vertice* vertices){
     
     this->num_vertices = peso_grafo.obtener_numero_de_vertices();
@@ -37,13 +36,13 @@ void Algoritmo_kruskal::recorrer(){
             }
 
         }
-        aux_3=encontrar(aux_3);
-        aux_5=encontrar(aux_5);
+        aux_3 = encontrar(aux_3);
+        aux_5 = encontrar(aux_5);
 
         if(uni(aux_3,aux_5)>0){
-            //aux_1++;  
-            cout << aux_1++ <<  " Pasada: Arista entre Vertice: "<< vertices[aux_2-1].obtener_nombre_vertice()
-            << " Vertice: " << vertices[aux_4-1].obtener_nombre_vertice() << " Peso: "<< minimo << endl;
+              
+            cout << " Arista entre Vertice: " << vertices[aux_2-1].obtener_nombre_vertice()
+            << " y Vertice: " << vertices[aux_4-1].obtener_nombre_vertice() << ", lleva un timepo de: "<< minimo << " minutos" << endl;
             minimo_costo += minimo;
         }
         matriz[aux_2-1][aux_4-1] = matriz[aux_4-1][aux_2-1]= INFINITO;
@@ -51,7 +50,7 @@ void Algoritmo_kruskal::recorrer(){
     }
     cout << " " << endl;
     
-    cout<< "costo minimo: "<< minimo_costo << endl;
+    cout<< "El costo minimo total es: "<< minimo_costo << endl;
 }
 
 

@@ -110,13 +110,3 @@ int**  Grafo_matriz_peso::obtener_matriz_peso(){
 }
 
 
-void Grafo_matriz_peso::liberar_grafo(){
-
-    delete [] vertices;
-
-    for(int i = 0; i < obtener_numero_de_vertices(); i++){
-        delete [] matriz_peso[i];
-    }
-    delete [] matriz_peso;
-
-}
