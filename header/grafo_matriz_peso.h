@@ -18,7 +18,7 @@ class Grafo_matriz_peso{
 
 
     public:
-        int infinito = INFINITO;
+        //int infinito = INFINITO;
         
         //PRE: 
         //POST: Crea una matriz de peso del grafo
@@ -56,9 +56,7 @@ class Grafo_matriz_peso{
         // POST: Devuel la matriz con los pesos.
         int** obtener_matriz_peso();
 
-        //Pre: 
-        //Post: 
-        void liberar_grafo();
+        
 };  
 
 

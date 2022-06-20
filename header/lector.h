@@ -7,7 +7,7 @@
 #include "novela_historica.h"
 #include "escritor.h"
 #include "lista_lectura.h"
-#include "lista_escritor.h"
+#include "tabla_escritores.h"
 #include <string>
 
 const int CHAR = 0;
@@ -25,13 +25,13 @@ private:
     
     Lista_lectura lecturas;
 
-    Lista_escritor escritores;
+    Tabla_escritores escritores;
     
 public:
 
     //PRE:
     //POST: Inicializa al objeto
-    Lector(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores);
+    Lector(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Tabla_escritores escritores);
 
     //PRE: El archivo tiene que tener el formato correcto
     //POST: Carga en la lista de escritores todo los escritores que estan en el archivo_escritor
@@ -47,7 +47,7 @@ public:
 
     //PRE: La lista no tiene que estar vacia
     //POST: Devuelve la lista de escritores
-    Lista_escritor devolver_escritores();
+    Tabla_escritores devolver_escritores();
 
     //PRE:
     //POST: Destructor

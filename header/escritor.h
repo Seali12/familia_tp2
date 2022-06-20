@@ -33,7 +33,7 @@ public:
     string obtener_nombre_y_apellido();
 
     //pre: Exista un escritor previamente creado.
-    //Post: Devuelve el numero de referencia del autor.
+    //Post: Devuelve el numero de isni del autor.
     string obtener_referencia();
 
     //Pre: Debe haber un objeto escritor previo al cual se le quiere modificar el año.

@@ -3,7 +3,7 @@
 
 #include "colores.h"
 #include "lista_lectura.h"
-#include "lista_escritor.h"
+#include "tabla_escritores.h"
 #include "novela.h"
 #include "novela_historica.h"
 #include "cuento.h"
@@ -31,7 +31,7 @@ class Menu{
 
 private:
 
-Lista_escritor escritores;
+Tabla_escritores escritores;
 
 Lista_lectura lecturas;
 
@@ -79,7 +79,7 @@ public:
  
     //PRE:
     //POST: Construye un objeto Menu.
-    Menu(Lista_lectura lecturas, Lista_escritor escritores);
+    Menu(Lista_lectura lecturas, Tabla_escritores escritores);
     
     //PRE: Debe existir un menu previamente creado.
     //POST:Despliega el menu con opciones.
