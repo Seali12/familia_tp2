@@ -10,7 +10,7 @@ void Main_kruskal::ejecutar_kruskal(){
     grafo.nuevo_vertice(VERTICE_POEMA);
     grafo.nuevo_vertice(VERTICE_POEMA_2);
     grafo.nuevo_vertice(VERTICE_NOVELA_H);
-  
+    
     grafo.nueva_arista(VERTICE_CUENTO, VERTICE_NOVELA, 10);
     grafo.nueva_arista(VERTICE_NOVELA, VERTICE_CUENTO, 10);
     grafo.nueva_arista(VERTICE_CUENTO, VERTICE_NOVELA_H, 15);
@@ -38,8 +38,11 @@ void Main_kruskal::ejecutar_kruskal(){
     cout <<" " << endl;
                                                         
     Algoritmo_kruskal kruskal(grafo, grafo.obtener_vertices());
-  
-    kruskal.recorrer();
     
+    cout << "pasa constructor" << endl;
+    kruskal.recorrer();
+    cout << "pasa recorrer" << endl;
+    //grafo.liberar_grafo();
     kruskal.liberar_kruskal();
+    cout << "libero todo" << endl;
 }

@@ -32,6 +32,7 @@ Grafo_matriz_peso::Grafo_matriz_peso(){
 void Grafo_matriz_peso::nuevo_vertice(string nombre){
     
     bool existe = existe_vertice(nombre) >= 0;
+    
     if(!existe){
         Vertice* vertice_nuevo = new Vertice(nombre);
         
@@ -47,13 +48,13 @@ void Grafo_matriz_peso::nuevo_vertice(string nombre){
 
 int Grafo_matriz_peso::peso_arista(string nombre_vertice_1, string nombre_vertice_2){
 
-    int peso_arista_1, peso_arista_2;
+    int vertice_1, vertice_2;
 
-    peso_arista_1 = existe_vertice(nombre_vertice_1);
-    peso_arista_2 = existe_vertice(nombre_vertice_2);
+    vertice_1 = existe_vertice(nombre_vertice_1);
+    vertice_2 = existe_vertice(nombre_vertice_2);
     
     
-    return matriz_peso[peso_arista_1][peso_arista_2];
+    return matriz_peso[vertice_1][vertice_2];
 }
 
 
@@ -72,12 +73,12 @@ Vertice* Grafo_matriz_peso::obtener_vertices(){
 
 void Grafo_matriz_peso::nueva_arista(string origen, string destino, int peso){
     
-    int peso_arista_1, peso_arista_2;
+    int vertice_1, vertice_2;
 //cmbiar nombre a vertice
-    peso_arista_1 = existe_vertice(origen);
-    peso_arista_2 = existe_vertice(destino);
+    vertice_1 = existe_vertice(origen);
+    vertice_2 = existe_vertice(destino);
 
-    matriz_peso[peso_arista_1][peso_arista_2] = peso;
+    matriz_peso[vertice_1][vertice_2] = peso;
 
 }
 
@@ -103,10 +104,12 @@ int Grafo_matriz_peso::existe_vertice(string nuevo_vertice){
 
 }
 
-int**  Grafo_matriz_peso::obtener_matriz_peso(){
+int** Grafo_matriz_peso::obtener_matriz_peso(){
 
     return matriz_peso;
 
 }
+
+
 
 

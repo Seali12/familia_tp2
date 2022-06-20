@@ -7,15 +7,16 @@ using namespace std;
 
 int main(){
    
-   /* Lista_escritor escritores;
+    Tabla_escritores escritores;
     Lista_lectura lecturas;
     Lector lector("lecturas.txt", "escritor.txt", lecturas, escritores);
-
     lector.procesar_archivo_escritores();
-    lector.procesar_archivo_lectura();
+  
+    //escritores.mostrar();
+    //lector.procesar_archivo_lectura();
 
-    Menu menu(lector.devolver_lecturas(), lector.devolver_escritores());
-
+    /*Menu menu(lector.devolver_lecturas(), lector.devolver_escritores());
+    cout << "pasa menu" << endl;
     menu.sid();
     
     while(menu.continuar()){
@@ -23,12 +24,12 @@ int main(){
     }
         
     menu.eliminar_listas();
+    
+*/
+   /* Main_kruskal arbol_minimo;
+
+    arbol_minimo.ejecutar_kruskal();
     */
-
-    Main_kruskal arbol_minimo;
-
-   arbol_minimo.ejecutar_kruskal();
-
    
     return 0;
 }

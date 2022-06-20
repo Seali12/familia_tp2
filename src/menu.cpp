@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Menu::Menu(Lista_lectura lecturas, Lista_escritor escritores){
+Menu::Menu(Lista_lectura lecturas, Tabla_escritores escritores){
     this->lecturas = lecturas;
     this->escritores = escritores;
     seguir = true;
@@ -49,11 +49,11 @@ void Menu::opciones(int opcion){
             break;
         case AGREGAR_ESCRITOR:
             limpiar_consola();
-            agregar_escritor();
+            //agregar_escritor();
             break;
         case CAMBIAR_DATO_ESCRITOR:
             limpiar_consola();
-            cambiar_fecha_escritor();
+            //cambiar_fecha_escritor();
             break;
         case LISTAR_ESCRITORES:
             limpiar_consola();
@@ -198,7 +198,7 @@ void Menu::quitar_lectura(){
     lecturas.baja(titulo_ingresado);
 }
 
-void Menu::agregar_escritor(){
+/*void Menu::agregar_escritor(){
     cout << endl;
 
     string numero_referencia = to_string(escritores.obtener_cantidad() + 1);
@@ -226,8 +226,8 @@ void Menu::agregar_escritor(){
     escritores.alta(nuevo_escritor);
    
 }
-
-void Menu::cambiar_fecha_escritor(){
+*/
+/*void Menu::cambiar_fecha_escritor(){
     cout << endl;
 
     string nombre_escritor;
@@ -241,9 +241,10 @@ void Menu::cambiar_fecha_escritor(){
     
     escritores.modificar_fallecimiento(nombre_escritor, anio);
 }
+*/
 
 void Menu::listar_escritores(){
-    escritores.mostrar_lista_escritor();   
+    escritores.mostrar();   
 }
 
 
@@ -333,7 +334,7 @@ void Menu::salir(){
 void Menu::eliminar_listas(){
 
     lecturas.liberar_lista();
-    escritores.liberar_lista();
+    escritores.eliminar_tabla();
 }
 
 

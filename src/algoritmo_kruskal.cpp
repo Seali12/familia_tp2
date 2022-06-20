@@ -10,9 +10,10 @@ Algoritmo_kruskal::Algoritmo_kruskal(Grafo_matriz_peso peso_grafo, Vertice* vert
     this->vertices = vertices;
     
     vec_aux = new int [this->num_vertices+1];
+    for(int i = 0; i < this->num_vertices + 1; i++){
+        vec_aux[i] = 0;
+    }
 }
-
-
 
 void Algoritmo_kruskal::recorrer(){
     int i = 0, j = 0, minimo = 0, minimo_costo = 0;
@@ -39,8 +40,8 @@ void Algoritmo_kruskal::recorrer(){
         aux_3 = encontrar(aux_3);
         aux_5 = encontrar(aux_5);
 
-        if(uni(aux_3,aux_5)>0){
-              
+        if(uni(aux_3, aux_5)){
+            aux_1++;
             cout << " Arista entre Vertice: " << vertices[aux_2-1].obtener_nombre_vertice()
             << " y Vertice: " << vertices[aux_4-1].obtener_nombre_vertice() << ", lleva un timepo de: "<< minimo << " minutos" << endl;
             minimo_costo += minimo;
@@ -64,13 +65,15 @@ int Algoritmo_kruskal::encontrar(int buscado){
 }
 
 int Algoritmo_kruskal::uni(int i, int j){
+    int condicion = 0;
+    
     if( i != j){
         
-        vec_aux[j]=i;
+        vec_aux[j] = i;
         
-        return 1;
+        condicion = 1;
     }
-    return 0;
+    return condicion;
 }
 
 

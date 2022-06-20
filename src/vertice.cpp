@@ -27,9 +27,6 @@ bool Vertice::iguales(Vertice nuevo_vertice){
     return (nombre == nuevo_vertice.nombre);
 }
 
-
-
-
 void Vertice::asignar_vertice(int numero){
    
     numero_vertice = numero;

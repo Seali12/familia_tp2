@@ -20,7 +20,7 @@ Escritor::Escritor() {
 
 void Escritor::mostrar() {
     
-    cout << "Referencia: " << referencia << endl;
+    cout << "Isni: " << referencia << endl;
 
     cout << "Nombre y apellido: " << nombre_y_apellido << endl;
 
