@@ -191,8 +191,11 @@ void Menu::quitar_lectura(){
     cout << endl;
 
     string titulo_ingresado;
+    
     cout << BLANCO "Ingrese el titulo de la lectura que desea quitar (debe estar en la lista para que funcione): " CYAN;
+    
     cin.ignore();
+    
     getline(cin, titulo_ingresado);
 
     lecturas.baja(titulo_ingresado);
@@ -257,6 +260,7 @@ void Menu::sortear_lectura(){
 }
 
 void Menu::listar_todas_lecturas(){
+    
     lecturas.mostrar_lista_lectura();
 }
 

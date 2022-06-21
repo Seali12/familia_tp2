@@ -6,6 +6,34 @@ Bestario
 (1568)
 
 N
+Rayuela
+2900
+1963
+FICCION
+(1568)
+
+N
+Misery
+2100
+1987
+TERROR
+(1757)
+
+P
+Voy a dormir
+100
+1938
+14
+(4567)
+
+N
+Frankeistein
+1600
+1818
+TERROR
+(1544)
+
+N
 Una columna de fuego
 4800
 2017
@@ -26,5 +54,12 @@ Lolita
 1955
 ROMANCE
 (7898)
+
+P
+Los cuervos
+360
+1894
+115
+(8568)
 
 

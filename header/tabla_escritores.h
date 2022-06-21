@@ -8,10 +8,13 @@ const int N = 25;
 const int INICIO_CLAVE = 1;
 
 class Tabla_escritores{
+    
     private:
-        Lista_escritor** vector;
+        
+        Lista_escritor* vector[N];
         
     public:
+        
         Tabla_escritores();
 
         void alta(Escritor* nuevo_escritor);
@@ -25,6 +28,7 @@ class Tabla_escritores{
         void mostrar();
 
     private:
+        
         int hashing(int clave);
         
         int obtener_clave(string referencia);
