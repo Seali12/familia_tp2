@@ -57,18 +57,22 @@ class Lista_lectura {
     //POST: Imprime por pantalla todas las lecturas del escritor que se pasa por parametro
     void listar_por_escritor(string referencia);
 
+    //PRE: Debe existir una lista previamente creada, posicion debe ser un numero > 0.
+    //POST: Devuelve una lectura de la lista segun la posicion.
+    Lectura* obtener_lectura(int posicion);
+
     //Destructor
     void liberar_lista();
 
     Lectura* consulta(double &minimo);
 
-private:
+  private:
     int cantidad;
     Nodo<Lectura*>* ultimo;
     Nodo<Lectura*>* actual;
     Nodo<Lectura*>* nodo_anterior;
 
-    void reiniciar_actual();
+    //void reiniciar_actual();
 
     bool es_ultimo(Nodo<Lectura*>* nodo);
 
@@ -77,6 +81,8 @@ private:
     void desplazar_actual(Nodo<Lectura*>* nodo_actual);
 
     bool genero_no_encontrado(string genero);
+
+    void reiniciar_actual();
 };
 
 #endif // !LISTA_LECTURAS_H

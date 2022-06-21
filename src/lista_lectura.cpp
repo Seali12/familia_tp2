@@ -104,6 +104,20 @@ void Lista_lectura::lectura_random(int numero_rand){
   actual->obtener_objeto()->mostrar();
 }
 
+Lectura* Lista_lectura::obtener_lectura(int posicion){
+  reiniciar_actual();
+  int iterador = 0;
+
+  while(iterador < posicion){
+    
+    desplazar_actual(actual);
+    iterador++;
+
+  }
+  cout << NEGRITA_ROJO << endl;
+  return actual->obtener_objeto();
+}
+
 bool Lista_lectura::genero_no_encontrado(string genero){
   return (genero != "TERROR" and genero != "HISTORICA" and genero != "COMEDIA" 
             and genero != "FICCION" and genero != "ROMANCE" and genero != "DRAMA" and genero != "SUSPENSO");

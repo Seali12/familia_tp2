@@ -2,7 +2,7 @@
 #include <fstream>
 #include <stdlib.h>
 
-Lector::Lector(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Lista_escritor escritores)
+Lector::Lector(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Tabla_escritores escritores)
 {
     this->archivo_lectura = archivo_lectura;
     this->archivo_escritor = archivo_escritor;
@@ -59,6 +59,7 @@ void Lector::procesar_archivo_escritores()
     }
 
     archivo_escritores.close();
+    
 }
 
 void Lector::procesar_archivo_lectura()
@@ -158,6 +159,6 @@ Lista_lectura Lector::devolver_lecturas(){
     return lecturas;
 }
 
-Lista_escritor Lector::devolver_escritores(){
+Tabla_escritores Lector::devolver_escritores(){
     return escritores;
 }
