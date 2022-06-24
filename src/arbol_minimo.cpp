@@ -1,13 +1,21 @@
-#include "../header/main_kruskal.h"
+#include "../header/arbol_minimo.h"
 
-Main_kruskal::Main_kruskal(Lista_lectura lecturas){
+Arbol_minimo::Arbol_minimo(){
     
-    this->lecturas = lecturas;
-
-    this->total_vertices = lecturas.obtener_cantidad();
+    total_vertices = 0; 
 }
 
-void Main_kruskal::unir_vertices(Grafo_matriz_peso grafo){
+void Arbol_minimo::cargar(Lista_lectura lecturas){
+    
+    total_vertices = lecturas.obtener_cantidad();
+
+    this->lecturas = lecturas;
+
+}
+
+
+void Arbol_minimo::unir_vertices(Grafo_matriz_peso grafo){
+    
     Lectura *origen;
 
     Lectura *destino;
@@ -18,7 +26,9 @@ void Main_kruskal::unir_vertices(Grafo_matriz_peso grafo){
         for (int j = 0; j < total_vertices; j++){
 
             peso = 0;
+            
             origen = grafo.obtener_vertices()[i].obtener_vertice();
+            
             destino = grafo.obtener_vertices()[j].obtener_vertice();
 
             if (origen->obtener_titulo() != destino->obtener_titulo()){
@@ -27,55 +37,67 @@ void Main_kruskal::unir_vertices(Grafo_matriz_peso grafo){
                     (origen->obtener_tipo_lectura() == 'C' && destino->obtener_tipo_lectura() == 'N')){
 
                     if (origen->obtener_atributo_especial() == "HISTORICA" || destino->obtener_atributo_especial() == "HISTORICA")
+                        
                         peso = 15;
 
                     else
+                       
                         peso = 10;
                 }
                 else if ((origen->obtener_tipo_lectura() == 'P' && destino->obtener_tipo_lectura() == 'C') ||
                          (origen->obtener_tipo_lectura() == 'C' && destino->obtener_tipo_lectura() == 'P')){
                     
-                    peso = 0;
+                            peso = 0;
                 }
 
                 else if ((origen->obtener_tipo_lectura() == 'N' && destino->obtener_tipo_lectura() == 'P') ||
                          (origen->obtener_tipo_lectura() == 'P' && destino->obtener_tipo_lectura() == 'N')){
 
                     if (origen->obtener_atributo_especial() == "HISTORICA" || destino->obtener_atributo_especial() == "HISTORICA")
-                        peso = 20;
+                        
+                            peso = 20;
 
                     else
-                        peso = 5;
+                            peso = 5;
                 }
                 else if (origen->obtener_tipo_lectura() == 'N' && destino->obtener_tipo_lectura() == 'N'){
 
                     if ((origen->obtener_atributo_especial() == "HISTORICA" && destino->obtener_atributo_especial() != "HISTORICA") || 
                             (origen->obtener_atributo_especial() != "HISTORICA" && destino->obtener_atributo_especial() == "HISTORICA"))
 
-                        peso = 60;
+                            peso = 60;
+                
                 }
+                
                 if (origen->obtener_tipo_lectura() == destino->obtener_tipo_lectura()){
                     
                     if (origen->obtener_tipo_lectura() == 'N'){
                        
                         if (origen->obtener_atributo_especial() == "HISTORICA" && destino->obtener_atributo_especial() == "HISTORICA")
-                            peso = 80;
+                                
+                                peso = 80;
                         
                         else
-                            peso = 30;
+                                peso = 30;
+                    
                     }
+                    
                     else if (origen->obtener_tipo_lectura() == 'C')
+                        
                         peso = 8;
+                    
                     else
+                        
                         peso = 1;
                     }
             }
+            
             grafo.nueva_arista(grafo.obtener_vertices()[i].obtener_vertice(), grafo.obtener_vertices()[j].obtener_vertice(), peso);
         }
     }
 }
 
-void Main_kruskal::ejecutar_kruskal(){
+void Arbol_minimo::ejecutar_kruskal(){
     
     Grafo_matriz_peso grafo(total_vertices);
 
@@ -88,12 +110,14 @@ void Main_kruskal::ejecutar_kruskal(){
 
    
     cout <<"Vertices del grafo"<<endl;
+    
     cout << " " << endl;
 
-    for (int i = 0; i < total_vertices; i++)
-    {
+    for (int i = 0; i < total_vertices; i++){
+        
         cout << grafo.obtener_vertices()[i].obtener_vertice()->obtener_titulo() << " " << endl;
     }
+    
     cout << " " << endl;
 
     Algoritmo_kruskal kruskal(grafo, grafo.obtener_vertices());
@@ -102,5 +126,5 @@ void Main_kruskal::ejecutar_kruskal(){
 
     kruskal.liberar_kruskal();
 
-    lecturas.liberar_lista();
+    
 }

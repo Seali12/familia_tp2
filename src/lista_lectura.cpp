@@ -154,7 +154,7 @@ void Lista_lectura::listar_por_escritor(string referencia){
   reiniciar_actual();
 
   int contador_lecturas = 0;
-  while(!es_ultimo(actual)){
+  while(actual != nullptr){
     
     if(actual->obtener_objeto()->obtener_escritor()->obtener_nombre_y_apellido() == referencia 
         or actual->obtener_objeto()->obtener_escritor()->obtener_referencia() == referencia){
@@ -165,7 +165,8 @@ void Lista_lectura::listar_por_escritor(string referencia){
 
       desplazar_actual(actual);
     }
-  if(!contador_lecturas){
+
+    if(!contador_lecturas){
       cout << "El escritor no se encuentra en la lista" << endl;
     }
     

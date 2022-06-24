@@ -1,12 +1,11 @@
-
-#ifndef MAIN_KRUSKAL_H
-#define MAIN_KRUSKAL_H
+#ifndef ARBOL_MINIMO_H
+#define ARBOL_MINIMO_H
 
 #include "algoritmo_kruskal.h"
 #include "lista_lectura.h"
 
 //Para no crear el grafo e imprimir en el main, ejecutamos kruskal y creamos el grafo a partir de esta clase.
-class Main_kruskal{
+class Arbol_minimo{
 
     private:
         Lista_lectura lecturas;
@@ -15,11 +14,13 @@ class Main_kruskal{
 
 
     public:
-       //PRE:
-       //POST: Arma el grafo y aplica el algortimo de Kruskal para calcular el arbol de minimos caminos
-       void ejecutar_kruskal();
+        //PRE:
+        //POST: Arma el grafo y aplica el algortimo de Kruskal para calcular el arbol de minimos caminos
+        void ejecutar_kruskal();
 
-       Main_kruskal(Lista_lectura lecturas);
+        Arbol_minimo();
+
+        void cargar(Lista_lectura lecturas);
 
     private:
         //valida los pesos y une vertices

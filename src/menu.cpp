@@ -7,9 +7,12 @@
 using namespace std;
 
 Menu::Menu(Lista_lectura lecturas, Tabla_escritores escritores){
+    
     this->lecturas = lecturas;
     this->escritores = escritores;
+
     seguir = true;
+
 }
 
 void Menu::desplegar_menu(){
@@ -26,7 +29,8 @@ void Menu::desplegar_menu(){
     cout << "# 9. Listar las lecturas de un determinado escritor que ingresa el usuario.        #" << endl;
     cout << "# 10. Listar las novelas de determinado género.                                    #" << endl;
     cout << "# 11. Armar una cola ordenada por tiempo de lectura                                #" << endl;
-    cout << "# 12. Salir                                                                        #" << endl;
+    cout << "# 12. Listar camino y tiempo mas corto para leer todas las lecturas                #" << endl;
+    cout << "# 13. Salir                                                                        #" << endl;
     cout << "####################################################################################" << endl;
 
     int opcion;
@@ -49,11 +53,11 @@ void Menu::opciones(int opcion){
             break;
         case AGREGAR_ESCRITOR:
             limpiar_consola();
-            //agregar_escritor();
+            agregar_escritor();
             break;
         case CAMBIAR_DATO_ESCRITOR:
             limpiar_consola();
-            //cambiar_fecha_escritor();
+            cambiar_fecha_escritor();
             break;
         case LISTAR_ESCRITORES:
             limpiar_consola();
@@ -82,7 +86,10 @@ void Menu::opciones(int opcion){
         case ARMAR_COLA:
             limpiar_consola();
             armar_cola();
-            break;  
+            break;
+        case LISTAR_MINIMO_CAMINO:
+            listar_minimo_camino();
+            break;              
         case SALIR:
             salir();
             break;
@@ -108,17 +115,17 @@ void Menu::agregar_nueva_lectura(){
     cin.ignore();
     getline(cin, titulo);
      
-
     int duracion;
     cout << BLANCO "Duracion de la lectura:  " CYAN;
     cin >> duracion;  
     
     int anio;
     cout << BLANCO "Año: " CYAN;
-    cin>>anio;
+    cin >> anio;
 
+    escritores.mostrar();
     string nombre_escritor;
-    cout << BLANCO "Nombre del escritor (tiene que estar en la lista para que funcione): " CYAN;
+    cout << BLANCO "Ingrese la clave ISNI del escritor (tiene que estar en la lista para que funcione): " CYAN;
     cin.ignore();
     getline(cin, nombre_escritor);
 
@@ -201,17 +208,21 @@ void Menu::quitar_lectura(){
     lecturas.baja(titulo_ingresado);
 }
 
-/*void Menu::agregar_escritor(){
+void Menu::agregar_escritor(){
     cout << endl;
 
-    string numero_referencia = to_string(escritores.obtener_cantidad() + 1);
-    string referencia("(" + numero_referencia + ")");
+    string clave;    
+    cout << BLANCO "Ingrese clave ISNI clave: " CYAN;
+    cin.ignore();
+    getline(cin, clave);
+    string isni("(" + clave +")");
+
     
     string nombre_y_apellido;
     cout << BLANCO "Ingrese nombre y apellido del escritor (por ejemplo: Stephen King): " CYAN;
     cin.ignore();
     getline(cin, nombre_y_apellido);
-
+    
     string nacionalidad;
     cout << BLANCO "Ingrese la nacionalidad del escritor: " CYAN;
     cin >> nacionalidad;
@@ -219,32 +230,32 @@ void Menu::quitar_lectura(){
     int anio_nacimiento;
     cout << BLANCO "Ingrese el año de nacimiento del escritor: " CYAN;
     cin >> anio_nacimiento;
-
+    
     int anio_fallecimiento;
     cout << BLANCO "Ingrese el año de fallecimiento del escritor: " CYAN;
     cin >> anio_fallecimiento;
 
-    Escritor* nuevo_escritor = new Escritor(referencia, nombre_y_apellido, nacionalidad, 
+    Escritor* nuevo_escritor = new Escritor(isni, nombre_y_apellido, nacionalidad, 
                                                 anio_nacimiento, anio_fallecimiento);
     escritores.alta(nuevo_escritor);
-   
 }
-*/
-/*void Menu::cambiar_fecha_escritor(){
+
+void Menu::cambiar_fecha_escritor(){
     cout << endl;
 
-    string nombre_escritor;
-    cout << BLANCO "Escriba el nombre  o referencia '(1), etc' del escritor que desea modificar: " CYAN;
+    string referencia_escritor;
+    cout << BLANCO "Escriba el nombre o isni del escritor que desea modificar: " CYAN;
     cin.ignore();
-    getline(cin, nombre_escritor);
+    getline(cin, referencia_escritor);
 
     int anio;
     cout << BLANCO "Cuál es su año de fallecimiento? " CYAN;
     cin >> anio;
     
-    escritores.modificar_fallecimiento(nombre_escritor, anio);
+    Escritor* escritor_modificar = escritores.consulta(referencia_escritor);
+    escritor_modificar -> modificar_anio_fallecimiento(anio);
 }
-*/
+
 
 void Menu::listar_escritores(){
     escritores.mostrar();   
@@ -320,13 +331,21 @@ void Menu::armar_cola(){
             cola_lecturas.mostrar();
         }
         if(!cola_lecturas.vacia()){
-            cout << BLANCO "Si la lectura ya esta leída (precione E para dar de baja) o S para salir al menú: " CYAN;
+            cout << BLANCO "Si la lectura ya esta leída (presione E para dar de baja) o S para salir al menú: " CYAN;
             cin >> rta;
         }
     }
     
     cola_lecturas.eliminar_cola(); 
     cout << BLANCO "No hay más lecturas para leer" << endl;
+}
+
+void Menu::listar_minimo_camino(){
+    
+    this -> kruskal.cargar(lecturas);
+
+    this -> kruskal.ejecutar_kruskal();
+
 }
 
 void Menu::salir(){

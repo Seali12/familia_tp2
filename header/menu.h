@@ -9,6 +9,8 @@
 #include "cuento.h"
 #include "poema.h"
 #include "cola.h"
+#include "arbol_minimo.h"
+
 
 enum Opciones{
     
@@ -23,6 +25,7 @@ enum Opciones{
     LISTAR_LECTURAS_ESCRITOR,
     LISTAR_NOVELAS_GENERO,
     ARMAR_COLA,
+    LISTAR_MINIMO_CAMINO,
     SALIR,
     
 };
@@ -36,6 +39,8 @@ Tabla_escritores escritores;
 Lista_lectura lecturas;
 
 Cola cola_lecturas;
+
+Arbol_minimo kruskal;
 
 bool seguir;
 
@@ -74,6 +79,8 @@ string pasar_mayuscula(string cadena);
 void armar_cola();
 
 void limpiar_consola();
+
+void listar_minimo_camino();
 
 public:
  
