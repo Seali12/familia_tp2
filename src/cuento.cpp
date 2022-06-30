@@ -3,10 +3,11 @@
 Cuento::Cuento(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string titulo_cuento) 
 : Lectura(tipo_lectura, titulo, minutos, anio, escritor){
 
-    this->titulo_cuento = titulo_cuento;
+    this -> titulo_cuento = titulo_cuento;
 }
 
 string Cuento::obtener_atributo_especial(){
+    
     return titulo_cuento;
 }
 
@@ -22,7 +23,7 @@ void Cuento::mostrar() {
 
     cout << "Titulo del libro: " << titulo_cuento << endl;
 
-    cout << "Referencia: " << escritor->obtener_referencia() << endl;
+    cout << "Referencia: " << escritor -> obtener_referencia() << endl;
 
     cout << "" << endl;
 

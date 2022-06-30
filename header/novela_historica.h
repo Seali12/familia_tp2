@@ -19,6 +19,7 @@ public:
     //Post: Muestra por pantalla la informacion de una novela_historica.
     void mostrar();
 
+    //Destructor
     ~Novela_historica();
 
 };

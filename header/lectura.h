@@ -41,6 +41,10 @@ public:
     
     virtual string obtener_atributo_especial() = 0;
 
+    //PRE: debe existir una lectura previamente creada
+    //POST: modifica el escritor de la lectura
+    void anular_escritor();
+
     //Destructor
     virtual ~Lectura(){};
 

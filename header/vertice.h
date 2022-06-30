@@ -22,7 +22,7 @@ class Vertice{
         Vertice(Lectura* nueva_lectura);
 
         //PRE: 
-        //POST: retonrna el nombre del vertice
+        //POST: retorna el nombre del vertice
         Lectura* obtener_vertice();
 
         //PRE:

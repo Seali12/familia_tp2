@@ -3,7 +3,7 @@
 Novela_historica::Novela_historica(char tipo_lectura, string titulo, double minutos, int anio, Escritor* escritor, string genero, string* tema) 
                             : Novela(tipo_lectura, titulo, minutos, anio, escritor, genero){
 
-    this->tema = tema;
+    this -> tema = tema;
                             
 }
 
@@ -21,7 +21,7 @@ void Novela_historica::mostrar() {
 
     cout << "Tema de la novela_historica: " << *tema << endl;
 
-    cout << "Referencia al escritor: " << escritor->obtener_referencia() << endl;
+    cout << "Referencia al escritor: " << escritor -> obtener_referencia() << endl;
 
     cout << "" << endl;
 }

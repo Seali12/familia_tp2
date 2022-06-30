@@ -17,9 +17,7 @@ class Grafo_matriz_peso{
         int numero_vertices;
 
 
-    public:
-        //int infinito = INFINITO;
-        
+    public:        
         //PRE: 
         //POST: Crea una matriz de peso del grafo
         Grafo_matriz_peso(int valor);

@@ -26,6 +26,7 @@ enum Opciones{
     LISTAR_NOVELAS_GENERO,
     ARMAR_COLA,
     LISTAR_MINIMO_CAMINO,
+    QUITAR_ESCRITOR,
     SALIR,
     
 };
@@ -81,6 +82,8 @@ void armar_cola();
 void limpiar_consola();
 
 void listar_minimo_camino();
+
+void quitar_escritor();
 
 public:
  

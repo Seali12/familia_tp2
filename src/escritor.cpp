@@ -2,14 +2,15 @@
 
 Escritor::Escritor(string referencia, string nombre_y_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimiento) {
     
-    this->referencia = referencia;
-    this->nombre_y_apellido = nombre_y_apellido;
-    this->nacionalidad = nacionalidad;
-    this->anio_nacimiento = anio_nacimiento;
-    this->anio_fallecimiento = anio_fallecimiento;
+    this -> referencia = referencia;
+    this -> nombre_y_apellido = nombre_y_apellido;
+    this -> nacionalidad = nacionalidad;
+    this -> anio_nacimiento = anio_nacimiento;
+    this -> anio_fallecimiento = anio_fallecimiento;
 }
 
 Escritor::Escritor() {
+    
     referencia = " ";
     nombre_y_apellido = " ";
     nacionalidad = " ";
@@ -34,14 +35,24 @@ void Escritor::mostrar() {
 }
 
 string Escritor::obtener_nombre_y_apellido() {
+    
     return nombre_y_apellido;
 }
 
 string Escritor::obtener_referencia(){
+    
     return referencia;
 }
 
 void Escritor::modificar_anio_fallecimiento(int anio_ingresado){
+    
     anio_fallecimiento = anio_ingresado;
 
+}
+
+void Escritor::mostrar_isni(){
+
+    cout << "Isni: " << referencia <<endl;
+    
+    cout << "Nombre y apellido: " << nombre_y_apellido << endl;
 }

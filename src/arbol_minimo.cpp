@@ -9,7 +9,7 @@ void Arbol_minimo::cargar(Lista_lectura lecturas){
     
     total_vertices = lecturas.obtener_cantidad();
 
-    this->lecturas = lecturas;
+    this -> lecturas = lecturas;
 
 }
 
@@ -27,16 +27,18 @@ void Arbol_minimo::unir_vertices(Grafo_matriz_peso grafo){
 
             peso = 0;
             
-            origen = grafo.obtener_vertices()[i].obtener_vertice();
+            Vertice vertice_origen = grafo.obtener_vertices()[i];
+            Vertice vertice_destino = grafo.obtener_vertices()[j];
             
-            destino = grafo.obtener_vertices()[j].obtener_vertice();
+            origen = vertice_origen.obtener_vertice();
+            destino = vertice_destino.obtener_vertice();
 
-            if (origen->obtener_titulo() != destino->obtener_titulo()){
+            if (origen -> obtener_titulo() != destino -> obtener_titulo()){
 
-                if ((origen->obtener_tipo_lectura() == 'N' && destino->obtener_tipo_lectura() == 'C') ||
-                    (origen->obtener_tipo_lectura() == 'C' && destino->obtener_tipo_lectura() == 'N')){
+                if ((origen -> obtener_tipo_lectura() == 'N' && destino -> obtener_tipo_lectura() == 'C') ||
+                    (origen -> obtener_tipo_lectura() == 'C' && destino -> obtener_tipo_lectura() == 'N')){
 
-                    if (origen->obtener_atributo_especial() == "HISTORICA" || destino->obtener_atributo_especial() == "HISTORICA")
+                    if (origen -> obtener_atributo_especial() == "HISTORICA" || destino -> obtener_atributo_especial() == "HISTORICA")
                         
                         peso = 15;
 
@@ -44,36 +46,36 @@ void Arbol_minimo::unir_vertices(Grafo_matriz_peso grafo){
                        
                         peso = 10;
                 }
-                else if ((origen->obtener_tipo_lectura() == 'P' && destino->obtener_tipo_lectura() == 'C') ||
-                         (origen->obtener_tipo_lectura() == 'C' && destino->obtener_tipo_lectura() == 'P')){
+                else if ((origen -> obtener_tipo_lectura() == 'P' && destino -> obtener_tipo_lectura() == 'C') ||
+                         (origen -> obtener_tipo_lectura() == 'C' && destino -> obtener_tipo_lectura() == 'P')){
                     
                             peso = 0;
                 }
 
-                else if ((origen->obtener_tipo_lectura() == 'N' && destino->obtener_tipo_lectura() == 'P') ||
-                         (origen->obtener_tipo_lectura() == 'P' && destino->obtener_tipo_lectura() == 'N')){
+                else if ((origen -> obtener_tipo_lectura() == 'N' && destino -> obtener_tipo_lectura() == 'P') ||
+                         (origen -> obtener_tipo_lectura() == 'P' && destino -> obtener_tipo_lectura() == 'N')){
 
-                    if (origen->obtener_atributo_especial() == "HISTORICA" || destino->obtener_atributo_especial() == "HISTORICA")
+                    if (origen -> obtener_atributo_especial() == "HISTORICA" || destino -> obtener_atributo_especial() == "HISTORICA")
                         
                             peso = 20;
 
                     else
                             peso = 5;
                 }
-                else if (origen->obtener_tipo_lectura() == 'N' && destino->obtener_tipo_lectura() == 'N'){
+                else if (origen -> obtener_tipo_lectura() == 'N' && destino -> obtener_tipo_lectura() == 'N'){
 
-                    if ((origen->obtener_atributo_especial() == "HISTORICA" && destino->obtener_atributo_especial() != "HISTORICA") || 
-                            (origen->obtener_atributo_especial() != "HISTORICA" && destino->obtener_atributo_especial() == "HISTORICA"))
+                    if ((origen -> obtener_atributo_especial() == "HISTORICA" && destino -> obtener_atributo_especial() != "HISTORICA") || 
+                            (origen -> obtener_atributo_especial() != "HISTORICA" && destino -> obtener_atributo_especial() == "HISTORICA"))
 
                             peso = 60;
                 
                 }
                 
-                if (origen->obtener_tipo_lectura() == destino->obtener_tipo_lectura()){
+                if (origen -> obtener_tipo_lectura() == destino -> obtener_tipo_lectura()){
                     
-                    if (origen->obtener_tipo_lectura() == 'N'){
+                    if (origen -> obtener_tipo_lectura() == 'N'){
                        
-                        if (origen->obtener_atributo_especial() == "HISTORICA" && destino->obtener_atributo_especial() == "HISTORICA")
+                        if (origen -> obtener_atributo_especial() == "HISTORICA" && destino -> obtener_atributo_especial() == "HISTORICA")
                                 
                                 peso = 80;
                         
@@ -82,7 +84,7 @@ void Arbol_minimo::unir_vertices(Grafo_matriz_peso grafo){
                     
                     }
                     
-                    else if (origen->obtener_tipo_lectura() == 'C')
+                    else if (origen -> obtener_tipo_lectura() == 'C')
                         
                         peso = 8;
                     
@@ -92,7 +94,7 @@ void Arbol_minimo::unir_vertices(Grafo_matriz_peso grafo){
                     }
             }
             
-            grafo.nueva_arista(grafo.obtener_vertices()[i].obtener_vertice(), grafo.obtener_vertices()[j].obtener_vertice(), peso);
+            grafo.nueva_arista(origen, destino, peso);
         }
     }
 }
@@ -108,14 +110,17 @@ void Arbol_minimo::ejecutar_kruskal(){
 
     unir_vertices(grafo);
 
-   
-    cout <<"Vertices del grafo"<<endl;
+    cout << NEGRITA_MAGENTA "Vertices del grafo" NEGRITA_ROJO << endl;
     
     cout << " " << endl;
-
+    
     for (int i = 0; i < total_vertices; i++){
+
+        Lectura* vertice = grafo.obtener_vertices()[i].obtener_vertice();
         
-        cout << grafo.obtener_vertices()[i].obtener_vertice()->obtener_titulo() << " " << endl;
+        cout << vertice -> obtener_titulo() << " " << endl;
+
+        cout << " " << endl;
     }
     
     cout << " " << endl;
@@ -125,6 +130,4 @@ void Arbol_minimo::ejecutar_kruskal(){
     kruskal.recorrer();
 
     kruskal.liberar_kruskal();
-
-    
 }

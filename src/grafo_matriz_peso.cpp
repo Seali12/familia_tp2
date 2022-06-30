@@ -15,8 +15,10 @@ Grafo_matriz_peso::Grafo_matriz_peso(int valor)
         {
 
             matriz_peso[i][j] = INFINITO;
+        
         }
     }
+    
     numero_vertices = 0;
 }
 
@@ -39,7 +41,7 @@ void Grafo_matriz_peso::nuevo_vertice(Lectura *nueva_lectura)
     {
         Vertice *vertice_nuevo = new Vertice(nueva_lectura);
 
-        vertice_nuevo->asignar_vertice(numero_vertices);
+        vertice_nuevo -> asignar_vertice(numero_vertices);
 
         vertices[numero_vertices++] = *vertice_nuevo;
 
@@ -74,7 +76,7 @@ void Grafo_matriz_peso::nueva_arista(Lectura* lectura_origen, Lectura* lectura_d
 {
 
     int vertice_1, vertice_2;
-    // cmbiar nombre a vertice
+    
     vertice_1 = existe_vertice(lectura_origen);
     vertice_2 = existe_vertice(lectura_destino);
 
@@ -92,7 +94,7 @@ int Grafo_matriz_peso::existe_vertice(Lectura* nueva_lectura)
 
     while (iterador < numero_vertices && !encontrado)
     {
-
+        
         encontrado = vertices[iterador].iguales(*vertice_nuevo);
 
         if (!encontrado)
@@ -108,4 +110,5 @@ int **Grafo_matriz_peso::obtener_matriz_peso()
 {
 
     return matriz_peso;
+
 }

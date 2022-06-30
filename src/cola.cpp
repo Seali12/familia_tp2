@@ -1,29 +1,39 @@
 #include "../header/cola.h"
 
 Cola::Cola(){
+
     ultimo = nullptr;
     primero = nullptr;
 }
 
 void Cola::alta(Lectura* nueva_lectura){
+    
     Nodo<Lectura*>* nuevo = new Nodo<Lectura*>(nueva_lectura);
     
     if(primero == nullptr){
+        
         primero = nuevo;
         ultimo = nuevo;
+    
     }else{
-        ultimo->cambiar_siguiente(nuevo);
+        
+        ultimo -> cambiar_siguiente(nuevo);
         ultimo = nuevo;
     }
 }
 
 void Cola::baja(){
+    
     Nodo<Lectura*>* borrar = primero;
 
     if (!vacia()){
+        
         primero = primero->obtener_siguiente();
+        
     }else{
+
         primero = nullptr;
+
     }
     
     delete borrar; 
@@ -32,7 +42,7 @@ void Cola::baja(){
     
 Lectura* Cola::consulta(){
     
-    return primero->obtener_objeto();     
+    return primero -> obtener_objeto();     
 }
 
 
@@ -45,13 +55,17 @@ bool Cola::vacia(){
 void Cola::eliminar_cola(){
 
     while(!vacia()){
+        
         baja();
+    
     }
 }
 
 void Cola::mostrar(){
+    
     if(!vacia()){
-        primero->obtener_objeto()->mostrar();
+        
+        primero -> obtener_objeto() -> mostrar();
     }
 }
     

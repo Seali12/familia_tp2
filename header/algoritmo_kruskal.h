@@ -21,11 +21,12 @@ class Algoritmo_kruskal{
         // POST: inicializa los valores del algoritmo
         Algoritmo_kruskal(Grafo_matriz_peso peso_grafo, Vertice* vertices);
         
-        // PRE:
-        // POST:
+        // PRE: recorre la matriz del kruskal
+        // POST: inicializa la matriz
         void recorrer();
 
-
+        // pre: debe existir un algoritmo de kruskal
+        // post: libera la memoria 
         void liberar_kruskal();
 
     private:
@@ -33,7 +34,7 @@ class Algoritmo_kruskal{
         int encontrar(int buscado);
 
         //cambiar nombre
-        int uni(int i, int j);
+        int iguales(int i, int j);
 
 };
 

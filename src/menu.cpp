@@ -8,8 +8,8 @@ using namespace std;
 
 Menu::Menu(Lista_lectura lecturas, Tabla_escritores escritores){
     
-    this->lecturas = lecturas;
-    this->escritores = escritores;
+    this -> lecturas = lecturas;
+    this -> escritores = escritores;
 
     seguir = true;
 
@@ -30,7 +30,8 @@ void Menu::desplegar_menu(){
     cout << "# 10. Listar las novelas de determinado género.                                    #" << endl;
     cout << "# 11. Armar una cola ordenada por tiempo de lectura                                #" << endl;
     cout << "# 12. Listar camino y tiempo mas corto para leer todas las lecturas                #" << endl;
-    cout << "# 13. Salir                                                                        #" << endl;
+    cout << "# 13. Quitar un escritor                                                           #" << endl;
+    cout << "# 14. Salir                                                                        #" << endl;
     cout << "####################################################################################" << endl;
 
     int opcion;
@@ -43,57 +44,90 @@ void Menu::desplegar_menu(){
 void Menu::opciones(int opcion){
 
     switch(opcion){
+
         case AGREGAR_LECTURA:
+        
             limpiar_consola();
             agregar_nueva_lectura();
             break;
+        
         case QUITAR_LECTURA:
+        
             limpiar_consola();
             quitar_lectura();
             break;
+        
         case AGREGAR_ESCRITOR:
+        
             limpiar_consola();
             agregar_escritor();
             break;
+        
         case CAMBIAR_DATO_ESCRITOR:
+        
             limpiar_consola();
             cambiar_fecha_escritor();
             break;
+        
         case LISTAR_ESCRITORES:
+        
             limpiar_consola();
             listar_escritores();
             break;
+        
         case SORTEAR_RANDOM:
+        
             limpiar_consola();
             sortear_lectura();
             break;
+        
         case LISTAR_LECTURAS:
+        
             limpiar_consola();
             listar_todas_lecturas();
             break;
+        
         case LISTAR_LECTURAS_ANIO:
+        
             limpiar_consola();
             listar_lecturas_rango();
             break;
+        
         case LISTAR_LECTURAS_ESCRITOR:
+        
             limpiar_consola();
             listar_lecturas_escritor();
             break;
+        
         case LISTAR_NOVELAS_GENERO:
+        
             limpiar_consola();
             listar_novela_genero();
             break;
+        
         case ARMAR_COLA:
+        
             limpiar_consola();
             armar_cola();
             break;
+        
         case LISTAR_MINIMO_CAMINO:
+        
             listar_minimo_camino();
             break;              
+       
+        case QUITAR_ESCRITOR:
+            
+            quitar_escritor();
+            break;
+        
         case SALIR:
+        
             salir();
             break;
+        
         default:
+        
             cout << endl;
             limpiar_consola();
             desplegar_menu();
@@ -123,19 +157,21 @@ void Menu::agregar_nueva_lectura(){
     cout << BLANCO "Año: " CYAN;
     cin >> anio;
 
-    escritores.mostrar();
-    string nombre_escritor;
+    escritores.listar_isni_escritor();
+    string clave;
     cout << BLANCO "Ingrese la clave ISNI del escritor (tiene que estar en la lista para que funcione): " CYAN;
-    cin.ignore();
-    getline(cin, nombre_escritor);
+    cin >> clave;
+    
+    string isni("(" + clave +")");
 
   
-    corroborar_tipo_lectura( (char)toupper(tipo_lectura), titulo, duracion, anio, nombre_escritor);
+    corroborar_tipo_lectura( (char)toupper(tipo_lectura), titulo, duracion, anio, isni);
     
 }
 
 void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minutos, int anio, string escritor){
     switch(tipo_lectura){
+
         case 'N':{
             
             string genero;
@@ -153,13 +189,15 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
                     Lectura* nueva_historica = new Novela_historica(tipo_lectura, titulo, minutos, anio, 
                     escritores.consulta(escritor), genero, tema);
 
-                    lecturas.alta(nueva_historica);              
+                    lecturas.alta(nueva_historica);   
+
             }else{
                 
                 Lectura* nueva_novela = new Novela(tipo_lectura, titulo, minutos, anio, 
                 escritores.consulta(escritor), genero);
 
                 lecturas.alta(nueva_novela); 
+
             }
         }
             break;
@@ -197,27 +235,24 @@ void Menu::corroborar_tipo_lectura(char tipo_lectura, string titulo, double minu
 void Menu::quitar_lectura(){
     cout << endl;
 
-    string titulo_ingresado;
+    cout << NEGRITA_VERDE "Lecturas activas:" NEGRITA_ROJO;
+    lecturas.mostrar_titulos();
     
-    cout << BLANCO "Ingrese el titulo de la lectura que desea quitar (debe estar en la lista para que funcione): " CYAN;
-    
-    cin.ignore();
-    
-    getline(cin, titulo_ingresado);
+    int numero;
+    cout << BLANCO "Ingrese el número del título: " CYAN;
+    cin >> numero;
 
-    lecturas.baja(titulo_ingresado);
+    lecturas.baja(numero);
 }
 
 void Menu::agregar_escritor(){
     cout << endl;
 
     string clave;    
-    cout << BLANCO "Ingrese clave ISNI clave: " CYAN;
-    cin.ignore();
-    getline(cin, clave);
+    cout << BLANCO "Ingrese clave ISNI: " CYAN;
+    cin >> clave;
     string isni("(" + clave +")");
 
-    
     string nombre_y_apellido;
     cout << BLANCO "Ingrese nombre y apellido del escritor (por ejemplo: Stephen King): " CYAN;
     cin.ignore();
@@ -243,21 +278,23 @@ void Menu::agregar_escritor(){
 void Menu::cambiar_fecha_escritor(){
     cout << endl;
 
-    string referencia_escritor;
+    string clave;
+    escritores.listar_isni_escritor();
     cout << BLANCO "Escriba el nombre o isni del escritor que desea modificar: " CYAN;
-    cin.ignore();
-    getline(cin, referencia_escritor);
+    cin >> clave;
+    string isni("(" + clave +")");
 
     int anio;
     cout << BLANCO "Cuál es su año de fallecimiento? " CYAN;
     cin >> anio;
     
-    Escritor* escritor_modificar = escritores.consulta(referencia_escritor);
+    Escritor* escritor_modificar = escritores.consulta(isni);
     escritor_modificar -> modificar_anio_fallecimiento(anio);
 }
 
 
 void Menu::listar_escritores(){
+    
     escritores.mostrar();   
 }
 
@@ -265,7 +302,6 @@ void Menu::listar_escritores(){
 void Menu::sortear_lectura(){
    
     int numero_aleatorio = 1 + rand() % lecturas.obtener_cantidad();
-
     lecturas.lectura_random(numero_aleatorio);
   
 }
@@ -291,13 +327,13 @@ void Menu::listar_lecturas_rango(){
 
 void Menu::listar_lecturas_escritor(){
     cout << endl;
-    
-    string nombre_escritor;
-    cout << BLANCO "Ingrese nombre de un escritor o su referencia '(1), etc': " CYAN;
-    cin.ignore();
-    getline(cin, nombre_escritor);
+    escritores.listar_isni_escritor();
+    string clave;
+    cout << BLANCO "Ingrese Isni de un escritor: " CYAN;
+    cin >> clave;
+    string isni("(" + clave +")");
 
-    lecturas.listar_por_escritor(nombre_escritor);
+    lecturas.listar_por_escritor(isni);
 }
 
 void Menu::listar_novela_genero(){
@@ -313,8 +349,10 @@ void Menu::listar_novela_genero(){
 void Menu::armar_cola(){
     
     double minimo = 0;
+    
     for (int iterador = 0; iterador < lecturas.obtener_cantidad(); iterador++){
-        cola_lecturas.alta(lecturas.consulta(minimo));
+        
+        cola_lecturas.alta (lecturas.consulta(minimo));
     }
     
     cout << NEGRITA_ROJO << endl;
@@ -325,14 +363,19 @@ void Menu::armar_cola(){
     cin >> rta;
 
     while((char)toupper(rta) != 'S' and !cola_lecturas.vacia()){
+
         if ((char)toupper(rta) == 'E'){
+
             cout << NEGRITA_ROJO << endl;
             cola_lecturas.baja();
             cola_lecturas.mostrar();
+
         }
         if(!cola_lecturas.vacia()){
+
             cout << BLANCO "Si la lectura ya esta leída (presione E para dar de baja) o S para salir al menú: " CYAN;
             cin >> rta;
+            
         }
     }
     
@@ -348,7 +391,28 @@ void Menu::listar_minimo_camino(){
 
 }
 
+
+void Menu::quitar_escritor(){
+     
+    escritores.listar_isni_escritor();
+    
+    string clave;
+    cout << BLANCO "Ingrese Isni de un escritor: " CYAN;
+    cin >> clave;
+    string isni("(" + clave +")");
+
+    escritores.baja_tabla(clave);
+    cout << "paso baja" << endl;
+
+    lecturas.actualizar_escritor(clave);
+
+    cout<<" paso lecturas" << endl;
+
+
+}
+
 void Menu::salir(){
+    
     seguir = false;
 }
 
@@ -362,12 +426,15 @@ void Menu::eliminar_listas(){
 
 
 bool Menu::continuar(){
+    
     return seguir;
 }
 
 string Menu::pasar_mayuscula(string cadena){
+
     for (int i = 0; i < (int)cadena.length(); i++) {
-    cadena[i] = (char)toupper(cadena[i]);
+
+        cadena[i] = (char)toupper(cadena[i]);
   }
   return cadena;
 }

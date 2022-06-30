@@ -39,6 +39,10 @@ public:
     //Pre: Debe haber un objeto escritor previo al cual se le quiere modificar el año.
     //Post: Modifica el año de fallecimiento de un escritor.
     void modificar_anio_fallecimiento(int anio_ingresado);
+    
+    //pre: Exista un escritor previamente creado.
+    //Post: muestra el isni del escritor
+    void mostrar_isni();
 };
 
 

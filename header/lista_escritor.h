@@ -45,8 +45,14 @@ public:
     //Post: Muestra por pantalla los datos del escritor.
     void mostrar_lista_escritor();
 
+    //Pre: La lista no puede estar vacia.
+    //Post: Muesta el isni del escritor.
+    void listar_isni();
+
     //Destructor
     void liberar_lista();
+
+    
 
 private:
     int cantidad;

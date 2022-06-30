@@ -20,6 +20,8 @@ class Arbol_minimo{
 
         Arbol_minimo();
 
+        // pre: debe existir un arbol minimo
+        // post: carga al arbol las lecturas de la lista
         void cargar(Lista_lectura lecturas);
 
     private:

@@ -10,7 +10,7 @@ Vertice::Vertice(){
 
 Vertice::Vertice(Lectura* nueva_lectura){
    
-    this->nueva_lectura = nueva_lectura;
+    this -> nueva_lectura = nueva_lectura;
     numero_vertice = VACIO;
 }
 
@@ -23,7 +23,7 @@ Lectura* Vertice::obtener_vertice(){
 
 bool Vertice::iguales(Vertice nuevo_vertice){
    
-    return (nueva_lectura->obtener_titulo() == nuevo_vertice.nueva_lectura->obtener_titulo());
+    return (nueva_lectura -> obtener_titulo() == nuevo_vertice.nueva_lectura -> obtener_titulo());
 }
 
 void Vertice::asignar_vertice(int numero){

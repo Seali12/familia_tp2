@@ -21,9 +21,9 @@ class Lista_lectura {
     //POST: Elimina el ultimo elemento de la lista (por defecto)
     void baja();
 
-    //PRE: La lista no tiene que estar vacia y el objeto tiene que estar en la lista
+    //PRE: La lista no tiene que estar vacia y el objeto tiene que estar en la lista, titulo es el numero que coincide con el titulo.
     //POST: Elimina el elemento que tenga el mismo titulo que se busca.
-    void baja(string titulo);
+    void baja(int titulo);
     
     //PRE: La lista no tiene que estar vacia y el objeto que se busca tiene que estar en la lista
     //POST: Devuelve al objeto que se quiere consultar
@@ -36,6 +36,10 @@ class Lista_lectura {
     //PRE:
     //POST: Devuelve cuantos elementos tiene la lista.
     int obtener_cantidad();
+
+    //PRE: -
+    //POST: Muestro todos las lecturas por su titulo
+    void mostrar_titulos();
 
     //PRE: la lista no tiene que estar vacia
     //POST: Imprime todo el contenido de la lista
@@ -66,13 +70,17 @@ class Lista_lectura {
 
     Lectura* consulta(double &minimo);
 
+    //Pre: debe existir una lectura en la lista con el escritor que tenga la clave.
+    //Post: dejab el escritor de la lectura buscada apuntado a null.
+    void actualizar_escritor(string clave);
+
+    
+
   private:
     int cantidad;
     Nodo<Lectura*>* ultimo;
     Nodo<Lectura*>* actual;
     Nodo<Lectura*>* nodo_anterior;
-
-    //void reiniciar_actual();
 
     bool es_ultimo(Nodo<Lectura*>* nodo);
 

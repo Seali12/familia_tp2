@@ -4,10 +4,10 @@
 
 Lector::Lector(string archivo_lectura, string archivo_escritor, Lista_lectura lecturas, Tabla_escritores escritores)
 {
-    this->archivo_lectura = archivo_lectura;
-    this->archivo_escritor = archivo_escritor;
-    this->lecturas = lecturas;
-    this->escritores = escritores;
+    this -> archivo_lectura = archivo_lectura;
+    this -> archivo_escritor = archivo_escritor;
+    this -> lecturas = lecturas;
+    this -> escritores = escritores;
 }
 
 void Lector::procesar_archivo_escritores()
@@ -22,31 +22,43 @@ void Lector::procesar_archivo_escritores()
     else{
 
         string referencia, nombre_escritor, nacionalidad, anio_nacimiento, anio_fallecimiento, espacio;
+
         while (getline(archivo_escritores, referencia)){
+            
             bool hay_mas_datos = true;
 
             getline(archivo_escritores, nombre_escritor);
             getline(archivo_escritores, nacionalidad);
 
             if(!nacionalidad.empty()){
+                
                 getline(archivo_escritores, anio_nacimiento);
+                
             }else{
+
                 hay_mas_datos = false;
                 nacionalidad = SIN_NACIONALIDAD;
                 anio_nacimiento = NO_ENCONTRADO;
                 anio_fallecimiento = NO_ENCONTRADO;
+
             }
             if (!anio_nacimiento.empty() and hay_mas_datos){
+                
                 getline(archivo_escritores, anio_fallecimiento);
             }
             else{
+                
                 hay_mas_datos = false;
                 anio_nacimiento = NO_ENCONTRADO;
                 anio_fallecimiento = NO_ENCONTRADO;
+
             }
             if (!anio_fallecimiento.empty() and hay_mas_datos){
+                
                 getline(archivo_escritores, espacio);
+            
             }else{
+                
                 hay_mas_datos = false;
                 anio_fallecimiento = NO_ENCONTRADO;
             }
@@ -156,9 +168,11 @@ void Lector::procesar_archivo_lectura()
 }
 
 Lista_lectura Lector::devolver_lecturas(){
+    
     return lecturas;
 }
 
 Tabla_escritores Lector::devolver_escritores(){
+    
     return escritores;
 }
