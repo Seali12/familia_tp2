@@ -52,10 +52,16 @@ void Novela::mostrar(){
 
     mostrar_genero();
 
-    cout << "Referencia al escritor: " << escritor -> obtener_referencia() << endl;
+    if(escritor == 0){
+        
+        cout << "Referencia al escritor: No existe" << endl;
+    }
+    else{
+        
+        cout << "Referencia al escritor: " << escritor -> obtener_referencia() << endl;
+    }
 
     cout << "" << endl;
-
 }
 
 void Novela::mostrar_genero(){

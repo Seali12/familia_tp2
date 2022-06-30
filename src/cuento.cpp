@@ -23,7 +23,14 @@ void Cuento::mostrar() {
 
     cout << "Titulo del libro: " << titulo_cuento << endl;
 
-    cout << "Referencia: " << escritor -> obtener_referencia() << endl;
+    if(escritor == 0){
+        
+        cout << "Referencia al escritor: No existe" << endl;
+    }
+    else{
+        
+        cout << "Referencia al escritor: " << escritor -> obtener_referencia() << endl;
+    }
 
     cout << "" << endl;
 

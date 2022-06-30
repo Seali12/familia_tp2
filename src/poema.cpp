@@ -22,7 +22,16 @@ void Poema::mostrar() {
 
     cout << "Cantidad de versos: " << versos << endl;
 
-    cout << "Referencia al escritor: " << escritor -> obtener_referencia() << endl;
+    if(escritor == 0){
+        
+        cout << "Referencia al escritor: No existe" << endl;
+    }
+    else{
+        
+        cout << "Referencia al escritor: " << escritor -> obtener_referencia() << endl;
+    }
+
+    cout << "" << endl;
 
     cout << "" << endl;
 

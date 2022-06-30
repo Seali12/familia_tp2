@@ -401,13 +401,9 @@ void Menu::quitar_escritor(){
     cin >> clave;
     string isni("(" + clave +")");
 
-    escritores.baja_tabla(clave);
-    cout << "paso baja" << endl;
-
-    lecturas.actualizar_escritor(clave);
-
-    cout<<" paso lecturas" << endl;
-
+    lecturas.actualizar_escritor(isni);
+    
+    escritores.baja_tabla(isni);
 
 }
 

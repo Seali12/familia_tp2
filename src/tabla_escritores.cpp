@@ -33,7 +33,8 @@ void Tabla_escritores::baja_tabla(string referencia){
 
     
     vector[posicion] -> baja(referencia);
-
+    
+    
 }
 //O(n) cuando el escritor es el ultimo de la lista
 //o(1) cuando el escritor es el primero de la lista

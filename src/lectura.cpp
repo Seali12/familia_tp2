@@ -30,5 +30,5 @@ char Lectura::obtener_tipo_lectura(){
 }
 
 void Lectura::anular_escritor(){
-    escritor = nullptr;
+    escritor = 0;
 }

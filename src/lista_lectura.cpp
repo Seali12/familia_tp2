@@ -227,20 +227,20 @@ void Lista_lectura::listar_por_escritor(string referencia){
     
     while(actual != nullptr){
       
-      if( escritor -> obtener_nombre_y_apellido() == referencia 
-          or escritor -> obtener_referencia() == referencia){
+      if(escritor -> obtener_referencia() == referencia){
     
           lectura -> mostrar();
           contador_lecturas++;
         }   
         
+        desplazar_actual(actual);
         
-        if(!es_ultimo(actual)){ 
+        if(actual != nullptr){ 
             
             lectura = actual -> obtener_objeto();
             escritor = lectura -> obtener_escritor();
         }
-        desplazar_actual(actual);
+        
       }
 
       if(!contador_lecturas){
@@ -373,15 +373,17 @@ void Lista_lectura::actualizar_escritor(string clave){
 
         desplazar_actual(actual);
 
-        if(!es_ultimo(actual))
+        if(actual != nullptr){ 
+          
           escritor = actual -> obtener_objeto() -> obtener_escritor();
+          lectura = actual -> obtener_objeto();
+        
+        }
     }
-
+    
     lectura -> anular_escritor();
 
-    lectura -> mostrar();
-
-}
+  }
 
 
 

@@ -1,282 +1,257 @@
-==7283== Memcheck, a memory error detector
-==7283== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==7283== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
-==7283== Command: ./e
-==7283== Parent PID: 2079
-==7283== 
---7283-- 
---7283-- Valgrind options:
---7283--    --leak-check=full
---7283--    --show-leak-kinds=all
---7283--    --track-origins=yes
---7283--    --verbose
---7283--    --log-file=valgrind-out.txt
---7283-- Contents of /proc/version:
---7283--   Linux version 5.4.0-74-generic (buildd@lgw01-amd64-038) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #83-Ubuntu SMP Sat May 8 02:35:39 UTC 2021
---7283-- 
---7283-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-rdrand
---7283-- Page sizes: currently 4096, max supported 4096
---7283-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
---7283-- Reading syms from /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e
---7283-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
---7283--   Considering /usr/lib/x86_64-linux-gnu/ld-2.31.so ..
---7283--   .. CRC mismatch (computed 975d0390 wanted 30bd717f)
---7283--   Considering /lib/x86_64-linux-gnu/ld-2.31.so ..
---7283--   .. CRC mismatch (computed 975d0390 wanted 30bd717f)
---7283--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.31.so ..
---7283--   .. CRC is valid
---7283-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
---7283--   Considering /usr/lib/debug/.build-id/89/18b2578d0798c9451cf0c45a420e6c3b7fadbf.debug ..
---7283--   .. build-id is valid
---7283--    object doesn't have a dynamic symbol table
---7283-- Scheduler: using generic scheduler lock implementation.
---7283-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
-==7283== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-7283-by-algo-on-???
-==7283== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-7283-by-algo-on-???
-==7283== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-7283-by-algo-on-???
-==7283== 
-==7283== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==7283== don't want to do, unless you know exactly what you're doing,
-==7283== or are doing some strange experiment):
-==7283==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=7283 ...command...
-==7283== 
-==7283== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==7283==   /path/to/gdb ./e
-==7283== and then give GDB the following command
-==7283==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=7283
-==7283== --pid is optional if only one valgrind process is running
-==7283== 
---7283-- REDIR: 0x4022e10 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (vgPlain_amd64_linux_REDIR_FOR_strlen)
---7283-- REDIR: 0x4022be0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (vgPlain_amd64_linux_REDIR_FOR_index)
---7283-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
---7283--   Considering /usr/lib/debug/.build-id/24/b78f5ef26fc843c6c93ec4ce06a47a526b1e85.debug ..
---7283--   .. build-id is valid
---7283-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
---7283--   Considering /usr/lib/debug/.build-id/a5/8e938fdf613d292bce30ef7b86786f7cbf19dc.debug ..
---7283--   .. build-id is valid
-==7283== WARNING: new redirection conflicts with existing -- ignoring it
---7283--     old: 0x04022e10 (strlen              ) R-> (0000.0) 0x580c9ce2 vgPlain_amd64_linux_REDIR_FOR_strlen
---7283--     new: 0x04022e10 (strlen              ) R-> (2007.0) 0x0483f060 strlen
---7283-- REDIR: 0x401f5f0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
---7283-- REDIR: 0x4023370 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
---7283-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
---7283--    object doesn't have a symbol table
---7283-- Reading syms from /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
---7283--    object doesn't have a symbol table
---7283-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
---7283--   Considering /usr/lib/x86_64-linux-gnu/libc-2.31.so ..
---7283--   .. CRC mismatch (computed 86b78530 wanted e380f01c)
---7283--   Considering /lib/x86_64-linux-gnu/libc-2.31.so ..
---7283--   .. CRC mismatch (computed 86b78530 wanted e380f01c)
---7283--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.31.so ..
---7283--   .. CRC is valid
---7283-- Reading syms from /usr/lib/x86_64-linux-gnu/libm-2.31.so
---7283--   Considering /usr/lib/x86_64-linux-gnu/libm-2.31.so ..
---7283--   .. CRC mismatch (computed fcb42c76 wanted f6c95789)
---7283--   Considering /lib/x86_64-linux-gnu/libm-2.31.so ..
---7283--   .. CRC mismatch (computed fcb42c76 wanted f6c95789)
---7283--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.31.so ..
---7283--   .. CRC is valid
---7283-- REDIR: 0x4afd600 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc900 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd930 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc220 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc960 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afedd0 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4b19e60 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4b199a0 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd760 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd590 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc890 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc2d0 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd6c0 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4b19960 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc7f0 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc3b0 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd980 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc350 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afdad0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4b1b0d0 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4b199e0 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc9a0 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc280 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afc7b0 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4b05d20 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd9d0 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd550 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4b19ab0 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afcc60 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd8d0 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afd870 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afee10 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4afda20 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---7283-- REDIR: 0x4be5490 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
---7283-- REDIR: 0x4af7260 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
---7283-- REDIR: 0x4be5660 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
---7283-- REDIR: 0x4be1c50 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x48421e0 (bcmp)
---7283-- REDIR: 0x4be0b60 (libc.so.6:__strcmp_avx2) redirected to 0x483fed0 (strcmp)
---7283-- REDIR: 0x4be8670 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
---7283-- REDIR: 0x4afd120 (libc.so.6:__GI_strstr) redirected to 0x4843ca0 (__strstr_sse2)
---7283-- REDIR: 0x4908c70 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x483c510 (operator new[](unsigned long))
---7283-- REDIR: 0x4be14c0 (libc.so.6:__memchr_avx2) redirected to 0x4840050 (memchr)
---7283-- REDIR: 0x4908c10 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x483bdf0 (operator new(unsigned long))
---7283-- REDIR: 0x4906e60 (libstdc++.so.6:operator delete(void*)) redirected to 0x483cf50 (operator delete(void*))
---7283-- REDIR: 0x4906e90 (libstdc++.so.6:operator delete[](void*)) redirected to 0x483d6e0 (operator delete[](void*))
---7283-- REDIR: 0x4af7850 (libc.so.6:free) redirected to 0x483c9d0 (free)
---7283-- REDIR: 0x4be8650 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
-==7283== Invalid read of size 8
-==7283==    at 0x10FFDD: Lista_escritor::desplazar_actual(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10FBA7: Lista_escritor::baja(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x116228: Tabla_escritores::baja_tabla(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x113994: Menu::quitar_escritor() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x11214D: Menu::opciones(int) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111FA2: Menu::desplegar_menu() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x11186F: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
-==7283== 
-==7283== 
-==7283== Process terminating with default action of signal 11 (SIGSEGV)
-==7283==  Access not within mapped region at address 0x8
-==7283==    at 0x10FFDD: Lista_escritor::desplazar_actual(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10FBA7: Lista_escritor::baja(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x116228: Tabla_escritores::baja_tabla(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x113994: Menu::quitar_escritor() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x11214D: Menu::opciones(int) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111FA2: Menu::desplegar_menu() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x11186F: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==  If you believe this happened as a result of a stack
-==7283==  overflow in your program's main thread (unlikely but
-==7283==  possible), you can try to increase the size of the
-==7283==  main thread stack using the --main-stacksize= flag.
-==7283==  The main thread stack size used in this run was 8388608.
-==7283== 
-==7283== HEAP SUMMARY:
-==7283==     in use at exit: 2,363 bytes in 49 blocks
-==7283==   total heap usage: 68 allocs, 19 frees, 94,712 bytes allocated
-==7283== 
-==7283== Searching for pointers to 49 not-freed blocks
-==7283== Checked 118,296 bytes
-==7283== 
-==7283== 16 bytes in 1 blocks are still reachable in loss record 1 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x110408: Lista_lectura::alta(Lectura*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10F0B3: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 16 bytes in 1 blocks are still reachable in loss record 2 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x110408: Lista_lectura::alta(Lectura*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10EBB0: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 31 bytes in 1 blocks are still reachable in loss record 3 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x49A0DBE: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x49A112D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x10F8F5: Lectura::Lectura(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x114BE8: Novela::Novela(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x115340: Novela_historica::Novela_historica(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10EB5B: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 31 bytes in 1 blocks are still reachable in loss record 4 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x49A0DBE: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x49A112D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x10F8F5: Lectura::Lectura(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x114BE8: Novela::Novela(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10ECED: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 32 bytes in 1 blocks are still reachable in loss record 5 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x10E9EE: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 32 bytes in 2 blocks are still reachable in loss record 6 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x110408: Lista_lectura::alta(Lectura*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10EEED: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 65 bytes in 1 blocks are still reachable in loss record 7 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x49A0E7D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x49A2682: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x492239A: std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x10EA19: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 80 bytes in 5 blocks are still reachable in loss record 8 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x110408: Lista_lectura::alta(Lectura*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10ED3E: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 88 bytes in 1 blocks are still reachable in loss record 9 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x10EB2B: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 104 bytes in 1 blocks are still reachable in loss record 10 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x10F03C: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 124 bytes in 4 blocks are still reachable in loss record 11 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x49A0DBE: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x49A112D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
-==7283==    by 0x10D672: Escritor::Escritor(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10E60F: Lector::procesar_archivo_escritores() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111735: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 128 bytes in 8 blocks are still reachable in loss record 12 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x10FAA4: Lista_escritor::alta(Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x11612D: Tabla_escritores::alta(Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10E660: Lector::procesar_archivo_escritores() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111735: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 160 bytes in 2 blocks are still reachable in loss record 13 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x10EE85: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 224 bytes in 7 blocks are still reachable in loss record 14 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x1160F7: Tabla_escritores::alta(Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10E660: Lector::procesar_archivo_escritores() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111735: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 400 bytes in 5 blocks are still reachable in loss record 15 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x10ECC7: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111744: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== 832 bytes in 8 blocks are still reachable in loss record 16 of 16
-==7283==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
-==7283==    by 0x10E5F1: Lector::procesar_archivo_escritores() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111735: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283== 
-==7283== LEAK SUMMARY:
-==7283==    definitely lost: 0 bytes in 0 blocks
-==7283==    indirectly lost: 0 bytes in 0 blocks
-==7283==      possibly lost: 0 bytes in 0 blocks
-==7283==    still reachable: 2,363 bytes in 49 blocks
-==7283==         suppressed: 0 bytes in 0 blocks
-==7283== 
-==7283== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
-==7283== 
-==7283== 1 errors in context 1 of 1:
-==7283== Invalid read of size 8
-==7283==    at 0x10FFDD: Lista_escritor::desplazar_actual(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x10FBA7: Lista_escritor::baja(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x116228: Tabla_escritores::baja_tabla(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x113994: Menu::quitar_escritor() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x11214D: Menu::opciones(int) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x111FA2: Menu::desplegar_menu() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==    by 0x11186F: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
-==7283==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
-==7283== 
-==7283== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==10361== Memcheck, a memory error detector
+==10361== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==10361== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==10361== Command: ./e
+==10361== Parent PID: 1972
+==10361== 
+--10361-- 
+--10361-- Valgrind options:
+--10361--    --leak-check=full
+--10361--    --show-leak-kinds=all
+--10361--    --track-origins=yes
+--10361--    --verbose
+--10361--    --log-file=valgrind-out.txt
+--10361-- Contents of /proc/version:
+--10361--   Linux version 5.4.0-74-generic (buildd@lgw01-amd64-038) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #83-Ubuntu SMP Sat May 8 02:35:39 UTC 2021
+--10361-- 
+--10361-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-rdrand
+--10361-- Page sizes: currently 4096, max supported 4096
+--10361-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--10361-- Reading syms from /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e
+--10361-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--10361--   Considering /usr/lib/x86_64-linux-gnu/ld-2.31.so ..
+--10361--   .. CRC mismatch (computed 975d0390 wanted 30bd717f)
+--10361--   Considering /lib/x86_64-linux-gnu/ld-2.31.so ..
+--10361--   .. CRC mismatch (computed 975d0390 wanted 30bd717f)
+--10361--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.31.so ..
+--10361--   .. CRC is valid
+--10361-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--10361--   Considering /usr/lib/debug/.build-id/89/18b2578d0798c9451cf0c45a420e6c3b7fadbf.debug ..
+--10361--   .. build-id is valid
+--10361--    object doesn't have a dynamic symbol table
+--10361-- Scheduler: using generic scheduler lock implementation.
+--10361-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==10361== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-10361-by-algo-on-???
+==10361== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-10361-by-algo-on-???
+==10361== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-10361-by-algo-on-???
+==10361== 
+==10361== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==10361== don't want to do, unless you know exactly what you're doing,
+==10361== or are doing some strange experiment):
+==10361==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=10361 ...command...
+==10361== 
+==10361== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==10361==   /path/to/gdb ./e
+==10361== and then give GDB the following command
+==10361==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=10361
+==10361== --pid is optional if only one valgrind process is running
+==10361== 
+--10361-- REDIR: 0x4022e10 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (vgPlain_amd64_linux_REDIR_FOR_strlen)
+--10361-- REDIR: 0x4022be0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (vgPlain_amd64_linux_REDIR_FOR_index)
+--10361-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--10361--   Considering /usr/lib/debug/.build-id/24/b78f5ef26fc843c6c93ec4ce06a47a526b1e85.debug ..
+--10361--   .. build-id is valid
+--10361-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--10361--   Considering /usr/lib/debug/.build-id/a5/8e938fdf613d292bce30ef7b86786f7cbf19dc.debug ..
+--10361--   .. build-id is valid
+==10361== WARNING: new redirection conflicts with existing -- ignoring it
+--10361--     old: 0x04022e10 (strlen              ) R-> (0000.0) 0x580c9ce2 vgPlain_amd64_linux_REDIR_FOR_strlen
+--10361--     new: 0x04022e10 (strlen              ) R-> (2007.0) 0x0483f060 strlen
+--10361-- REDIR: 0x401f5f0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
+--10361-- REDIR: 0x4023370 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
+--10361-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+--10361--    object doesn't have a symbol table
+--10361-- Reading syms from /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+--10361--    object doesn't have a symbol table
+--10361-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--10361--   Considering /usr/lib/x86_64-linux-gnu/libc-2.31.so ..
+--10361--   .. CRC mismatch (computed 86b78530 wanted e380f01c)
+--10361--   Considering /lib/x86_64-linux-gnu/libc-2.31.so ..
+--10361--   .. CRC mismatch (computed 86b78530 wanted e380f01c)
+--10361--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.31.so ..
+--10361--   .. CRC is valid
+--10361-- Reading syms from /usr/lib/x86_64-linux-gnu/libm-2.31.so
+--10361--   Considering /usr/lib/x86_64-linux-gnu/libm-2.31.so ..
+--10361--   .. CRC mismatch (computed fcb42c76 wanted f6c95789)
+--10361--   Considering /lib/x86_64-linux-gnu/libm-2.31.so ..
+--10361--   .. CRC mismatch (computed fcb42c76 wanted f6c95789)
+--10361--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libm-2.31.so ..
+--10361--   .. CRC is valid
+--10361-- REDIR: 0x4afd600 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc900 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd930 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc220 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc960 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afedd0 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4b19e60 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4b199a0 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd760 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd590 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc890 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc2d0 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd6c0 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4b19960 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc7f0 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc3b0 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd980 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc350 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afdad0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4b1b0d0 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4b199e0 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc9a0 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc280 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afc7b0 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4b05d20 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd9d0 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd550 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4b19ab0 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afcc60 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd8d0 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afd870 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afee10 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4afda20 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--10361-- REDIR: 0x4be5490 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
+--10361-- REDIR: 0x4af7260 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
+--10361-- REDIR: 0x4be5660 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
+--10361-- REDIR: 0x4be1c50 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x48421e0 (bcmp)
+--10361-- REDIR: 0x4be0b60 (libc.so.6:__strcmp_avx2) redirected to 0x483fed0 (strcmp)
+--10361-- REDIR: 0x4be8670 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
+--10361-- REDIR: 0x4afd120 (libc.so.6:__GI_strstr) redirected to 0x4843ca0 (__strstr_sse2)
+--10361-- REDIR: 0x4908c70 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x483c510 (operator new[](unsigned long))
+--10361-- REDIR: 0x4be14c0 (libc.so.6:__memchr_avx2) redirected to 0x4840050 (memchr)
+--10361-- REDIR: 0x4908c10 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x483bdf0 (operator new(unsigned long))
+--10361-- REDIR: 0x4906e60 (libstdc++.so.6:operator delete(void*)) redirected to 0x483cf50 (operator delete(void*))
+--10361-- REDIR: 0x4906e90 (libstdc++.so.6:operator delete[](void*)) redirected to 0x483d6e0 (operator delete[](void*))
+--10361-- REDIR: 0x4af7850 (libc.so.6:free) redirected to 0x483c9d0 (free)
+--10361-- REDIR: 0x4be8650 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
+==10361== 
+==10361== Process terminating with default action of signal 2 (SIGINT)
+==10361==    at 0x4B6B142: read (read.c:26)
+==10361==    by 0x4AEDD1E: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:517)
+==10361==    by 0x4AEF105: _IO_default_uflow (genops.c:362)
+==10361==    by 0x4967720: __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::underflow() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x4975D69: std::istream::sentry::sentry(std::istream&, bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x4921F66: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x1124C0: Menu::corroborar_tipo_lectura(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x112316: Menu::agregar_nueva_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x111F9E: Menu::opciones(int) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x111F2E: Menu::desplegar_menu() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1117FB: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== HEAP SUMMARY:
+==10361==     in use at exit: 2,363 bytes in 49 blocks
+==10361==   total heap usage: 68 allocs, 19 frees, 94,712 bytes allocated
+==10361== 
+==10361== Searching for pointers to 49 not-freed blocks
+==10361== Checked 118,288 bytes
+==10361== 
+==10361== 16 bytes in 1 blocks are still reachable in loss record 1 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x11048A: Lista_lectura::alta(Lectura*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10F109: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 16 bytes in 1 blocks are still reachable in loss record 2 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x11048A: Lista_lectura::alta(Lectura*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10EC06: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 31 bytes in 1 blocks are still reachable in loss record 3 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x49A0DBE: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x49A112D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x10F94B: Lectura::Lectura(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x114B24: Novela::Novela(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1152B2: Novela_historica::Novela_historica(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10EBB1: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 31 bytes in 1 blocks are still reachable in loss record 4 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x49A0DBE: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x49A112D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x10F94B: Lectura::Lectura(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x114B24: Novela::Novela(char, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, int, Escritor*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10ED43: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 32 bytes in 1 blocks are still reachable in loss record 5 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x10EA44: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 32 bytes in 2 blocks are still reachable in loss record 6 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x11048A: Lista_lectura::alta(Lectura*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10EF43: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 65 bytes in 1 blocks are still reachable in loss record 7 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x49A0E7D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x49A2682: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x492239A: std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x10EA6F: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 80 bytes in 5 blocks are still reachable in loss record 8 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x11048A: Lista_lectura::alta(Lectura*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10ED94: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 88 bytes in 1 blocks are still reachable in loss record 9 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x10EB81: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 104 bytes in 1 blocks are still reachable in loss record 10 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x10F092: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 124 bytes in 4 blocks are still reachable in loss record 11 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x49A0DBE: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x49A112D: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==10361==    by 0x10D6C8: Escritor::Escritor(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, int) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10E665: Lector::procesar_archivo_escritores() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116C1: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 128 bytes in 8 blocks are still reachable in loss record 12 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x10FAFA: Lista_escritor::alta(Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x116135: Tabla_escritores::alta(Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10E6B6: Lector::procesar_archivo_escritores() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116C1: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 160 bytes in 2 blocks are still reachable in loss record 13 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x10EEDB: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 224 bytes in 7 blocks are still reachable in loss record 14 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x1160FF: Tabla_escritores::alta(Escritor*) (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x10E6B6: Lector::procesar_archivo_escritores() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116C1: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 400 bytes in 5 blocks are still reachable in loss record 15 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x10ED1D: Lector::procesar_archivo_lectura() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116D0: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== 832 bytes in 8 blocks are still reachable in loss record 16 of 16
+==10361==    at 0x483BE63: operator new(unsigned long) (vg_replace_malloc.c:344)
+==10361==    by 0x10E647: Lector::procesar_archivo_escritores() (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361==    by 0x1116C1: main (in /home/algo/Escritorio/Algo 2/Algo_2_tp3/familia_tp2/src/e)
+==10361== 
+==10361== LEAK SUMMARY:
+==10361==    definitely lost: 0 bytes in 0 blocks
+==10361==    indirectly lost: 0 bytes in 0 blocks
+==10361==      possibly lost: 0 bytes in 0 blocks
+==10361==    still reachable: 2,363 bytes in 49 blocks
+==10361==         suppressed: 0 bytes in 0 blocks
+==10361== 
+==10361== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

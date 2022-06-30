@@ -20,8 +20,15 @@ void Novela_historica::mostrar() {
     mostrar_genero();
 
     cout << "Tema de la novela_historica: " << *tema << endl;
-
-    cout << "Referencia al escritor: " << escritor -> obtener_referencia() << endl;
+    
+    if(escritor == 0){
+        
+        cout << "Referencia al escritor: No existe" << endl;
+    }
+    else{
+        
+        cout << "Referencia al escritor: " << escritor -> obtener_referencia() << endl;
+    }
 
     cout << "" << endl;
 }

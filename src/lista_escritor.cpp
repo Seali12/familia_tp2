@@ -30,17 +30,25 @@ void Lista_escritor::baja(){
 }
 
 void Lista_escritor::baja(string nombre_y_apellido){
-  
+
   desplazar_actual(nombre_y_apellido);
 
   Nodo<Escritor*>* borrar = actual;
-  anterior -> cambiar_siguiente(actual -> obtener_siguiente());
+  cout << actual->obtener_siguiente() << endl;
+
+  if (anterior != nullptr){
+    
+    anterior -> cambiar_siguiente(actual -> obtener_siguiente());
+
+  }else {
+
+    ultimo = actual -> obtener_siguiente();
   
+  }
   cantidad--;
 
   borrar -> eliminar_objeto();
   delete borrar;
-  borrar = nullptr;
 }
 
 Escritor* Lista_escritor::consulta(string referencia_escritor){
